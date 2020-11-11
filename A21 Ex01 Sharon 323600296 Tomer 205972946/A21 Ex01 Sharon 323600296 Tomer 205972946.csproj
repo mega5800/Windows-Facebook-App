@@ -50,24 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mainForm.cs">
+    <Compile Include="Forms\mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainForm.Designer.cs">
+    <Compile Include="Forms\mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="postForm.cs">
+    <Compile Include="Forms\postForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="postForm.Designer.cs">
+    <Compile Include="Forms\postForm.Designer.cs">
       <DependentUpon>postForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="mainForm.resx">
+    <EmbeddedResource Include="Forms\mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="postForm.resx">
+    <EmbeddedResource Include="Forms\postForm.resx">
       <DependentUpon>postForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -92,9 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\facebookIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loginIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

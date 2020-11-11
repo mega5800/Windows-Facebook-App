@@ -1,12 +1,7 @@
 ﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace A21_Ex01_Sharon_323600296_Tomer_205972946
@@ -33,21 +28,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
             this.Size = r_SmallSize;
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-            this.m_LoginResult = FacebookService.Login(k_AppId, r_PermissionsArray);
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
-            {
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
-                prepareFromForUserInfoDisplay();
-                fetchUserInfo();
-            }
-            else
-            {
-                MessageBox.Show(m_LoginResult.ErrorMessage);
-            }
-        }
-
+        // PRIVATE METHODS
         private void prepareFromForUserInfoDisplay()
         {
             this.Size = r_BigSize;
@@ -63,7 +44,6 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
             this.profilePictureBox.LoadAsync(this.m_LoggedInUser.PictureNormalURL);
         }
 
-        
         private void openFormInActivityPanel(Form i_FromToDisplay)
         {
             if (m_ActiveForm != null)
@@ -81,9 +61,25 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
             i_FromToDisplay.Show();
         }
 
+        // EVENTS
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            this.m_LoginResult = FacebookService.Login(k_AppId, r_PermissionsArray);
+            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            {
+                m_LoggedInUser = m_LoginResult.LoggedInUser;
+                prepareFromForUserInfoDisplay();
+                fetchUserInfo();
+            }
+            else
+            {
+                MessageBox.Show(m_LoginResult.ErrorMessage);
+            }
+        }
+
         private void postBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new postForm());
+            openFormInActivityPanel(new postForm(this.m_LoggedInUser));
         }
     }
 }
