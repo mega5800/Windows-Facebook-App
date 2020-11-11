@@ -13,8 +13,9 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
 {
     public partial class mainForm : Form
     {
-        private readonly Size r_SmallSize = new Size(111,690);
+        private readonly Size r_SmallSize = new Size(690,150);
         private readonly Size r_BigSize = new Size(705, 690);
+        private Form m_ActiveForm = null;
         private User m_LoggedInUser;
         private LoginResult m_LoginResult;
         private const string k_AppId = "359957661732863";
@@ -28,8 +29,8 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
 
         public mainForm()
         {
-            this.Size = r_SmallSize;
             InitializeComponent();
+            this.Size = r_SmallSize;
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -60,6 +61,29 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
         {
             this.userNameLabel.Text = this.m_LoggedInUser.Name;
             this.profilePictureBox.LoadAsync(this.m_LoggedInUser.PictureNormalURL);
+        }
+
+        
+        private void openFormInActivityPanel(Form i_FromToDisplay)
+        {
+            if (m_ActiveForm != null)
+            {
+                m_ActiveForm.Close();
+            }
+
+            this.m_ActiveForm = i_FromToDisplay;
+            i_FromToDisplay.TopLevel = false;
+            i_FromToDisplay.FormBorderStyle = FormBorderStyle.None;
+            i_FromToDisplay.Dock = DockStyle.Fill;
+            this.activityPanel.Controls.Add(i_FromToDisplay);
+            this.activityPanel.Tag = i_FromToDisplay;
+            i_FromToDisplay.BringToFront();
+            i_FromToDisplay.Show();
+        }
+
+        private void postBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new postForm());
         }
     }
 }

@@ -69,15 +69,5 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loginIcon {
-            get {
-                object obj = ResourceManager.GetObject("loginIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
