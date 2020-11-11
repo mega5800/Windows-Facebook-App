@@ -28,72 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.statusTextBox = new System.Windows.Forms.TextBox();
             this.listBoxUserPosts = new System.Windows.Forms.ListBox();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.postStatusButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // statusTextBox
-            // 
-            this.statusTextBox.Location = new System.Drawing.Point(12, 33);
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(227, 20);
-            this.statusTextBox.TabIndex = 2;
-            this.statusTextBox.Text = " ";
-            this.statusTextBox.Enter += new System.EventHandler(this.statusTextBox_Enter);
-            this.statusTextBox.Leave += new System.EventHandler(this.statusTextBox_Leave);
             // 
             // listBoxUserPosts
             // 
+            this.listBoxUserPosts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxUserPosts.FormattingEnabled = true;
-            this.listBoxUserPosts.Location = new System.Drawing.Point(12, 60);
+            this.listBoxUserPosts.ItemHeight = 16;
+            this.listBoxUserPosts.Location = new System.Drawing.Point(0, 1);
+            this.listBoxUserPosts.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxUserPosts.Name = "listBoxUserPosts";
-            this.listBoxUserPosts.Size = new System.Drawing.Size(308, 264);
+            this.listBoxUserPosts.Size = new System.Drawing.Size(433, 404);
             this.listBoxUserPosts.TabIndex = 3;
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(12, 17);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusLabel.Size = new System.Drawing.Size(61, 13);
-            this.statusLabel.TabIndex = 4;
-            this.statusLabel.Text = "statusLabel";
-            // 
-            // postStatusButton
-            // 
-            this.postStatusButton.Location = new System.Drawing.Point(245, 31);
-            this.postStatusButton.Name = "postStatusButton";
-            this.postStatusButton.Size = new System.Drawing.Size(75, 23);
-            this.postStatusButton.TabIndex = 5;
-            this.postStatusButton.Text = "Post";
-            this.postStatusButton.UseVisualStyleBackColor = true;
-            this.postStatusButton.Click += new System.EventHandler(this.postStatusButton_Click);
             // 
             // postForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 494);
-            this.Controls.Add(this.postStatusButton);
-            this.Controls.Add(this.statusLabel);
+            this.ClientSize = new System.Drawing.Size(434, 406);
             this.Controls.Add(this.listBoxUserPosts);
-            this.Controls.Add(this.statusTextBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "postForm";
             this.Text = "postForm";
-            this.Load += new System.EventHandler(this.postForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.ListBox listBoxUserPosts;
-        private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Button postStatusButton;
     }
 
 }

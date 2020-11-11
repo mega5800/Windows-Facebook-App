@@ -40,35 +40,5 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
                 MessageBox.Show("The user has made no posts.");
             }
         }
-
-        // EVENTS
-        private void postForm_Load(object sender, EventArgs e)
-        {
-            statusTextBox.Text = "-Post a Status-";
-            statusLabel.Text = string.Format("What's on your mind {0}?", m_LoggedInUser.FirstName);
-        }
-
-        private void postStatusButton_Click(object sender, EventArgs e)
-        {
-            // # Currently doesn't seem to work, throws an exception from facebook/wrapper side
-            Status postedStatus = this.m_LoggedInUser.PostStatus(statusTextBox.Text);
-            MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
-        }
-
-        private void statusTextBox_Enter(object sender, EventArgs e)
-        {
-            if (statusTextBox.Text == "-Post a Status-")
-            {
-                statusTextBox.Text = "";
-            }
-        }
-
-        private void statusTextBox_Leave(object sender, EventArgs e)
-        {
-            if (statusTextBox.Text.Trim() == "")
-            {
-                statusTextBox.Text = "-Post a Status-";
-            }
-        }
     }
 }
