@@ -56,19 +56,19 @@
     <Compile Include="Forms\mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\postForm.cs">
+    <Compile Include="Forms\postsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\postForm.Designer.cs">
-      <DependentUpon>postForm.cs</DependentUpon>
+    <Compile Include="Forms\postsForm.Designer.cs">
+      <DependentUpon>postsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\postForm.resx">
-      <DependentUpon>postForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\postsForm.resx">
+      <DependentUpon>postsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +92,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\facebookIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\postIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\likeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groupIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\albumIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eventIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoutIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
