@@ -8,8 +8,8 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
 {
     public partial class mainForm : Form
     {
-        private readonly Size r_SmallSize = new Size(690, 175);
-        private readonly Size r_BigSize = new Size(705, 680);
+        private readonly Size r_SmallSize = new Size(700, 169);
+        private readonly Size r_BigSize = new Size(700, 649);
         private Form m_ActiveForm = null;
         private User m_LoggedInUser;
         private LoginResult m_LoginResult;
@@ -26,6 +26,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
         {
             InitializeComponent();
             this.Size = r_SmallSize;
+            this.Text = "Login Page";
         }
 
         // PRIVATE METHODS
@@ -40,6 +41,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
             this.statusLabel.Visible = true;
             this.statusTextBox.Visible = true;
             this.postStatusButton.Visible = true;
+            this.Text = "Home Page";
             statusTextBox.Text = "-Post a Status-";
         }
 
