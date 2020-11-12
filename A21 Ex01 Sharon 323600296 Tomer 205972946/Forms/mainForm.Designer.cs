@@ -35,20 +35,20 @@
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
-            this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.functionsPanel = new System.Windows.Forms.Panel();
+            this.activityPanel = new System.Windows.Forms.Panel();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.feature2Btn = new System.Windows.Forms.Button();
             this.feature1Btn = new System.Windows.Forms.Button();
             this.eventsBtn = new System.Windows.Forms.Button();
             this.albumsBtn = new System.Windows.Forms.Button();
             this.groupsBtn = new System.Windows.Forms.Button();
-            this.pagesBtn = new System.Windows.Forms.Button();
+            this.likedPagesBtn = new System.Windows.Forms.Button();
             this.postsBtn = new System.Windows.Forms.Button();
-            this.activityPanel = new System.Windows.Forms.Panel();
+            this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.functionsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -64,12 +64,12 @@
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(684, 140);
+            this.topPanel.Size = new System.Drawing.Size(679, 140);
             this.topPanel.TabIndex = 0;
             // 
             // postStatusButton
             // 
-            this.postStatusButton.Location = new System.Drawing.Point(571, 90);
+            this.postStatusButton.Location = new System.Drawing.Point(472, 73);
             this.postStatusButton.Margin = new System.Windows.Forms.Padding(4);
             this.postStatusButton.Name = "postStatusButton";
             this.postStatusButton.Size = new System.Drawing.Size(100, 23);
@@ -81,7 +81,7 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(150, 52);
+            this.statusLabel.Location = new System.Drawing.Point(150, 42);
             this.statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -97,7 +97,7 @@
             this.statusTextBox.Multiline = true;
             this.statusTextBox.Name = "statusTextBox";
             this.statusTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.statusTextBox.Size = new System.Drawing.Size(410, 60);
+            this.statusTextBox.Size = new System.Drawing.Size(301, 60);
             this.statusTextBox.TabIndex = 6;
             this.statusTextBox.Text = " ";
             this.statusTextBox.Visible = false;
@@ -108,7 +108,7 @@
             // 
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.userNameLabel.Location = new System.Drawing.Point(149, 18);
+            this.userNameLabel.Location = new System.Drawing.Point(150, 9);
             this.userNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(121, 20);
@@ -128,35 +128,32 @@
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
-            // profilePictureBox
-            // 
-            this.profilePictureBox.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.facebookIcon;
-            this.profilePictureBox.InitialImage = null;
-            this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
-            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
-            this.profilePictureBox.Name = "profilePictureBox";
-            this.profilePictureBox.Size = new System.Drawing.Size(140, 140);
-            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePictureBox.TabIndex = 1;
-            this.profilePictureBox.TabStop = false;
-            // 
             // functionsPanel
             // 
-            this.functionsPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.functionsPanel.AutoScroll = true;
             this.functionsPanel.Controls.Add(this.logoutBtn);
             this.functionsPanel.Controls.Add(this.feature2Btn);
             this.functionsPanel.Controls.Add(this.feature1Btn);
             this.functionsPanel.Controls.Add(this.eventsBtn);
             this.functionsPanel.Controls.Add(this.albumsBtn);
             this.functionsPanel.Controls.Add(this.groupsBtn);
-            this.functionsPanel.Controls.Add(this.pagesBtn);
+            this.functionsPanel.Controls.Add(this.likedPagesBtn);
             this.functionsPanel.Controls.Add(this.postsBtn);
             this.functionsPanel.Location = new System.Drawing.Point(0, 140);
             this.functionsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.functionsPanel.Name = "functionsPanel";
-            this.functionsPanel.Size = new System.Drawing.Size(140, 480);
+            this.functionsPanel.Size = new System.Drawing.Size(145, 505);
             this.functionsPanel.TabIndex = 1;
             this.functionsPanel.Visible = false;
+            // 
+            // activityPanel
+            // 
+            this.activityPanel.AutoScroll = true;
+            this.activityPanel.Location = new System.Drawing.Point(152, 140);
+            this.activityPanel.Name = "activityPanel";
+            this.activityPanel.Size = new System.Drawing.Size(537, 505);
+            this.activityPanel.TabIndex = 2;
+            this.activityPanel.Visible = false;
             // 
             // logoutBtn
             // 
@@ -167,11 +164,11 @@
             this.logoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.logoutBtn.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.logoutIcon;
             this.logoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logoutBtn.Location = new System.Drawing.Point(0, 420);
+            this.logoutBtn.Location = new System.Drawing.Point(0, 441);
             this.logoutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.logoutBtn.Size = new System.Drawing.Size(140, 60);
+            this.logoutBtn.Size = new System.Drawing.Size(145, 63);
             this.logoutBtn.TabIndex = 7;
             this.logoutBtn.Text = "Logout";
             this.logoutBtn.UseVisualStyleBackColor = false;
@@ -185,13 +182,13 @@
             this.feature2Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.feature2Btn.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.postIcon;
             this.feature2Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.feature2Btn.Location = new System.Drawing.Point(0, 360);
+            this.feature2Btn.Location = new System.Drawing.Point(0, 378);
             this.feature2Btn.Margin = new System.Windows.Forms.Padding(4);
             this.feature2Btn.Name = "feature2Btn";
             this.feature2Btn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.feature2Btn.Size = new System.Drawing.Size(140, 60);
+            this.feature2Btn.Size = new System.Drawing.Size(145, 63);
             this.feature2Btn.TabIndex = 6;
-            this.feature2Btn.Text = "  Feature2";
+            this.feature2Btn.Text = "Feature2";
             this.feature2Btn.UseVisualStyleBackColor = false;
             // 
             // feature1Btn
@@ -203,13 +200,13 @@
             this.feature1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.feature1Btn.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.postIcon;
             this.feature1Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.feature1Btn.Location = new System.Drawing.Point(0, 300);
+            this.feature1Btn.Location = new System.Drawing.Point(0, 315);
             this.feature1Btn.Margin = new System.Windows.Forms.Padding(4);
             this.feature1Btn.Name = "feature1Btn";
             this.feature1Btn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.feature1Btn.Size = new System.Drawing.Size(140, 60);
+            this.feature1Btn.Size = new System.Drawing.Size(145, 63);
             this.feature1Btn.TabIndex = 5;
-            this.feature1Btn.Text = "   Feature1";
+            this.feature1Btn.Text = "Feature1";
             this.feature1Btn.UseVisualStyleBackColor = false;
             // 
             // eventsBtn
@@ -221,11 +218,11 @@
             this.eventsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.eventsBtn.Image = ((System.Drawing.Image)(resources.GetObject("eventsBtn.Image")));
             this.eventsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.eventsBtn.Location = new System.Drawing.Point(0, 240);
+            this.eventsBtn.Location = new System.Drawing.Point(0, 252);
             this.eventsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.eventsBtn.Name = "eventsBtn";
             this.eventsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.eventsBtn.Size = new System.Drawing.Size(140, 60);
+            this.eventsBtn.Size = new System.Drawing.Size(145, 63);
             this.eventsBtn.TabIndex = 4;
             this.eventsBtn.Text = "Events";
             this.eventsBtn.UseVisualStyleBackColor = false;
@@ -239,11 +236,11 @@
             this.albumsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.albumsBtn.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.albumIcon;
             this.albumsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.albumsBtn.Location = new System.Drawing.Point(0, 180);
+            this.albumsBtn.Location = new System.Drawing.Point(0, 189);
             this.albumsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.albumsBtn.Name = "albumsBtn";
             this.albumsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.albumsBtn.Size = new System.Drawing.Size(140, 60);
+            this.albumsBtn.Size = new System.Drawing.Size(145, 63);
             this.albumsBtn.TabIndex = 3;
             this.albumsBtn.Text = "Albums";
             this.albumsBtn.UseVisualStyleBackColor = false;
@@ -257,32 +254,33 @@
             this.groupsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.groupsBtn.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.groupIcon;
             this.groupsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.groupsBtn.Location = new System.Drawing.Point(0, 120);
+            this.groupsBtn.Location = new System.Drawing.Point(0, 126);
             this.groupsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.groupsBtn.Name = "groupsBtn";
             this.groupsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.groupsBtn.Size = new System.Drawing.Size(140, 60);
+            this.groupsBtn.Size = new System.Drawing.Size(145, 63);
             this.groupsBtn.TabIndex = 2;
-            this.groupsBtn.Text = " Groups";
+            this.groupsBtn.Text = "Groups";
             this.groupsBtn.UseVisualStyleBackColor = false;
             // 
-            // pagesBtn
+            // likedPagesBtn
             // 
-            this.pagesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.pagesBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.pagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pagesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.pagesBtn.Image = ((System.Drawing.Image)(resources.GetObject("pagesBtn.Image")));
-            this.pagesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pagesBtn.Location = new System.Drawing.Point(0, 60);
-            this.pagesBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.pagesBtn.Name = "pagesBtn";
-            this.pagesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.pagesBtn.Size = new System.Drawing.Size(140, 60);
-            this.pagesBtn.TabIndex = 1;
-            this.pagesBtn.Text = "Pages";
-            this.pagesBtn.UseVisualStyleBackColor = false;
+            this.likedPagesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.likedPagesBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.likedPagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.likedPagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.likedPagesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.likedPagesBtn.Image = ((System.Drawing.Image)(resources.GetObject("likedPagesBtn.Image")));
+            this.likedPagesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.likedPagesBtn.Location = new System.Drawing.Point(0, 63);
+            this.likedPagesBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.likedPagesBtn.Name = "likedPagesBtn";
+            this.likedPagesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.likedPagesBtn.Size = new System.Drawing.Size(145, 63);
+            this.likedPagesBtn.TabIndex = 1;
+            this.likedPagesBtn.Text = "Liked pages";
+            this.likedPagesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.likedPagesBtn.UseVisualStyleBackColor = false;
             // 
             // postsBtn
             // 
@@ -297,43 +295,41 @@
             this.postsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.postsBtn.Name = "postsBtn";
             this.postsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.postsBtn.Size = new System.Drawing.Size(140, 60);
+            this.postsBtn.Size = new System.Drawing.Size(145, 63);
             this.postsBtn.TabIndex = 0;
             this.postsBtn.Text = "Posts";
             this.postsBtn.UseVisualStyleBackColor = false;
             this.postsBtn.Click += new System.EventHandler(this.postsBtn_Click);
             // 
-            // activityPanel
+            // profilePictureBox
             // 
-            this.activityPanel.AutoScroll = true;
-            this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.activityPanel.Location = new System.Drawing.Point(139, 140);
-            this.activityPanel.Name = "activityPanel";
-            this.activityPanel.Size = new System.Drawing.Size(545, 480);
-            this.activityPanel.TabIndex = 2;
-            this.activityPanel.Visible = false;
+            this.profilePictureBox.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.facebookIcon;
+            this.profilePictureBox.InitialImage = null;
+            this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
+            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.profilePictureBox.Name = "profilePictureBox";
+            this.profilePictureBox.Size = new System.Drawing.Size(145, 140);
+            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePictureBox.TabIndex = 1;
+            this.profilePictureBox.TabStop = false;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 620);
+            this.ClientSize = new System.Drawing.Size(679, 651);
             this.Controls.Add(this.activityPanel);
             this.Controls.Add(this.functionsPanel);
             this.Controls.Add(this.topPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Page";
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.functionsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,6 +352,6 @@
         private System.Windows.Forms.Button eventsBtn;
         private System.Windows.Forms.Button albumsBtn;
         private System.Windows.Forms.Button groupsBtn;
-        private System.Windows.Forms.Button pagesBtn;
+        private System.Windows.Forms.Button likedPagesBtn;
     }
 }
