@@ -9,7 +9,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
     public partial class mainForm : Form
     {
         private readonly Size r_SmallSize = new Size(700, 169);
-        private readonly Size r_BigSize = new Size(700, 649);
+        private readonly Size r_BigSize = new Size(700, 706);
         private Form m_ActiveForm = null;
         private User m_LoggedInUser;
         private LoginResult m_LoginResult;
