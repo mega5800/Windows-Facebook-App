@@ -93,9 +93,19 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap groupIcon {
+        internal static System.Drawing.Bitmap friendIcon1 {
             get {
-                object obj = ResourceManager.GetObject("groupIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("friendIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap group1Icon {
+            get {
+                object obj = ResourceManager.GetObject("group1Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
