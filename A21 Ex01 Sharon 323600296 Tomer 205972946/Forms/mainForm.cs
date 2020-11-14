@@ -112,5 +112,10 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
                 this.statusTextBox.Text = "-Post a Status-";
             }
         }
+
+        private void friendsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new friendsForm(this.m_LoggedInUser));
+        }
     }
 }
