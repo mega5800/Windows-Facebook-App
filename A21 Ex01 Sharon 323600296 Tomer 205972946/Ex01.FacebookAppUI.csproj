@@ -50,49 +50,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\eventsForm.cs">
+    <Compile Include="Forms\EventsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\eventsForm.Designer.cs">
-      <DependentUpon>eventsForm.cs</DependentUpon>
+    <Compile Include="Forms\EventsForm.Designer.cs">
+      <DependentUpon>EventsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\friendsForm.cs">
+    <Compile Include="Forms\FriendsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\friendsForm.Designer.cs">
-      <DependentUpon>friendsForm.cs</DependentUpon>
+    <Compile Include="Forms\FriendsForm.Designer.cs">
+      <DependentUpon>FriendsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\loginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\loginForm.Designer.cs">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\mainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\mainForm.Designer.cs">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\postsForm.cs">
+    <Compile Include="Forms\PostsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\postsForm.Designer.cs">
-      <DependentUpon>postsForm.cs</DependentUpon>
+    <Compile Include="Forms\PostsForm.Designer.cs">
+      <DependentUpon>PostsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\friendsForm.resx">
-      <DependentUpon>friendsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EventsForm.resx">
+      <DependentUpon>EventsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\loginForm.resx">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FriendsForm.resx">
+      <DependentUpon>FriendsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\mainForm.resx">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\postsForm.resx">
-      <DependentUpon>postsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PostsForm.resx">
+      <DependentUpon>PostsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

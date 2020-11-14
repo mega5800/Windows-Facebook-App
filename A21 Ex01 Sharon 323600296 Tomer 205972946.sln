@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A21 Ex01 Sharon 323600296 Tomer 205972946", "A21 Ex01 Sharon 323600296 Tomer 205972946\A21 Ex01 Sharon 323600296 Tomer 205972946.csproj", "{D5B4CF28-FDC3-4875-907A-2BFC70347913}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01.FacebookAppUI", "A21 Ex01 Sharon 323600296 Tomer 205972946\Ex01.FacebookAppUI.csproj", "{D5B4CF28-FDC3-4875-907A-2BFC70347913}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,17 +2,16 @@
 using System;
 using System.Windows.Forms;
 
-namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
+namespace Ex01.FacebookAppUI.Forms
 {
-    public partial class postsForm : Form
+    public partial class PostsForm : Form
     {
         private User m_LoggedInUser;
 
-        public postsForm(User i_LoggedInUser)
+        public PostsForm(User i_LoggedInUser)
         {
             InitializeComponent();
             this.m_LoggedInUser = i_LoggedInUser;
-            fetchUserPosts();
         }
 
         // PRIVATE METHODS
@@ -39,6 +38,12 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
             {
                 MessageBox.Show("The user has made no posts!");
             }
+        }
+
+        // EVENTS
+        private void PostsForm_Load(object sender, EventArgs e)
+        {
+            fetchUserPosts();
         }
     }
 }

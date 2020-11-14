@@ -1,6 +1,6 @@
-﻿namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
+﻿namespace Ex01.FacebookAppUI.Forms
 {
-    partial class friendsForm
+    partial class FriendsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,13 +41,13 @@
             this.friendsListView.TabIndex = 0;
             this.friendsListView.UseCompatibleStateImageBehavior = false;
             // 
-            // friendsForm
+            // FriendsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.friendsListView);
-            this.Name = "friendsForm";
+            this.Name = "FriendsForm";
             this.Text = "friendsForm";
             this.ResumeLayout(false);
 
