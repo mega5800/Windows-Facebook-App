@@ -3,39 +3,42 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using System.Threading;
 
 namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
 {
     public partial class friendsForm : Form
     {
         private User m_LoggedInUser;
+        private readonly Thread r_PopulateListViewThread;
+        private ImageList m_FriendsPicturesList;
+        private const int k_PictureSize = 100;
+        private int m_FriendPictureCounter = 0;
 
         public friendsForm(User i_LoggedInUser)
         {
             InitializeComponent();
             this.m_LoggedInUser = i_LoggedInUser;
-
-            PopulateListView();
+            this.m_FriendsPicturesList = new ImageList();
+            m_FriendsPicturesList.ImageSize = new Size(k_PictureSize, k_PictureSize);
+            m_FriendsPicturesList.ColorDepth = ColorDepth.Depth32Bit;
+            this.r_PopulateListViewThread = new Thread(populateFriendsListView);
+            this.r_PopulateListViewThread.Start();
         }
 
-        private void PopulateListView()
+        private void populateFriendsListView()
         {
-            int counter = 0;
-            ImageList images = new ImageList();
-            images.ImageSize = new Size(100, 100);
-
-            this.m_LoggedInUser.ReFetch();
             foreach(User friend in this.m_LoggedInUser.Friends)
             {
-                images.Images.Add(LoadImage(friend.PictureNormalURL));
+                m_FriendsPicturesList.Images.Add(LoadImage(friend.PictureNormalURL));
             }
 
-            friendsListView.LargeImageList = images;
+            friendsListView.LargeImageList = m_FriendsPicturesList;
 
             foreach (User friend in this.m_LoggedInUser.Friends)
             {
-                friendsListView.Items.Add(friend.Name, counter);
-                counter++;
+                friendsListView.Items.Add(friend.Name, this.m_FriendPictureCounter);
+                this.m_FriendPictureCounter++;
             }
         }
 
