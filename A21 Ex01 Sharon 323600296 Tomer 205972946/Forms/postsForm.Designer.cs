@@ -1,6 +1,6 @@
-﻿namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
+﻿namespace Ex01.FacebookAppUI.Forms
 {
-    partial class postsForm
+    partial class PostsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             this.listBoxUserPosts.Size = new System.Drawing.Size(435, 420);
             this.listBoxUserPosts.TabIndex = 3;
             // 
-            // postsForm
+            // PostsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -52,9 +52,11 @@
             this.Controls.Add(this.listBoxUserPosts);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "postsForm";
+            this.Name = "PostsForm";
             this.Text = "postsForm";
+            this.Load += new System.EventHandler(this.PostsForm_Load);
             this.ResumeLayout(false);
+
         }
 
         #endregion

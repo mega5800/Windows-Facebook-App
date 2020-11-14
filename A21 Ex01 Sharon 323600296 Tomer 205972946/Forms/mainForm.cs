@@ -2,18 +2,17 @@
 using System;
 using System.Windows.Forms;
 
-namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
+namespace Ex01.FacebookAppUI.Forms
 {
-    public partial class mainForm : Form
+    public partial class MainForm : Form
     {
         private Form m_ActiveForm = null;
         private User m_LoggedInUser;
 
-        public mainForm(User i_LoggedInUser)
+        public MainForm(User i_LoggedInUser)
         {
             InitializeComponent();
             this.m_LoggedInUser = i_LoggedInUser;
-            fetchUserInfo();
         }
 
         // PRIVATE METHODS
@@ -45,12 +44,12 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
         // EVENTS
         private void postsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new postsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new PostsForm(this.m_LoggedInUser));
         }
 
         private void eventsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new eventsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new EventsForm(this.m_LoggedInUser));
         }
 
         private void postStatusButton_Click(object sender, EventArgs e)
@@ -78,7 +77,12 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
 
         private void friendsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new friendsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new FriendsForm(this.m_LoggedInUser));
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            fetchUserInfo();
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
+﻿namespace Ex01.FacebookAppUI.Forms
 {
-    partial class loginForm
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.loginFormPanel = new System.Windows.Forms.Panel();
             this.facebookLogoPicture = new System.Windows.Forms.PictureBox();
             this.loginBtn = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
-            // loginForm
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,8 +80,9 @@
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.loginFormPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "loginForm";
+            this.Name = "LoginForm";
             this.Text = "Login Page";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.loginFormPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.facebookLogoPicture)).EndInit();
             this.ResumeLayout(false);

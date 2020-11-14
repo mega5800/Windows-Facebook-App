@@ -5,36 +5,37 @@ using System.Net;
 using System.IO;
 using System.Threading;
 
-namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
+namespace Ex01.FacebookAppUI.Forms
 {
-    public partial class friendsForm : Form
+    public partial class FriendsForm : Form
     {
+        // check if we can use form_Load
         private User m_LoggedInUser;
         private readonly Thread r_PopulateListViewThread;
         private ImageList m_FriendsPicturesList;
-        private const int k_PictureSize = 100;
+        private readonly Size r_PictureSize = new Size(100,100);
         private int m_FriendPictureCounter = 0;
 
-        public friendsForm(User i_LoggedInUser)
+        public FriendsForm(User i_LoggedInUser)
         {
             InitializeComponent();
             this.m_LoggedInUser = i_LoggedInUser;
             this.m_FriendsPicturesList = new ImageList();
-            m_FriendsPicturesList.ImageSize = new Size(k_PictureSize, k_PictureSize);
+            m_FriendsPicturesList.ImageSize = r_PictureSize;
             m_FriendsPicturesList.ColorDepth = ColorDepth.Depth32Bit;
             this.r_PopulateListViewThread = new Thread(populateFriendsListView);
             this.r_PopulateListViewThread.Start();
         }
 
+        // PRIVATE METHODS
         private void populateFriendsListView()
         {
-            foreach(User friend in this.m_LoggedInUser.Friends)
+            foreach (User friend in this.m_LoggedInUser.Friends)
             {
-                m_FriendsPicturesList.Images.Add(LoadImage(friend.PictureNormalURL));
+                this.m_FriendsPicturesList.Images.Add(loadImage(friend.PictureNormalURL));
             }
 
-            friendsListView.LargeImageList = m_FriendsPicturesList;
-
+            this.friendsListView.LargeImageList = this.m_FriendsPicturesList;
             foreach (User friend in this.m_LoggedInUser.Friends)
             {
                 friendsListView.Items.Add(friend.Name, this.m_FriendPictureCounter);
@@ -42,7 +43,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
             }
         }
 
-        private Image LoadImage(string i_ImageUrl)
+        private Image loadImage(string i_ImageUrl)
         {
             WebRequest request = WebRequest.Create(i_ImageUrl);
 

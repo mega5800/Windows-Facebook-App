@@ -1,10 +1,10 @@
-﻿using A21_Ex01_Sharon_323600296_Tomer_205972946.Forms;
+﻿using Ex01.FacebookAppUI.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace A21_Ex01_Sharon_323600296_Tomer_205972946
+namespace Ex01.FacebookAppUI
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginForm());
+            Application.Run(new LoginForm());
         }
     }
 }
