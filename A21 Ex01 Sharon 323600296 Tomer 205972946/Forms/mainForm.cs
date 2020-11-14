@@ -26,7 +26,6 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
         {
             InitializeComponent();
             this.Size = r_SmallSize;
-            this.Text = "Login Page";
         }
 
         // PRIVATE METHODS
@@ -41,7 +40,6 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
             this.statusLabel.Visible = true;
             this.statusTextBox.Visible = true;
             this.postStatusButton.Visible = true;
-            this.Text = "Home Page";
             statusTextBox.Text = "-Post a Status-";
         }
 
@@ -52,21 +50,21 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
             statusLabel.Text = string.Format("What's on your mind {0}?", m_LoggedInUser.FirstName);
         }
 
-        private void openFormInActivityPanel(Form i_FromToDisplay)
+        private void openFormInActivityPanel(Form i_FormToDisplay)
         {
             if (m_ActiveForm != null)
             {
                 m_ActiveForm.Close();
             }
 
-            this.m_ActiveForm = i_FromToDisplay;
-            i_FromToDisplay.TopLevel = false;
-            i_FromToDisplay.FormBorderStyle = FormBorderStyle.None;
-            i_FromToDisplay.Dock = DockStyle.Fill;
-            this.activityPanel.Controls.Add(i_FromToDisplay);
-            this.activityPanel.Tag = i_FromToDisplay;
-            i_FromToDisplay.BringToFront();
-            i_FromToDisplay.Show();
+            this.m_ActiveForm = i_FormToDisplay;
+            i_FormToDisplay.TopLevel = false;
+            i_FormToDisplay.FormBorderStyle = FormBorderStyle.None;
+            i_FormToDisplay.Dock = DockStyle.Fill;
+            this.activityPanel.Controls.Add(i_FormToDisplay);
+            this.activityPanel.Tag = i_FormToDisplay;
+            i_FormToDisplay.BringToFront();
+            i_FormToDisplay.Show();
         }
 
         // EVENTS
@@ -87,7 +85,12 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
 
         private void postsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new postForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new postsForm(this.m_LoggedInUser));
+        }
+
+        private void eventsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new eventsForm(this.m_LoggedInUser));
         }
 
         private void postStatusButton_Click(object sender, EventArgs e)

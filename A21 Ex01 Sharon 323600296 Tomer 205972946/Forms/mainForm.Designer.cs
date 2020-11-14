@@ -154,7 +154,7 @@
             this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.activityPanel.Location = new System.Drawing.Point(139, 140);
             this.activityPanel.Name = "activityPanel";
-            this.activityPanel.Size = new System.Drawing.Size(545, 536);
+            this.activityPanel.Size = new System.Drawing.Size(555, 540);
             this.activityPanel.TabIndex = 2;
             this.activityPanel.Visible = false;
             // 
@@ -229,6 +229,7 @@
             this.eventsBtn.TabIndex = 5;
             this.eventsBtn.Text = "Events";
             this.eventsBtn.UseVisualStyleBackColor = false;
+            this.eventsBtn.Click += new System.EventHandler(this.eventsBtn_Click);
             // 
             // albumsBtn
             // 

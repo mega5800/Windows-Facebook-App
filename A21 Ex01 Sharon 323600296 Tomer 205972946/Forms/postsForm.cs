@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace A21_Ex01_Sharon_323600296_Tomer_205972946
 {
-    public partial class postForm : Form
+    public partial class postsForm : Form
     {
         private User m_LoggedInUser;
 
-        public postForm(User i_LoggedInUser)
+        public postsForm(User i_LoggedInUser)
         {
             InitializeComponent();
             this.m_LoggedInUser = i_LoggedInUser;
@@ -37,7 +37,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
 
             if (this.m_LoggedInUser.Posts.Count == 0)
             {
-                MessageBox.Show("The user has made no posts.");
+                MessageBox.Show("The user has made no posts!");
             }
         }
     }
