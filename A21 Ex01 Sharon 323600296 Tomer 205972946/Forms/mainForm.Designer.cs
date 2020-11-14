@@ -160,6 +160,16 @@
             this.functionsPanel.TabIndex = 1;
             this.functionsPanel.Visible = false;
             // 
+            // activityPanel
+            // 
+            this.activityPanel.AutoScroll = true;
+            this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.activityPanel.Location = new System.Drawing.Point(139, 140);
+            this.activityPanel.Name = "activityPanel";
+            this.activityPanel.Size = new System.Drawing.Size(555, 540);
+            this.activityPanel.TabIndex = 2;
+            this.activityPanel.Visible = false;
+            // 
             // logoutBtn
             // 
             this.logoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(64)))), ((int)(((byte)(139)))));
@@ -231,6 +241,7 @@
             this.eventsBtn.TabIndex = 5;
             this.eventsBtn.Text = "Events";
             this.eventsBtn.UseVisualStyleBackColor = false;
+            this.eventsBtn.Click += new System.EventHandler(this.eventsBtn_Click);
             // 
             // albumsBtn
             // 
