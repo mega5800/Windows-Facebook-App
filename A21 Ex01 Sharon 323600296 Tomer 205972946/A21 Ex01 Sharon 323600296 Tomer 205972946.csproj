@@ -55,6 +55,12 @@
     </Compile>
     <Compile Include="Forms\eventsForm.Designer.cs">
       <DependentUpon>eventsForm.cs</DependentUpon>
+     </Compile>
+    <Compile Include="Forms\friendsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\friendsForm.Designer.cs">
+      <DependentUpon>friendsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\mainForm.cs">
       <SubType>Form</SubType>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\friendsForm.resx">
+      <DependentUpon>friendsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>

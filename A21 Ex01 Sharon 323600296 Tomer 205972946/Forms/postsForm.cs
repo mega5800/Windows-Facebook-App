@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace A21_Ex01_Sharon_323600296_Tomer_205972946
+namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
 {
     public partial class postsForm : Form
     {

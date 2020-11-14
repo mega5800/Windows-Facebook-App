@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace A21_Ex01_Sharon_323600296_Tomer_205972946
+namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
 {
     public partial class mainForm : Form
     {
@@ -114,6 +114,11 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
             {
                 this.statusTextBox.Text = "-Post a Status-";
             }
+        }
+
+        private void friendsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new friendsForm(this.m_LoggedInUser));
         }
     }
 }

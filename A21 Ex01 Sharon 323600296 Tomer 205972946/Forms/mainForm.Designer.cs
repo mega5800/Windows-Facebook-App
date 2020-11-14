@@ -1,4 +1,4 @@
-﻿namespace A21_Ex01_Sharon_323600296_Tomer_205972946
+﻿namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
 {
     partial class mainForm
     {
@@ -35,8 +35,8 @@
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.functionsPanel = new System.Windows.Forms.Panel();
-            this.activityPanel = new System.Windows.Forms.Panel();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.feature2Btn = new System.Windows.Forms.Button();
             this.feature1Btn = new System.Windows.Forms.Button();
@@ -46,10 +46,10 @@
             this.friendsBtn = new System.Windows.Forms.Button();
             this.pagesBtn = new System.Windows.Forms.Button();
             this.postsBtn = new System.Windows.Forms.Button();
-            this.profilePictureBox = new System.Windows.Forms.PictureBox();
+            this.activityPanel = new System.Windows.Forms.Panel();
             this.topPanel.SuspendLayout();
-            this.functionsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
+            this.functionsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
@@ -128,6 +128,18 @@
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
+            // profilePictureBox
+            // 
+            this.profilePictureBox.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.facebookIcon;
+            this.profilePictureBox.InitialImage = null;
+            this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
+            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.profilePictureBox.Name = "profilePictureBox";
+            this.profilePictureBox.Size = new System.Drawing.Size(140, 140);
+            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePictureBox.TabIndex = 1;
+            this.profilePictureBox.TabStop = false;
             // 
             // functionsPanel
             // 
@@ -284,6 +296,7 @@
             this.friendsBtn.TabIndex = 2;
             this.friendsBtn.Text = " Friends";
             this.friendsBtn.UseVisualStyleBackColor = false;
+            this.friendsBtn.Click += new System.EventHandler(this.friendsBtn_Click);
             // 
             // pagesBtn
             // 
@@ -322,17 +335,15 @@
             this.postsBtn.UseVisualStyleBackColor = false;
             this.postsBtn.Click += new System.EventHandler(this.postsBtn_Click);
             // 
-            // profilePictureBox
+            // activityPanel
             // 
-            this.profilePictureBox.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.facebookIcon;
-            this.profilePictureBox.InitialImage = null;
-            this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
-            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
-            this.profilePictureBox.Name = "profilePictureBox";
-            this.profilePictureBox.Size = new System.Drawing.Size(140, 140);
-            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePictureBox.TabIndex = 1;
-            this.profilePictureBox.TabStop = false;
+            this.activityPanel.AutoScroll = true;
+            this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.activityPanel.Location = new System.Drawing.Point(139, 140);
+            this.activityPanel.Name = "activityPanel";
+            this.activityPanel.Size = new System.Drawing.Size(545, 536);
+            this.activityPanel.TabIndex = 2;
+            this.activityPanel.Visible = false;
             // 
             // mainForm
             // 
@@ -353,8 +364,8 @@
             this.Text = "Main Page";
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            this.functionsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
+            this.functionsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
