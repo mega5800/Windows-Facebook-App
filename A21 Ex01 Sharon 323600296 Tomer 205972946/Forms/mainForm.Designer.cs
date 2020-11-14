@@ -1,4 +1,4 @@
-﻿namespace A21_Ex01_Sharon_323600296_Tomer_205972946
+﻿namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Forms
 {
     partial class mainForm
     {
