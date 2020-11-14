@@ -16,7 +16,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainForm());
+            Application.Run(new loginForm());
         }
     }
 }

@@ -55,12 +55,18 @@
     </Compile>
     <Compile Include="Forms\eventsForm.Designer.cs">
       <DependentUpon>eventsForm.cs</DependentUpon>
-     </Compile>
+    </Compile>
     <Compile Include="Forms\friendsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\friendsForm.Designer.cs">
       <DependentUpon>friendsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\mainForm.cs">
       <SubType>Form</SubType>
@@ -78,6 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\friendsForm.resx">
       <DependentUpon>friendsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
@@ -113,9 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\likeIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\groupIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\albumIcon.png" />
