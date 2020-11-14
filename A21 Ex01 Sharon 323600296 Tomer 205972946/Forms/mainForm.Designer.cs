@@ -34,7 +34,6 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
-            this.loginBtn = new System.Windows.Forms.Button();
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.functionsPanel = new System.Windows.Forms.Panel();
             this.logoutBtn = new System.Windows.Forms.Button();
@@ -59,7 +58,6 @@
             this.topPanel.Controls.Add(this.statusLabel);
             this.topPanel.Controls.Add(this.statusTextBox);
             this.topPanel.Controls.Add(this.userNameLabel);
-            this.topPanel.Controls.Add(this.loginBtn);
             this.topPanel.Controls.Add(this.profilePictureBox);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
@@ -77,7 +75,7 @@
             this.postStatusButton.TabIndex = 8;
             this.postStatusButton.Text = "Post";
             this.postStatusButton.UseVisualStyleBackColor = true;
-            this.postStatusButton.Visible = false;
+            this.postStatusButton.Click += new System.EventHandler(this.postStatusButton_Click);
             // 
             // statusLabel
             // 
@@ -89,7 +87,6 @@
             this.statusLabel.Size = new System.Drawing.Size(81, 17);
             this.statusLabel.TabIndex = 7;
             this.statusLabel.Text = "statusLabel";
-            this.statusLabel.Visible = false;
             // 
             // statusTextBox
             // 
@@ -99,9 +96,7 @@
             this.statusTextBox.Name = "statusTextBox";
             this.statusTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.statusTextBox.Size = new System.Drawing.Size(410, 60);
-            this.statusTextBox.TabIndex = 6;
-            this.statusTextBox.Text = " ";
-            this.statusTextBox.Visible = false;
+            this.statusTextBox.TabIndex = 9;
             this.statusTextBox.Enter += new System.EventHandler(this.statusTextBox_Enter);
             this.statusTextBox.Leave += new System.EventHandler(this.statusTextBox_Leave);
             // 
@@ -115,22 +110,10 @@
             this.userNameLabel.Size = new System.Drawing.Size(121, 20);
             this.userNameLabel.TabIndex = 3;
             this.userNameLabel.Text = "userNameLabel";
-            this.userNameLabel.Visible = false;
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.loginBtn.Location = new System.Drawing.Point(304, 40);
-            this.loginBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(169, 56);
-            this.loginBtn.TabIndex = 2;
-            this.loginBtn.Text = "Login";
-            this.loginBtn.UseVisualStyleBackColor = true;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // profilePictureBox
             // 
+            this.profilePictureBox.ErrorImage = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.facebookIcon;
             this.profilePictureBox.Image = global::A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources.facebookIcon;
             this.profilePictureBox.InitialImage = null;
             this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
@@ -158,17 +141,6 @@
             this.functionsPanel.Name = "functionsPanel";
             this.functionsPanel.Size = new System.Drawing.Size(140, 537);
             this.functionsPanel.TabIndex = 1;
-            this.functionsPanel.Visible = false;
-            // 
-            // activityPanel
-            // 
-            this.activityPanel.AutoScroll = true;
-            this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.activityPanel.Location = new System.Drawing.Point(139, 140);
-            this.activityPanel.Name = "activityPanel";
-            this.activityPanel.Size = new System.Drawing.Size(555, 540);
-            this.activityPanel.TabIndex = 2;
-            this.activityPanel.Visible = false;
             // 
             // logoutBtn
             // 
@@ -343,7 +315,6 @@
             this.activityPanel.Name = "activityPanel";
             this.activityPanel.Size = new System.Drawing.Size(545, 536);
             this.activityPanel.TabIndex = 2;
-            this.activityPanel.Visible = false;
             // 
             // mainForm
             // 
@@ -374,7 +345,6 @@
 
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.PictureBox profilePictureBox;
-        private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Panel functionsPanel;
         private System.Windows.Forms.Button postsBtn;
