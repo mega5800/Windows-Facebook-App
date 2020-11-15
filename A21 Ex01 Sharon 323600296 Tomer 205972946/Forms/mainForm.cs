@@ -88,5 +88,10 @@ namespace Ex01.FacebookAppUI.Forms
         {
             openFormInActivityPanel(new GroupsForm(this.m_LoggedInUser));
         }
+
+        private void albumsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new AlbumsForm(this.m_LoggedInUser));
+        }
     }
 }
