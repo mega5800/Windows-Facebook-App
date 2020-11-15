@@ -62,5 +62,4 @@
         #endregion
         private System.Windows.Forms.ListBox listBoxUserPosts;
     }
-
 }

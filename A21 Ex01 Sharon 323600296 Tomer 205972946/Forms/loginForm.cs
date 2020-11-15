@@ -16,7 +16,7 @@ namespace Ex01.FacebookAppUI.Forms
           "public_profile", "email", "user_birthday", "user_videos",
           "user_age_range", "user_gender", "user_link", "user_tagged_places",
           "user_friends", "user_events", "user_likes", "user_location",
-          "user_photos", "user_posts", "user_hometown"
+          "user_photos", "user_posts", "user_hometown"/*, "user_groups"*/
         };
 
         public LoginForm()
