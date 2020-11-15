@@ -250,6 +250,7 @@
             this.groupsBtn.TabIndex = 3;
             this.groupsBtn.Text = " Groups";
             this.groupsBtn.UseVisualStyleBackColor = false;
+            this.groupsBtn.Click += new System.EventHandler(this.groupsBtn_Click);
             // 
             // friendsBtn
             // 

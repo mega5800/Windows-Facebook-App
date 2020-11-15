@@ -26,7 +26,7 @@ namespace Ex01.FacebookAppUI.Forms
                 else
                 if (post.Caption != null)
                 {
-                    this.listBoxUserPosts.Items.Add(String.Format("Caption: {0}", post.Caption));
+                    this.listBoxUserPosts.Items.Add(string.Format("Caption: {0}", post.Caption));
                 }
                 else
                 {

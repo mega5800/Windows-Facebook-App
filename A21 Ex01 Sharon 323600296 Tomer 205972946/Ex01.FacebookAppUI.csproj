@@ -62,6 +62,12 @@
     <Compile Include="Forms\FriendsForm.Designer.cs">
       <DependentUpon>FriendsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GroupsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GroupsForm.Designer.cs">
+      <DependentUpon>GroupsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -30,7 +30,6 @@ namespace Ex01.FacebookAppUI.Forms
             {
                 m_ActiveForm.Close();
             }
-
             this.m_ActiveForm = i_FormToDisplay;
             i_FormToDisplay.TopLevel = false;
             i_FormToDisplay.FormBorderStyle = FormBorderStyle.None;
@@ -42,6 +41,11 @@ namespace Ex01.FacebookAppUI.Forms
         }
 
         // EVENTS
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            fetchUserInfo();
+        }
+
         private void postsBtn_Click(object sender, EventArgs e)
         {
             openFormInActivityPanel(new PostsForm(this.m_LoggedInUser));
@@ -56,7 +60,7 @@ namespace Ex01.FacebookAppUI.Forms
         {
             // # Currently doesn't seem to work, throws an exception from facebook/wrapper side
             Status postedStatus = this.m_LoggedInUser.PostStatus(this.statusTextBox.Text);
-            MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
+            MessageBox.Show("Status posted successfully");
         }
 
         private void statusTextBox_Enter(object sender, EventArgs e)
@@ -80,9 +84,9 @@ namespace Ex01.FacebookAppUI.Forms
             openFormInActivityPanel(new FriendsForm(this.m_LoggedInUser));
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void groupsBtn_Click(object sender, EventArgs e)
         {
-            fetchUserInfo();
+            openFormInActivityPanel(new GroupsForm(this.m_LoggedInUser));
         }
     }
 }
