@@ -21,7 +21,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_AlbumsPicturesList = new ImageList();
             m_AlbumsPicturesList.ImageSize = r_PictureSize;
             m_AlbumsPicturesList.ColorDepth = ColorDepth.Depth32Bit;
-            this.r_PopulateListViewThread = new Thread(populateAlbumsListView);
+            this.r_PopulateListViewThread = new Thread(new ThreadStart(populateAlbumsListView));
             this.r_PopulateListViewThread.Start();
         }
 
@@ -41,11 +41,14 @@ namespace Ex01.FacebookAppUI.Forms
             }
         }
 
-        private void albumsListView_Click(object sender, System.EventArgs e)
+        private void albumsListView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            int selectedItemIndex = albumsListView.SelectedItems[0].ImageIndex;
 
-            var firstSelectedItem = albumsListView.SelectedItems[0];
-            //MessageBox.Show(firstSelectedItem.);
+            SelectedAlbumForm selectedAlbumForm = new SelectedAlbumForm(this.m_LoggedInUser.Albums[selectedItemIndex].Photos
+                , this.m_LoggedInUser.Albums[selectedItemIndex].Name);
+
+            selectedAlbumForm.ShowDialog();
         }
     }
 }

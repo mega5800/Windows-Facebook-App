@@ -92,6 +92,12 @@
     <Compile Include="Forms\PostsForm.Designer.cs">
       <DependentUpon>PostsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SelectedAlbumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectedAlbumForm.Designer.cs">
+      <DependentUpon>SelectedAlbumForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AlbumsForm.resx">
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PostsForm.resx">
       <DependentUpon>PostsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectedAlbumForm.resx">
+      <DependentUpon>SelectedAlbumForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
