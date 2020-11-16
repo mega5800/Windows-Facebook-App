@@ -40,5 +40,12 @@ namespace Ex01.FacebookAppUI.Forms
                 this.m_AlbumPictureCounter++;
             }
         }
+
+        private void albumsListView_Click(object sender, System.EventArgs e)
+        {
+
+            var firstSelectedItem = albumsListView.SelectedItems[0];
+            //MessageBox.Show(firstSelectedItem.);
+        }
     }
 }

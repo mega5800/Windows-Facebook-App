@@ -40,6 +40,7 @@
             this.albumsListView.Size = new System.Drawing.Size(800, 450);
             this.albumsListView.TabIndex = 0;
             this.albumsListView.UseCompatibleStateImageBehavior = false;
+            this.albumsListView.Click += new System.EventHandler(this.albumsListView_Click);
             // 
             // AlbumsForm
             // 
