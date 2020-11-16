@@ -232,6 +232,7 @@
             this.albumsBtn.TabIndex = 4;
             this.albumsBtn.Text = "Albums";
             this.albumsBtn.UseVisualStyleBackColor = false;
+            this.albumsBtn.Click += new System.EventHandler(this.albumsBtn_Click);
             // 
             // groupsBtn
             // 

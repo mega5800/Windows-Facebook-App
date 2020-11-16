@@ -1,8 +1,6 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Net;
-using System.IO;
 using System.Threading;
 
 namespace Ex01.FacebookAppUI.Forms
@@ -12,7 +10,7 @@ namespace Ex01.FacebookAppUI.Forms
         // check if we can use form_Load
         private User m_LoggedInUser;
         private readonly Thread r_PopulateListViewThread;
-        private ImageList m_FriendsPicturesList;
+        private readonly ImageList m_FriendsPicturesList;
         private readonly Size r_PictureSize = new Size(100,100);
         private int m_FriendPictureCounter = 0;
 
@@ -23,8 +21,9 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_FriendsPicturesList = new ImageList();
             m_FriendsPicturesList.ImageSize = r_PictureSize;
             m_FriendsPicturesList.ColorDepth = ColorDepth.Depth32Bit;
-            this.r_PopulateListViewThread = new Thread(populateFriendsListView);
+            this.r_PopulateListViewThread = new Thread(new ThreadStart(populateFriendsListView));
             this.r_PopulateListViewThread.Start();
+            //populateFriendsListView();
         }
 
         // PRIVATE METHODS
@@ -32,7 +31,7 @@ namespace Ex01.FacebookAppUI.Forms
         {
             foreach (User friend in this.m_LoggedInUser.Friends)
             {
-                this.m_FriendsPicturesList.Images.Add(loadImage(friend.PictureNormalURL));
+                this.m_FriendsPicturesList.Images.Add(friend.ImageLarge);
             }
 
             this.friendsListView.LargeImageList = this.m_FriendsPicturesList;
@@ -41,18 +40,6 @@ namespace Ex01.FacebookAppUI.Forms
                 friendsListView.Items.Add(friend.Name, this.m_FriendPictureCounter);
                 this.m_FriendPictureCounter++;
             }
-        }
-
-        private Image loadImage(string i_ImageUrl)
-        {
-            WebRequest request = WebRequest.Create(i_ImageUrl);
-
-            WebResponse response = request.GetResponse();
-            Stream responseStream = response.GetResponseStream();
-            Bitmap bmp = new Bitmap(responseStream);
-            responseStream.Dispose();
-
-            return bmp;
         }
     }
 }
