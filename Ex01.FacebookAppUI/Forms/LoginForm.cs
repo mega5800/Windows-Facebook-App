@@ -1,5 +1,5 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
+﻿using Ex01.FacebookAppLogic.Classes;
+using FacebookWrapper;
 using System;
 using System.Windows.Forms;
 
@@ -7,7 +7,6 @@ namespace Ex01.FacebookAppUI.Forms
 {
     public partial class LoginForm : Form
     {
-        private User m_LoggedInUser;
         private LoginResult m_LoginResult;
         private MainForm m_MainFormToShow;
         private const string k_AppId = "359957661732863";
@@ -30,7 +29,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_LoginResult = FacebookService.Login(k_AppId, r_PermissionsArray);
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
+                LoggedInUser.ConvertToLoggedInUserObject(ref m_LoginResult);// is it a good idea??
                 showMainForm();
             }
             else
@@ -41,7 +40,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void showMainForm()
         {
-            this.m_MainFormToShow = new MainForm(this.m_LoggedInUser);
+            this.m_MainFormToShow = new MainForm();
             this.Hide();
             this.m_MainFormToShow.ShowDialog();
             this.Close();

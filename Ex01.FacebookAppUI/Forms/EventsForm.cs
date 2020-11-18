@@ -1,4 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using Ex01.FacebookAppLogic.Classes;
+using FacebookWrapper.ObjectModel;
 using System.Windows.Forms;
 
 namespace Ex01.FacebookAppUI.Forms
@@ -7,10 +8,10 @@ namespace Ex01.FacebookAppUI.Forms
     {
         private User m_LoggedInUser;
 
-        public EventsForm(User i_LoggedInUser)
+        public EventsForm()
         {
             InitializeComponent();
-            this.m_LoggedInUser = i_LoggedInUser;
+            this.m_LoggedInUser = LoggedInUser.Instance;
         }
 
         // PRIVATE METHODS

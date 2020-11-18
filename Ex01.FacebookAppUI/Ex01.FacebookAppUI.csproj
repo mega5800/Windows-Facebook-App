@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D5B4CF28-FDC3-4875-907A-2BFC70347913}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>A21_Ex01_Sharon_323600296_Tomer_205972946</RootNamespace>
-    <AssemblyName>A21 Ex01 Sharon 323600296 Tomer 205972946</AssemblyName>
+    <RootNamespace>Ex01.FacebookAppUI</RootNamespace>
+    <AssemblyName>Ex01.FacebookAppUI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,11 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Facebook">
-      <HintPath>.\Facebook.dll</HintPath>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Facebook.dll</HintPath>
     </Reference>
-    <Reference Include="FbGraphApiWrapper">
-      <HintPath>.\FbGraphApiWrapper.dll</HintPath>
+    <Reference Include="FbGraphApiWrapper, Version=8.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FbGraphApiWrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -176,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\group1Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ex01.FacebookAppLogic\Ex01.FacebookAppLogic.csproj">
+      <Project>{0aedee59-40f1-4329-9721-211ae4b242d2}</Project>
+      <Name>Ex01.FacebookAppLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

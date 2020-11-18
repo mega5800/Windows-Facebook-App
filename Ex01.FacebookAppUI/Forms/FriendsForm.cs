@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
+using Ex01.FacebookAppLogic.Classes;
 
 namespace Ex01.FacebookAppUI.Forms
 {
@@ -14,10 +15,10 @@ namespace Ex01.FacebookAppUI.Forms
         private readonly Size r_PictureSize = new Size(100,100);
         private int m_FriendPictureCounter = 0;
 
-        public FriendsForm(User i_LoggedInUser)
+        public FriendsForm()
         {
             InitializeComponent();
-            this.m_LoggedInUser = i_LoggedInUser;
+            this.m_LoggedInUser = LoggedInUser.Instance;
             this.m_FriendsPicturesList = new ImageList();
             m_FriendsPicturesList.ImageSize = r_PictureSize;
             m_FriendsPicturesList.ColorDepth = ColorDepth.Depth32Bit;
