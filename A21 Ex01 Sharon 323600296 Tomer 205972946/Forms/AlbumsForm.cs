@@ -1,4 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using Ex01.FacebookAppLogic.Classes;
+using FacebookWrapper.ObjectModel;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -14,10 +15,10 @@ namespace Ex01.FacebookAppUI.Forms
         private readonly Size r_PictureSize = new Size(100, 100);
         private int m_AlbumPictureCounter = 0;
 
-        public AlbumsForm(User i_LoggedInUser)
+        public AlbumsForm()
         {
             InitializeComponent();
-            this.m_LoggedInUser = i_LoggedInUser;
+            this.m_LoggedInUser = LoggedInUser.Instance;
             this.m_AlbumsPicturesList = new ImageList();
             m_AlbumsPicturesList.ImageSize = r_PictureSize;
             m_AlbumsPicturesList.ColorDepth = ColorDepth.Depth32Bit;

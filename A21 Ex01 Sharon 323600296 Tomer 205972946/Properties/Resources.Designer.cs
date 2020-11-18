@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Properties {
+namespace Ex01.FacebookAppUI.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace A21_Ex01_Sharon_323600296_Tomer_205972946.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("A21_Ex01_Sharon_323600296_Tomer_205972946.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ex01.FacebookAppUI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

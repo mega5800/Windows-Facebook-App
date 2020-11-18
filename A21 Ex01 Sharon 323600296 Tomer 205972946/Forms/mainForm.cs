@@ -1,4 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
+﻿using Ex01.FacebookAppLogic.Classes;
+using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
 
@@ -9,10 +10,10 @@ namespace Ex01.FacebookAppUI.Forms
         private Form m_ActiveForm = null;
         private User m_LoggedInUser;
 
-        public MainForm(User i_LoggedInUser)
+        public MainForm()
         {
             InitializeComponent();
-            this.m_LoggedInUser = i_LoggedInUser;
+            this.m_LoggedInUser = LoggedInUser.Instance;
         }
 
         // PRIVATE METHODS
@@ -30,6 +31,7 @@ namespace Ex01.FacebookAppUI.Forms
             {
                 m_ActiveForm.Close();
             }
+
             this.m_ActiveForm = i_FormToDisplay;
             i_FormToDisplay.TopLevel = false;
             i_FormToDisplay.FormBorderStyle = FormBorderStyle.None;
@@ -48,32 +50,32 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void postsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new PostsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new PostsForm());
         }
 
         private void friendsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new FriendsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new FriendsForm());
         }
 
         private void groupsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new GroupsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new GroupsForm());
         }
 
         private void albumsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new AlbumsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new AlbumsForm());
         }
 
         private void likedPagesBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new LikedPagesForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new LikedPagesForm());
         }
 
         private void eventsBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new EventsForm(this.m_LoggedInUser));
+            openFormInActivityPanel(new EventsForm());
         }
 
         private void postStatusButton_Click(object sender, EventArgs e)
