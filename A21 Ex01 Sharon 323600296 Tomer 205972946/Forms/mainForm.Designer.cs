@@ -43,7 +43,7 @@
             this.albumsBtn = new System.Windows.Forms.Button();
             this.groupsBtn = new System.Windows.Forms.Button();
             this.friendsBtn = new System.Windows.Forms.Button();
-            this.pagesBtn = new System.Windows.Forms.Button();
+            this.likedPagesBtn = new System.Windows.Forms.Button();
             this.postsBtn = new System.Windows.Forms.Button();
             this.activityPanel = new System.Windows.Forms.Panel();
             this.topPanel.SuspendLayout();
@@ -134,7 +134,7 @@
             this.functionsPanel.Controls.Add(this.albumsBtn);
             this.functionsPanel.Controls.Add(this.groupsBtn);
             this.functionsPanel.Controls.Add(this.friendsBtn);
-            this.functionsPanel.Controls.Add(this.pagesBtn);
+            this.functionsPanel.Controls.Add(this.likedPagesBtn);
             this.functionsPanel.Controls.Add(this.postsBtn);
             this.functionsPanel.Location = new System.Drawing.Point(0, 140);
             this.functionsPanel.Margin = new System.Windows.Forms.Padding(4);
@@ -272,23 +272,24 @@
             this.friendsBtn.UseVisualStyleBackColor = false;
             this.friendsBtn.Click += new System.EventHandler(this.friendsBtn_Click);
             // 
-            // pagesBtn
+            // likedPagesBtn
             // 
-            this.pagesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.pagesBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.pagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pagesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.pagesBtn.Image = ((System.Drawing.Image)(resources.GetObject("pagesBtn.Image")));
-            this.pagesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pagesBtn.Location = new System.Drawing.Point(0, 60);
-            this.pagesBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.pagesBtn.Name = "pagesBtn";
-            this.pagesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.pagesBtn.Size = new System.Drawing.Size(140, 60);
-            this.pagesBtn.TabIndex = 1;
-            this.pagesBtn.Text = "Pages";
-            this.pagesBtn.UseVisualStyleBackColor = false;
+            this.likedPagesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.likedPagesBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.likedPagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.likedPagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.likedPagesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.likedPagesBtn.Image = ((System.Drawing.Image)(resources.GetObject("pagesBtn.Image")));
+            this.likedPagesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.likedPagesBtn.Location = new System.Drawing.Point(0, 60);
+            this.likedPagesBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.likedPagesBtn.Name = "likedPagesBtn";
+            this.likedPagesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.likedPagesBtn.Size = new System.Drawing.Size(140, 60);
+            this.likedPagesBtn.TabIndex = 1;
+            this.likedPagesBtn.Text = "Pages";
+            this.likedPagesBtn.UseVisualStyleBackColor = false;
+            this.likedPagesBtn.Click += new System.EventHandler(this.likedPagesBtn_Click);
             // 
             // postsBtn
             // 
@@ -360,7 +361,7 @@
         private System.Windows.Forms.Button albumsBtn;
         private System.Windows.Forms.Button groupsBtn;
         private System.Windows.Forms.Button friendsBtn;
-        private System.Windows.Forms.Button pagesBtn;
+        private System.Windows.Forms.Button likedPagesBtn;
         private System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.Button feature1Btn;
     }

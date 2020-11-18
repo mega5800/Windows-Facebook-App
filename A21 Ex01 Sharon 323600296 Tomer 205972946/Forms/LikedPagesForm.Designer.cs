@@ -1,6 +1,6 @@
 ﻿namespace Ex01.FacebookAppUI.Forms
 {
-    partial class GroupsForm
+    partial class LikedPagesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -21,45 +21,39 @@
         }
 
         #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxUserGroups = new System.Windows.Forms.ListBox();
+            this.listBoxUserLikedPages = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-
             // 
-            // listBoxUserGroups
+            // listBoxUserEvents
             // 
-            this.listBoxUserGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.listBoxUserLikedPages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxUserGroups.FormattingEnabled = true;
-            this.listBoxUserGroups.ItemHeight = 16;
-            this.listBoxUserGroups.Location = new System.Drawing.Point(0, 0);
-            this.listBoxUserGroups.Margin = new System.Windows.Forms.Padding(4);
-            this.listBoxUserGroups.Name = "listBoxUserGroups";
-            this.listBoxUserGroups.Size = new System.Drawing.Size(435, 420);
-            this.listBoxUserGroups.TabIndex = 3;
+            this.listBoxUserLikedPages.FormattingEnabled = true;
+            this.listBoxUserLikedPages.ItemHeight = 16;
+            this.listBoxUserLikedPages.Location = new System.Drawing.Point(0, 0);
+            this.listBoxUserLikedPages.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxUserLikedPages.Name = "listBoxUserLikedPages";
+            this.listBoxUserLikedPages.Size = new System.Drawing.Size(435, 420);
+            this.listBoxUserLikedPages.TabIndex = 3;
             // 
-            // GroupsForm
+            // EventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 406);
-            this.Controls.Add(this.listBoxUserGroups);
+            this.Controls.Add(this.listBoxUserLikedPages);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "GroupsForm";
-            this.Text = "groupsForm";
-            this.Load += new System.EventHandler(this.GroupsForm_Load);
+            this.Name = "LikedPagesForm";
+            this.Text = "likedPagesForm";
+            this.Load += new System.EventHandler(this.LikedPagesForm_Load);
             this.ResumeLayout(false);
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBoxUserGroups;
+        private System.Windows.Forms.ListBox listBoxUserLikedPages;
     }
 }

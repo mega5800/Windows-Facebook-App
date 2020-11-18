@@ -51,6 +51,26 @@ namespace Ex01.FacebookAppUI.Forms
             openFormInActivityPanel(new PostsForm(this.m_LoggedInUser));
         }
 
+        private void friendsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new FriendsForm(this.m_LoggedInUser));
+        }
+
+        private void groupsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new GroupsForm(this.m_LoggedInUser));
+        }
+
+        private void albumsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new AlbumsForm(this.m_LoggedInUser));
+        }
+
+        private void likedPagesBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new LikedPagesForm(this.m_LoggedInUser));
+        }
+
         private void eventsBtn_Click(object sender, EventArgs e)
         {
             openFormInActivityPanel(new EventsForm(this.m_LoggedInUser));
@@ -63,6 +83,7 @@ namespace Ex01.FacebookAppUI.Forms
             MessageBox.Show("Status posted successfully");
         }
 
+        // # placeholder textBox enabling methods # 
         private void statusTextBox_Enter(object sender, EventArgs e)
         {
             if (this.statusTextBox.Text == "-Post a Status-")
@@ -77,21 +98,6 @@ namespace Ex01.FacebookAppUI.Forms
             {
                 this.statusTextBox.Text = "-Post a Status-";
             }
-        }
-
-        private void friendsBtn_Click(object sender, EventArgs e)
-        {
-            openFormInActivityPanel(new FriendsForm(this.m_LoggedInUser));
-        }
-
-        private void groupsBtn_Click(object sender, EventArgs e)
-        {
-            openFormInActivityPanel(new GroupsForm(this.m_LoggedInUser));
-        }
-
-        private void albumsBtn_Click(object sender, EventArgs e)
-        {
-            openFormInActivityPanel(new AlbumsForm(this.m_LoggedInUser));
         }
     }
 }
