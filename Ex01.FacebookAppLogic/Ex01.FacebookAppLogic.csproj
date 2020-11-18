@@ -39,10 +39,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">
-      <HintPath>..\A21 Ex01 Sharon 323600296 Tomer 205972946\Facebook.dll</HintPath>
+      <HintPath>..\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="FbGraphApiWrapper">
-      <HintPath>..\A21 Ex01 Sharon 323600296 Tomer 205972946\FbGraphApiWrapper.dll</HintPath>
+      <HintPath>..\FbGraphApiWrapper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
