@@ -34,8 +34,8 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
-            this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.functionsPanel = new System.Windows.Forms.Panel();
+            this.activityPanel = new System.Windows.Forms.Panel();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.feature2Btn = new System.Windows.Forms.Button();
             this.feature1Btn = new System.Windows.Forms.Button();
@@ -45,10 +45,10 @@
             this.friendsBtn = new System.Windows.Forms.Button();
             this.likedPagesBtn = new System.Windows.Forms.Button();
             this.postsBtn = new System.Windows.Forms.Button();
-            this.activityPanel = new System.Windows.Forms.Panel();
+            this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.functionsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -111,19 +111,6 @@
             this.userNameLabel.TabIndex = 3;
             this.userNameLabel.Text = "userNameLabel";
             // 
-            // profilePictureBox
-            // 
-            this.profilePictureBox.ErrorImage = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
-            this.profilePictureBox.Image = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
-            this.profilePictureBox.InitialImage = null;
-            this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
-            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
-            this.profilePictureBox.Name = "profilePictureBox";
-            this.profilePictureBox.Size = new System.Drawing.Size(140, 140);
-            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePictureBox.TabIndex = 1;
-            this.profilePictureBox.TabStop = false;
-            // 
             // functionsPanel
             // 
             this.functionsPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -141,6 +128,15 @@
             this.functionsPanel.Name = "functionsPanel";
             this.functionsPanel.Size = new System.Drawing.Size(140, 537);
             this.functionsPanel.TabIndex = 1;
+            // 
+            // activityPanel
+            // 
+            this.activityPanel.AutoScroll = true;
+            this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.activityPanel.Location = new System.Drawing.Point(139, 140);
+            this.activityPanel.Name = "activityPanel";
+            this.activityPanel.Size = new System.Drawing.Size(545, 536);
+            this.activityPanel.TabIndex = 2;
             // 
             // logoutBtn
             // 
@@ -184,7 +180,7 @@
             this.feature1Btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.feature1Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.feature1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.feature1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.feature1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.feature1Btn.Image = global::Ex01.FacebookAppUI.Properties.Resources.postIcon;
             this.feature1Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.feature1Btn.Location = new System.Drawing.Point(0, 360);
@@ -193,7 +189,8 @@
             this.feature1Btn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.feature1Btn.Size = new System.Drawing.Size(140, 60);
             this.feature1Btn.TabIndex = 6;
-            this.feature1Btn.Text = "   Feature1";
+            this.feature1Btn.Text = "FrienDiscover";
+            this.feature1Btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.feature1Btn.UseVisualStyleBackColor = false;
             // 
             // eventsBtn
@@ -279,7 +276,7 @@
             this.likedPagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.likedPagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.likedPagesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.likedPagesBtn.Image = ((System.Drawing.Image)(resources.GetObject("pagesBtn.Image")));
+            this.likedPagesBtn.Image = ((System.Drawing.Image)(resources.GetObject("likedPagesBtn.Image")));
             this.likedPagesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.likedPagesBtn.Location = new System.Drawing.Point(0, 60);
             this.likedPagesBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -310,14 +307,18 @@
             this.postsBtn.UseVisualStyleBackColor = false;
             this.postsBtn.Click += new System.EventHandler(this.postsBtn_Click);
             // 
-            // activityPanel
+            // profilePictureBox
             // 
-            this.activityPanel.AutoScroll = true;
-            this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.activityPanel.Location = new System.Drawing.Point(139, 140);
-            this.activityPanel.Name = "activityPanel";
-            this.activityPanel.Size = new System.Drawing.Size(545, 536);
-            this.activityPanel.TabIndex = 2;
+            this.profilePictureBox.ErrorImage = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
+            this.profilePictureBox.Image = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
+            this.profilePictureBox.InitialImage = null;
+            this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
+            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.profilePictureBox.Name = "profilePictureBox";
+            this.profilePictureBox.Size = new System.Drawing.Size(140, 140);
+            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePictureBox.TabIndex = 1;
+            this.profilePictureBox.TabStop = false;
             // 
             // MainForm
             // 
@@ -339,8 +340,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.functionsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

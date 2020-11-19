@@ -29,7 +29,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_LoginResult = FacebookService.Login(k_AppId, r_PermissionsArray);
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                LoggedInUser.ConvertToLoggedInUserObject(ref m_LoginResult);// is it a good idea??
+                LoggedInUser.ConvertToLoggedInUserObject(ref m_LoginResult);
                 showMainForm();
             }
             else
