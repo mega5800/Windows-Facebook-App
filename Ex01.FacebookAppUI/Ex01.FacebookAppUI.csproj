@@ -107,7 +107,7 @@
     <Compile Include="Forms\SelectedAlbumForm.Designer.cs">
       <DependentUpon>SelectedAlbumForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AlbumsForm.resx">
       <DependentUpon>AlbumsForm.cs</DependentUpon>
