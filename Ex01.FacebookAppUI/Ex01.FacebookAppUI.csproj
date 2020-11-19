@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ImageLoader.cs" />
     <Compile Include="Forms\AlbumsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +185,9 @@
       <Project>{0aedee59-40f1-4329-9721-211ae4b242d2}</Project>
       <Name>Ex01.FacebookAppLogic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\handshakeIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
