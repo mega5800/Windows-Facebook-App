@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ImageLoader.cs" />
     <Compile Include="Forms\AlbumsForm.cs">
       <SubType>Form</SubType>
     </Compile>

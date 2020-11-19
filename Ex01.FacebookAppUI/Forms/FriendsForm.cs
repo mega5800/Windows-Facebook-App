@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
 using Ex01.FacebookAppLogic.Classes;
-
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class FriendsForm : Form
