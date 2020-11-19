@@ -11,6 +11,7 @@ namespace Ex01.FacebookAppUI.Forms
         private User m_LoggedInUser;
         private readonly Thread r_PopulateListViewThread;
         private ImageLoader<Album> m_PropertyLoader;
+        private SelectedAlbumForm m_SelectedAlbumForm;
 
         public AlbumsForm()
         {
@@ -25,10 +26,10 @@ namespace Ex01.FacebookAppUI.Forms
         {
             int selectedItemIndex = albumsListView.SelectedItems[0].ImageIndex;
 
-            SelectedAlbumForm selectedAlbumForm = new SelectedAlbumForm(this.m_LoggedInUser.Albums[selectedItemIndex].Photos
+            this.m_SelectedAlbumForm = new SelectedAlbumForm(this.m_LoggedInUser.Albums[selectedItemIndex].Photos
                 , this.m_LoggedInUser.Albums[selectedItemIndex].Name);
 
-            selectedAlbumForm.ShowDialog();
+            this.m_SelectedAlbumForm.ShowDialog();
         }
 
         private void AlbumsForm_Load(object sender, System.EventArgs e)

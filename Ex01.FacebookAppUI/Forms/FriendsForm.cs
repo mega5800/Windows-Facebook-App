@@ -1,5 +1,4 @@
 ﻿using FacebookWrapper.ObjectModel;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
 using Ex01.FacebookAppLogic.Classes;

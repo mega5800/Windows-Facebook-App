@@ -20,19 +20,7 @@ namespace Ex01.FacebookAppUI.Forms
         {
             foreach (Post post in this.m_LoggedInUser.Posts)
             {
-                if (post.Message != null)
-                {
-                    this.listBoxUserPosts.Items.Add(post.Message);
-                }
-                else
-                if (post.Caption != null)
-                {
-                    this.listBoxUserPosts.Items.Add(string.Format("Caption: {0}", post.Caption));
-                }
-                else
-                {
-                    this.listBoxUserPosts.Items.Add(string.Format("[{0}]", post.Type));
-                }
+                this.listBoxUserPosts.Items.Add(post.Message);
             }
 
             if (this.m_LoggedInUser.Posts.Count == 0)

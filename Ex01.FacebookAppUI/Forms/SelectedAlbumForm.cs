@@ -1,6 +1,5 @@
 ﻿using Ex01.FacebookAppUI.Classes;
 using FacebookWrapper.ObjectModel;
-using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 

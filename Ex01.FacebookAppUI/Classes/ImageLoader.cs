@@ -10,7 +10,7 @@ namespace Ex01.FacebookAppUI.Classes
         private readonly ImageList m_ImagesList;
         private readonly Size r_PictureSize = new Size(100, 100);
         private readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
-        private ListView ListViewProperty { get; }
+        private ListView m_ListView;
         private int m_FriendPictureCounter = 0;
         private PropertyInfo m_PropertyInfo;
         private object m_PropertyInfoObject;
@@ -18,7 +18,7 @@ namespace Ex01.FacebookAppUI.Classes
         public ImageLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListView i_ListView)
         {
             this.r_FacebookObjectCollection = i_FacebookObjectCollection;
-            this.ListViewProperty = i_ListView;
+            this.m_ListView = i_ListView;
             this.m_ImagesList = new ImageList();
             this.m_ImagesList.ImageSize = r_PictureSize;
             this.m_ImagesList.ColorDepth = ColorDepth.Depth32Bit;
@@ -45,7 +45,7 @@ namespace Ex01.FacebookAppUI.Classes
                 this.m_ImagesList.Images.Add((Image)this.m_PropertyInfoObject);
             }
 
-            this.ListViewProperty.LargeImageList = this.m_ImagesList;
+            this.m_ListView.LargeImageList = this.m_ImagesList;
         }
 
         private void loadTexts(string i_TextProperty)
@@ -53,7 +53,7 @@ namespace Ex01.FacebookAppUI.Classes
             foreach (T item in this.r_FacebookObjectCollection)
             {
                 setReflectionResultIntoPropertyInfoObject(item, i_TextProperty);
-                this.ListViewProperty.Items.Add((string)this.m_PropertyInfoObject, this.m_FriendPictureCounter);
+                this.m_ListView.Items.Add((string)this.m_PropertyInfoObject, this.m_FriendPictureCounter);
                 this.m_FriendPictureCounter++;
             }
         }
