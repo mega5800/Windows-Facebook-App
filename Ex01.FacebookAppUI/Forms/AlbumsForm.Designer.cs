@@ -50,6 +50,7 @@
             this.Controls.Add(this.albumsListView);
             this.Name = "AlbumsForm";
             this.Text = "AlbumsForm";
+            this.Load += new System.EventHandler(this.AlbumsForm_Load);
             this.ResumeLayout(false);
 
         }

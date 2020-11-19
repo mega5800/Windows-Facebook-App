@@ -49,6 +49,7 @@
             this.Controls.Add(this.friendsListView);
             this.Name = "FriendsForm";
             this.Text = "friendsForm";
+            this.Load += new System.EventHandler(this.FriendsForm_Load);
             this.ResumeLayout(false);
 
         }
