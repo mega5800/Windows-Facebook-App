@@ -21,7 +21,7 @@ namespace Ex01.FacebookAppUI.Forms
         {
             this.userNameLabel.Text = this.m_LoggedInUser.Name;
             this.profilePictureBox.LoadAsync(this.m_LoggedInUser.PictureNormalURL);
-            statusLabel.Text = string.Format("What's on your mind {0}?", m_LoggedInUser.FirstName);
+            this.statusLabel.Text = string.Format("What's on your mind {0}?", m_LoggedInUser.FirstName);
             this.statusTextBox.Text = "-Post a Status-";
         }
 
@@ -76,6 +76,11 @@ namespace Ex01.FacebookAppUI.Forms
         private void eventsBtn_Click(object sender, EventArgs e)
         {
             openFormInActivityPanel(new EventsForm());
+        }
+
+        private void frienDiscoverBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new FrienDiscoverForm());
         }
 
         private void postStatusButton_Click(object sender, EventArgs e)
