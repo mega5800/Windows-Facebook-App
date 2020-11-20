@@ -7,6 +7,7 @@ namespace Ex01.FacebookAppUI.Classes
 {
     public sealed class ImageLoader<T>
     {
+        // ATTRIBUTES
         private readonly ImageList m_ImagesList;
         private readonly Size r_PictureSize = new Size(100, 100);
         private readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
@@ -15,6 +16,7 @@ namespace Ex01.FacebookAppUI.Classes
         private PropertyInfo m_PropertyInfo;
         private object m_PropertyInfoObject;
 
+        // CTOR
         public ImageLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListView i_ListView)
         {
             this.r_FacebookObjectCollection = i_FacebookObjectCollection;
@@ -29,11 +31,6 @@ namespace Ex01.FacebookAppUI.Classes
         {
             loadImages(i_ImageProperty);
             loadTexts(i_TextProperty);
-        }
-
-        public void LoadImageProperty(string i_ImageProperty)
-        {
-            loadImages(i_ImageProperty);
         }
 
         // PRIVATE METHODS

@@ -7,6 +7,7 @@ namespace Ex01.FacebookAppUI.Forms
 {
     public partial class LoginForm : Form
     {
+        // ATTRIBUTES
         private LoginResult m_LoginResult;
         private MainForm m_MainFormToShow;
         private const string k_AppId = "359957661732863";
@@ -18,6 +19,7 @@ namespace Ex01.FacebookAppUI.Forms
           "user_photos", "user_posts", "user_hometown"/*, "user_groups"*/
         };
 
+        // CTOR
         public LoginForm()
         {
             InitializeComponent();

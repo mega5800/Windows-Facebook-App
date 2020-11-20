@@ -8,17 +8,19 @@ namespace Ex01.FacebookAppUI.Forms
 {
     public partial class AlbumsForm : Form
     {
+        // ATTRIBUTES
         private User m_LoggedInUser;
         private readonly Thread r_PopulateListViewThread;
-        private ImageLoader<Album> m_PropertyLoader;
+        private ImageLoader<Album> m_ImageLoader;
         private SelectedAlbumForm m_SelectedAlbumForm;
 
+        // CTOR
         public AlbumsForm()
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
-            this.m_PropertyLoader = new ImageLoader<Album>(this.m_LoggedInUser.Albums, this.albumsListView);
-            this.r_PopulateListViewThread = new Thread(() => this.m_PropertyLoader.LoadImageAndTextProperties("ImageAlbum", "Name"));
+            this.m_ImageLoader = new ImageLoader<Album>(this.m_LoggedInUser.Albums, this.albumsListView);
+            this.r_PopulateListViewThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageAlbum", "Name"));
         }
 
         // EVENTS
