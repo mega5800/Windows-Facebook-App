@@ -21,7 +21,7 @@ namespace Ex01.FacebookAppUI.Forms
         {
             this.userNameLabel.Text = this.m_LoggedInUser.Name;
             this.profilePictureBox.LoadAsync(this.m_LoggedInUser.PictureNormalURL);
-            statusLabel.Text = string.Format("What's on your mind {0}?", m_LoggedInUser.FirstName);
+            this.statusLabel.Text = string.Format("What's on your mind {0}?", m_LoggedInUser.FirstName);
             this.statusTextBox.Text = "-Post a Status-";
         }
 
@@ -40,6 +40,18 @@ namespace Ex01.FacebookAppUI.Forms
             this.activityPanel.Tag = i_FormToDisplay;
             i_FormToDisplay.BringToFront();
             i_FormToDisplay.Show();
+        }
+
+        private void checkIfUserHasFriendsAndRunFrienDiscoverFormIfSo()
+        {
+            if (this.m_LoggedInUser.Friends.Count == 0)
+            {
+                MessageBox.Show(string.Format("{0}, you need to have at least one friend to use this feature!", this.m_LoggedInUser.FirstName));
+            }
+            else
+            {
+                openFormInActivityPanel(new FrienDiscoverForm());
+            }
         }
 
         // EVENTS
@@ -76,6 +88,11 @@ namespace Ex01.FacebookAppUI.Forms
         private void eventsBtn_Click(object sender, EventArgs e)
         {
             openFormInActivityPanel(new EventsForm());
+        }
+
+        private void frienDiscoverBtn_Click(object sender, EventArgs e)
+        {
+            checkIfUserHasFriendsAndRunFrienDiscoverFormIfSo();
         }
 
         private void postStatusButton_Click(object sender, EventArgs e)

@@ -38,7 +38,7 @@
             this.activityPanel = new System.Windows.Forms.Panel();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.feature2Btn = new System.Windows.Forms.Button();
-            this.feature1Btn = new System.Windows.Forms.Button();
+            this.frienDiscoverBtn = new System.Windows.Forms.Button();
             this.eventsBtn = new System.Windows.Forms.Button();
             this.albumsBtn = new System.Windows.Forms.Button();
             this.groupsBtn = new System.Windows.Forms.Button();
@@ -116,7 +116,7 @@
             this.functionsPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.functionsPanel.Controls.Add(this.logoutBtn);
             this.functionsPanel.Controls.Add(this.feature2Btn);
-            this.functionsPanel.Controls.Add(this.feature1Btn);
+            this.functionsPanel.Controls.Add(this.frienDiscoverBtn);
             this.functionsPanel.Controls.Add(this.eventsBtn);
             this.functionsPanel.Controls.Add(this.albumsBtn);
             this.functionsPanel.Controls.Add(this.groupsBtn);
@@ -133,9 +133,9 @@
             // 
             this.activityPanel.AutoScroll = true;
             this.activityPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.activityPanel.Location = new System.Drawing.Point(139, 140);
+            this.activityPanel.Location = new System.Drawing.Point(140, 140);
             this.activityPanel.Name = "activityPanel";
-            this.activityPanel.Size = new System.Drawing.Size(545, 536);
+            this.activityPanel.Size = new System.Drawing.Size(544, 536);
             this.activityPanel.TabIndex = 2;
             // 
             // logoutBtn
@@ -174,24 +174,25 @@
             this.feature2Btn.Text = "  Feature2";
             this.feature2Btn.UseVisualStyleBackColor = false;
             // 
-            // feature1Btn
+            // frienDiscoverBtn
             // 
-            this.feature1Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.feature1Btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.feature1Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.feature1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.feature1Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.feature1Btn.Image = global::Ex01.FacebookAppUI.Properties.Resources.postIcon;
-            this.feature1Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.feature1Btn.Location = new System.Drawing.Point(0, 360);
-            this.feature1Btn.Margin = new System.Windows.Forms.Padding(4);
-            this.feature1Btn.Name = "feature1Btn";
-            this.feature1Btn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.feature1Btn.Size = new System.Drawing.Size(140, 60);
-            this.feature1Btn.TabIndex = 6;
-            this.feature1Btn.Text = "FrienDiscover";
-            this.feature1Btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.feature1Btn.UseVisualStyleBackColor = false;
+            this.frienDiscoverBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.frienDiscoverBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.frienDiscoverBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.frienDiscoverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.frienDiscoverBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.frienDiscoverBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.newFriendIcon;
+            this.frienDiscoverBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.frienDiscoverBtn.Location = new System.Drawing.Point(0, 360);
+            this.frienDiscoverBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.frienDiscoverBtn.Name = "frienDiscoverBtn";
+            this.frienDiscoverBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.frienDiscoverBtn.Size = new System.Drawing.Size(140, 60);
+            this.frienDiscoverBtn.TabIndex = 6;
+            this.frienDiscoverBtn.Text = "FrienDiscover";
+            this.frienDiscoverBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.frienDiscoverBtn.UseVisualStyleBackColor = false;
+            this.frienDiscoverBtn.Click += new System.EventHandler(this.frienDiscoverBtn_Click);
             // 
             // eventsBtn
             // 
@@ -364,6 +365,6 @@
         private System.Windows.Forms.Button friendsBtn;
         private System.Windows.Forms.Button likedPagesBtn;
         private System.Windows.Forms.Button logoutBtn;
-        private System.Windows.Forms.Button feature1Btn;
+        private System.Windows.Forms.Button frienDiscoverBtn;
     }
 }
