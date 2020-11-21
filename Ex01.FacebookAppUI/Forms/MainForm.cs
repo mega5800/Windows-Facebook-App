@@ -7,9 +7,11 @@ namespace Ex01.FacebookAppUI.Forms
 {
     public partial class MainForm : Form
     {
+        // ATTRIBUTES
         private Form m_ActiveForm = null;
         private User m_LoggedInUser;
 
+        // CTOR
         public MainForm()
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void openFormInActivityPanel(Form i_FormToDisplay)
         {
+            this.m_LoggedInUser.ReFetch(); // solves the problem of showing out of date info while clicking again at any form
             if (m_ActiveForm != null)
             {
                 m_ActiveForm.Close();

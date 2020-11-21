@@ -80,6 +80,8 @@
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.loginFormPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login Page";
             this.Load += new System.EventHandler(this.LoginForm_Load);

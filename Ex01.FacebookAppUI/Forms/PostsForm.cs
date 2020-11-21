@@ -1,4 +1,5 @@
 ﻿using Ex01.FacebookAppLogic.Classes;
+using Ex01.FacebookAppUI.Classes;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Windows.Forms;
@@ -7,44 +8,29 @@ namespace Ex01.FacebookAppUI.Forms
 {
     public partial class PostsForm : Form
     {
+        // ATTRIBUTES
         private User m_LoggedInUser;
+        private TextLoader<Post> m_TextLoader;
 
+        // CTOR
         public PostsForm()
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
-        }
-
-        // PRIVATE METHODS
-        private void fetchUserPosts()
-        {
-            foreach (Post post in this.m_LoggedInUser.Posts)
-            {
-                if (post.Message != null)
-                {
-                    this.listBoxUserPosts.Items.Add(post.Message);
-                }
-                else
-                if (post.Caption != null)
-                {
-                    this.listBoxUserPosts.Items.Add(string.Format("Caption: {0}", post.Caption));
-                }
-                else
-                {
-                    this.listBoxUserPosts.Items.Add(string.Format("[{0}]", post.Type));
-                }
-            }
-
-            if (this.m_LoggedInUser.Posts.Count == 0)
-            {
-                MessageBox.Show("The user has made no posts!");
-            }
+            this.m_TextLoader = new TextLoader<Post>(this.m_LoggedInUser.Posts, this.listBoxUserPosts, "{0}");
         }
 
         // EVENTS
         private void PostsForm_Load(object sender, EventArgs e)
         {
-            fetchUserPosts();
+            if (this.m_LoggedInUser.Posts.Count != 0)
+            {
+                this.m_TextLoader.LoadTextProperty("Message");
+            }
+            else
+            {
+                MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
+            }
         }
     }
 }

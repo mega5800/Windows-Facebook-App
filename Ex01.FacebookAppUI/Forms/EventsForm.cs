@@ -1,4 +1,5 @@
 ﻿using Ex01.FacebookAppLogic.Classes;
+using Ex01.FacebookAppUI.Classes;
 using FacebookWrapper.ObjectModel;
 using System.Windows.Forms;
 
@@ -6,32 +7,29 @@ namespace Ex01.FacebookAppUI.Forms
 {
     public partial class EventsForm : Form
     {
+        // ATTRIBUTES
         private User m_LoggedInUser;
+        private TextLoader<Event> m_TextLoader;
 
+        // CTOR
         public EventsForm()
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
-        }
-
-        // PRIVATE METHODS
-        private void fetchUserEvents()
-        {
-            foreach (Event fbEvent in m_LoggedInUser.Events)
-            {
-                this.listBoxUserEvents.Items.Add(string.Format("{0} | Time range: {1} - {2}"/*, {3} invited participants*/, fbEvent.Name, fbEvent.StartTime, fbEvent.EndTime/*, fbEvent.InvitedUsers*/));
-            }
-
-            if (this.m_LoggedInUser.Events.Count == 0)
-            {
-                MessageBox.Show("The user does not have any events!");
-            }
+            this.m_TextLoader = new TextLoader<Event>(this.m_LoggedInUser.Events, this.listBoxUserEvents, "{0} | Time range: {1} - {2}");
         }
 
         // EVENTS
         private void EventsForm_Load(object sender, System.EventArgs e)
         {
-            fetchUserEvents();
+            if (this.m_LoggedInUser.Events.Count != 0)
+            {
+                this.m_TextLoader.LoadTextProperty("Name", "StartTime", "EndTime");
+            }
+            else
+            {
+                MessageBox.Show(string.Format("{0}, you do not have any events!", this.m_LoggedInUser.FirstName));
+            }
         }
     }
 }
