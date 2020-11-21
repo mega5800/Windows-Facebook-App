@@ -37,7 +37,7 @@
             this.functionsPanel = new System.Windows.Forms.Panel();
             this.activityPanel = new System.Windows.Forms.Panel();
             this.logoutBtn = new System.Windows.Forms.Button();
-            this.feature2Btn = new System.Windows.Forms.Button();
+            this.statisticsBtn = new System.Windows.Forms.Button();
             this.frienDiscoverBtn = new System.Windows.Forms.Button();
             this.eventsBtn = new System.Windows.Forms.Button();
             this.albumsBtn = new System.Windows.Forms.Button();
@@ -115,7 +115,7 @@
             // 
             this.functionsPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.functionsPanel.Controls.Add(this.logoutBtn);
-            this.functionsPanel.Controls.Add(this.feature2Btn);
+            this.functionsPanel.Controls.Add(this.statisticsBtn);
             this.functionsPanel.Controls.Add(this.frienDiscoverBtn);
             this.functionsPanel.Controls.Add(this.eventsBtn);
             this.functionsPanel.Controls.Add(this.albumsBtn);
@@ -156,23 +156,23 @@
             this.logoutBtn.Text = "Logout";
             this.logoutBtn.UseVisualStyleBackColor = false;
             // 
-            // feature2Btn
+            // statisticsBtn
             // 
-            this.feature2Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.feature2Btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.feature2Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
-            this.feature2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.feature2Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.feature2Btn.Image = global::Ex01.FacebookAppUI.Properties.Resources.postIcon;
-            this.feature2Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.feature2Btn.Location = new System.Drawing.Point(0, 420);
-            this.feature2Btn.Margin = new System.Windows.Forms.Padding(4);
-            this.feature2Btn.Name = "feature2Btn";
-            this.feature2Btn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.feature2Btn.Size = new System.Drawing.Size(140, 60);
-            this.feature2Btn.TabIndex = 7;
-            this.feature2Btn.Text = "  Feature2";
-            this.feature2Btn.UseVisualStyleBackColor = false;
+            this.statisticsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.statisticsBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statisticsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.statisticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statisticsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.statisticsBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.pieChartIcon;
+            this.statisticsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statisticsBtn.Location = new System.Drawing.Point(0, 420);
+            this.statisticsBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.statisticsBtn.Name = "statisticsBtn";
+            this.statisticsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.statisticsBtn.Size = new System.Drawing.Size(140, 60);
+            this.statisticsBtn.TabIndex = 7;
+            this.statisticsBtn.Text = "Statistics";
+            this.statisticsBtn.UseVisualStyleBackColor = false;
             // 
             // frienDiscoverBtn
             // 
@@ -358,7 +358,7 @@
         private System.Windows.Forms.Button postStatusButton;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.TextBox statusTextBox;
-        private System.Windows.Forms.Button feature2Btn;
+        private System.Windows.Forms.Button statisticsBtn;
         private System.Windows.Forms.Button eventsBtn;
         private System.Windows.Forms.Button albumsBtn;
         private System.Windows.Forms.Button groupsBtn;

@@ -208,5 +208,8 @@
   <ItemGroup>
     <None Include="Resources\newFriendIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pieChartIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
