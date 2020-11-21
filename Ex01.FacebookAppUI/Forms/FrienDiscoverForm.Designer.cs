@@ -32,9 +32,11 @@
             this.goToRandomPersonProfileBtn = new System.Windows.Forms.Button();
             this.getRandomPersonBtn = new System.Windows.Forms.Button();
             this.newPersonInfoPanel = new System.Windows.Forms.Panel();
-            this.newFriendPictureBox = new System.Windows.Forms.PictureBox();
-            this.firstDegreeFriendNameLbl = new System.Windows.Forms.Label();
             this.newFriendAboutLbl = new System.Windows.Forms.Label();
+            this.firstDegreeFriendNameLbl = new System.Windows.Forms.Label();
+            this.newFriendPictureBox = new System.Windows.Forms.PictureBox();
+            this.newFriendNameLbl = new System.Windows.Forms.Label();
+            this.newFriendAgeLbl = new System.Windows.Forms.Label();
             this.buttonsPanel.SuspendLayout();
             this.newPersonInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.newFriendPictureBox)).BeginInit();
@@ -86,6 +88,8 @@
             // 
             // newPersonInfoPanel
             // 
+            this.newPersonInfoPanel.Controls.Add(this.newFriendAgeLbl);
+            this.newPersonInfoPanel.Controls.Add(this.newFriendNameLbl);
             this.newPersonInfoPanel.Controls.Add(this.newFriendAboutLbl);
             this.newPersonInfoPanel.Controls.Add(this.firstDegreeFriendNameLbl);
             this.newPersonInfoPanel.Controls.Add(this.newFriendPictureBox);
@@ -95,36 +99,57 @@
             this.newPersonInfoPanel.Size = new System.Drawing.Size(558, 452);
             this.newPersonInfoPanel.TabIndex = 1;
             // 
-            // newFriendPictureBox
+            // newFriendAboutLbl
             // 
-            this.newFriendPictureBox.Location = new System.Drawing.Point(126, 41);
-            this.newFriendPictureBox.Name = "newFriendPictureBox";
-            this.newFriendPictureBox.Size = new System.Drawing.Size(100, 100);
-            this.newFriendPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.newFriendPictureBox.TabIndex = 0;
-            this.newFriendPictureBox.TabStop = false;
+            this.newFriendAboutLbl.AutoSize = true;
+            this.newFriendAboutLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.newFriendAboutLbl.Location = new System.Drawing.Point(16, 277);
+            this.newFriendAboutLbl.Name = "newFriendAboutLbl";
+            this.newFriendAboutLbl.Size = new System.Drawing.Size(42, 16);
+            this.newFriendAboutLbl.TabIndex = 1;
+            this.newFriendAboutLbl.Text = "about";
             // 
             // firstDegreeFriendNameLbl
             // 
             this.firstDegreeFriendNameLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.firstDegreeFriendNameLbl.AutoSize = true;
             this.firstDegreeFriendNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.firstDegreeFriendNameLbl.Location = new System.Drawing.Point(160, 9);
+            this.firstDegreeFriendNameLbl.Location = new System.Drawing.Point(87, 9);
             this.firstDegreeFriendNameLbl.Name = "firstDegreeFriendNameLbl";
             this.firstDegreeFriendNameLbl.Size = new System.Drawing.Size(32, 16);
             this.firstDegreeFriendNameLbl.TabIndex = 0;
             this.firstDegreeFriendNameLbl.Text = "aaa";
             this.firstDegreeFriendNameLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.firstDegreeFriendNameLbl.Visible = false;
             // 
-            // newFriendAboutLbl
+            // newFriendPictureBox
             // 
-            this.newFriendAboutLbl.AutoSize = true;
-            this.newFriendAboutLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.newFriendAboutLbl.Location = new System.Drawing.Point(160, 160);
-            this.newFriendAboutLbl.Name = "newFriendAboutLbl";
-            this.newFriendAboutLbl.Size = new System.Drawing.Size(42, 16);
-            this.newFriendAboutLbl.TabIndex = 1;
-            this.newFriendAboutLbl.Text = "about";
+            this.newFriendPictureBox.Location = new System.Drawing.Point(19, 37);
+            this.newFriendPictureBox.Name = "newFriendPictureBox";
+            this.newFriendPictureBox.Size = new System.Drawing.Size(100, 100);
+            this.newFriendPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.newFriendPictureBox.TabIndex = 0;
+            this.newFriendPictureBox.TabStop = false;
+            // 
+            // newFriendNameLbl
+            // 
+            this.newFriendNameLbl.AutoSize = true;
+            this.newFriendNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.newFriendNameLbl.Location = new System.Drawing.Point(16, 172);
+            this.newFriendNameLbl.Name = "newFriendNameLbl";
+            this.newFriendNameLbl.Size = new System.Drawing.Size(42, 16);
+            this.newFriendNameLbl.TabIndex = 2;
+            this.newFriendNameLbl.Text = "name";
+            // 
+            // newFriendAgeLbl
+            // 
+            this.newFriendAgeLbl.AutoSize = true;
+            this.newFriendAgeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.newFriendAgeLbl.Location = new System.Drawing.Point(16, 223);
+            this.newFriendAgeLbl.Name = "newFriendAgeLbl";
+            this.newFriendAgeLbl.Size = new System.Drawing.Size(32, 16);
+            this.newFriendAgeLbl.TabIndex = 3;
+            this.newFriendAgeLbl.Text = "age";
             // 
             // FrienDiscoverForm
             // 
@@ -152,5 +177,7 @@
         private System.Windows.Forms.PictureBox newFriendPictureBox;
         private System.Windows.Forms.Label firstDegreeFriendNameLbl;
         private System.Windows.Forms.Label newFriendAboutLbl;
+        private System.Windows.Forms.Label newFriendAgeLbl;
+        private System.Windows.Forms.Label newFriendNameLbl;
     }
 }

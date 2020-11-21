@@ -17,6 +17,7 @@ namespace Ex01.FacebookAppUI.Forms
         private readonly List<int> r_LoggedInUserFriendsIndexList;
         private readonly List<int> r_ChosenFriendFirstDegreeFriendsIndexList;
         private const string k_FirstFriendName = "The system selected your friend {0} to help find new friend!";
+        private const string k_FacebookUrl = "http://facebook.com/{0}";
 
         // CTOR
         public FrienDiscoverForm()
@@ -49,14 +50,15 @@ namespace Ex01.FacebookAppUI.Forms
                 firstDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_LoggedInUserFriendsIndexList,
                     this.m_LoggedInUser, ref this.m_ChosenFriendFirstDegree);
                 fillUserFriendsIndexList(this.m_ChosenFriendFirstDegree, this.r_ChosenFriendFirstDegreeFriendsIndexList);
+                this.firstDegreeFriendNameLbl.Visible = true;
                 this.firstDegreeFriendNameLbl.Text = string.Format(k_FirstFriendName, this.m_ChosenFriendFirstDegree.Name);
                 while (!isSecondDegreeRandomFriendSelected && this.r_ChosenFriendFirstDegreeFriendsIndexList.Count > 0)
                 {
                     secondDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_ChosenFriendFirstDegreeFriendsIndexList,
                         this.m_ChosenFriendFirstDegree, ref this.m_ChosenFriendSecondDegree);
                     isSecondDegreeRandomFriendSelected = checkIfSecondDegreeRandomFriendIsNotLoggedInUser();
-                    if (!isSecondDegreeRandomFriendSelected)
-                    {
+                    if (!isSecondDegreeRandomFriendSelected || checkIfPotentialFriendIsAlreadyMyFriend())// you can disable checkIfPotentialFriendIsAlreadyMyFriend
+                    {                                                                                     // and see how the feature works!
                         this.r_ChosenFriendFirstDegreeFriendsIndexList.Remove(secondDegreeRandomFriendIndex);
                         this.m_ChosenFriendSecondDegree = null;
                     }
@@ -70,6 +72,11 @@ namespace Ex01.FacebookAppUI.Forms
 
             if (this.m_ChosenFriendSecondDegree == null)
             {
+                this.newFriendPictureBox.Visible = false;
+                setEmptyTextAndSetVisibleToFalse(this.firstDegreeFriendNameLbl);
+                setEmptyTextAndSetVisibleToFalse(this.newFriendAboutLbl);
+                setEmptyTextAndSetVisibleToFalse(this.newFriendAgeLbl);
+                setEmptyTextAndSetVisibleToFalse(this.newFriendNameLbl);
                 MessageBox.Show(string.Format("{0}, unfortunately the system couldn't find you a suitable new person to meet :("
                     , this.m_LoggedInUser.FirstName));
             }
@@ -79,10 +86,30 @@ namespace Ex01.FacebookAppUI.Forms
             }
         }
 
+        private void setEmptyTextAndSetVisibleToFalse(Label i_LabelToChangeProperties)
+        {
+            i_LabelToChangeProperties.Text = "";
+            i_LabelToChangeProperties.Visible = false;
+        }
+
         private void loadPotentialNewFriendDataIntoForm()
         {
-            this.newFriendAboutLbl.Text = this.m_ChosenFriendSecondDegree.About;
+            this.newFriendNameLbl.Text = string.Format("Name: {0}", this.m_ChosenFriendSecondDegree.Name);
+            this.newFriendAgeLbl.Text = string.Format("Age: {0}", getNewFriendAge());
+            this.newFriendAboutLbl.Text = string.Format("About:{0}{1}", Environment.NewLine, this.m_ChosenFriendSecondDegree.About);
             this.newFriendPictureBox.LoadAsync(this.m_ChosenFriendSecondDegree.PictureNormalURL);
+        }
+
+        private int getNewFriendAge()
+        {
+            string newFriendBirthDate;
+            int newFriendBirthYear, currentYear;
+
+            newFriendBirthDate = this.m_ChosenFriendSecondDegree.Birthday;
+            currentYear = DateTime.Now.Year;
+            newFriendBirthYear = int.Parse(newFriendBirthDate.Substring(6));
+
+            return currentYear - newFriendBirthYear;
         }
 
         private bool checkIfSecondDegreeRandomFriendIsNotLoggedInUser()
@@ -108,6 +135,34 @@ namespace Ex01.FacebookAppUI.Forms
             return randomFriendIndex;
         }
 
+        private void goToNewFriendFacebookProfile()
+        {
+            if (this.m_ChosenFriendSecondDegree == null)
+            {
+                MessageBox.Show(string.Format("{0}, you need to find a new friend first!", this.m_LoggedInUser.FirstName));
+            }
+            else
+            {
+                Process.Start(string.Format(k_FacebookUrl, this.m_ChosenFriendSecondDegree.UserName));// cant get user name
+            }   
+        }
+
+        private bool checkIfPotentialFriendIsAlreadyMyFriend()
+        {
+            bool result = false;
+
+            foreach (User friend in this.m_LoggedInUser.Friends)
+            {
+                if (this.m_ChosenFriendSecondDegree.Id == friend.Id)
+                {
+                    result = true;
+                    break;
+                }
+            }
+
+            return result;
+        }
+
         // EVENTS
         private void FrienDiscoverForm_Load(object sender, EventArgs e)
         {
@@ -121,7 +176,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void goToRandomPersonProfileBtn_Click(object sender, EventArgs e)
         {
-            Process.Start(string.Format("facebook.com/", this.m_ChosenFriendSecondDegree.UserName));
+            goToNewFriendFacebookProfile();
         }
     }
 }
