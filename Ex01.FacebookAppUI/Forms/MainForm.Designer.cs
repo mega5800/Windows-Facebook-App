@@ -173,6 +173,7 @@
             this.statisticsBtn.TabIndex = 7;
             this.statisticsBtn.Text = "Statistics";
             this.statisticsBtn.UseVisualStyleBackColor = false;
+            this.statisticsBtn.Click += new System.EventHandler(this.statisticsBtn_Click);
             // 
             // frienDiscoverBtn
             // 
