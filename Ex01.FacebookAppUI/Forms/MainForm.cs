@@ -42,6 +42,18 @@ namespace Ex01.FacebookAppUI.Forms
             i_FormToDisplay.Show();
         }
 
+        private void checkIfUserHasFriendsAndRunFrienDiscoverFormIfSo()
+        {
+            if (this.m_LoggedInUser.Friends.Count == 0)
+            {
+                MessageBox.Show(string.Format("{0}, you need to have at least one friend to use this feature!", this.m_LoggedInUser.FirstName));
+            }
+            else
+            {
+                openFormInActivityPanel(new FrienDiscoverForm());
+            }
+        }
+
         // EVENTS
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -80,7 +92,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void frienDiscoverBtn_Click(object sender, EventArgs e)
         {
-            openFormInActivityPanel(new FrienDiscoverForm());
+            checkIfUserHasFriendsAndRunFrienDiscoverFormIfSo();
         }
 
         private void postStatusButton_Click(object sender, EventArgs e)

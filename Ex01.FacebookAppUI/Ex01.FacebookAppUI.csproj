@@ -198,5 +198,11 @@
   <ItemGroup>
     <None Include="Resources\handshakeIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\randomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loveIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

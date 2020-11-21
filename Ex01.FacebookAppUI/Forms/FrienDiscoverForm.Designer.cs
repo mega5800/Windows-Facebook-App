@@ -28,97 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reDiscoverBtn = new System.Windows.Forms.Button();
-            this.profilePageBtn = new System.Windows.Forms.Button();
-            this.FirstDegreePictureBox = new System.Windows.Forms.PictureBox();
-            this.SecondDegreePictureBox = new System.Windows.Forms.PictureBox();
-            this.firstChosenFriendLabel = new System.Windows.Forms.Label();
-            this.secondChosenFriendLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.FirstDegreePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SecondDegreePictureBox)).BeginInit();
+            this.buttonsPanel = new System.Windows.Forms.Panel();
+            this.goToRandomPersonProfileBtn = new System.Windows.Forms.Button();
+            this.getRandomPersonBtn = new System.Windows.Forms.Button();
+            this.newPersonInfoPanel = new System.Windows.Forms.Panel();
+            this.newFriendPictureBox = new System.Windows.Forms.PictureBox();
+            this.firstDegreeFriendNameLbl = new System.Windows.Forms.Label();
+            this.newFriendAboutLbl = new System.Windows.Forms.Label();
+            this.buttonsPanel.SuspendLayout();
+            this.newPersonInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newFriendPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // reDiscoverBtn
+            // buttonsPanel
             // 
-            this.reDiscoverBtn.Location = new System.Drawing.Point(61, 332);
-            this.reDiscoverBtn.Name = "reDiscoverBtn";
-            this.reDiscoverBtn.Size = new System.Drawing.Size(136, 62);
-            this.reDiscoverBtn.TabIndex = 0;
-            this.reDiscoverBtn.Text = "Discover Again";
-            this.reDiscoverBtn.UseVisualStyleBackColor = false;
-            this.reDiscoverBtn.Click += new System.EventHandler(this.reDiscoverBtn_Click);
+            this.buttonsPanel.Controls.Add(this.goToRandomPersonProfileBtn);
+            this.buttonsPanel.Controls.Add(this.getRandomPersonBtn);
+            this.buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonsPanel.Location = new System.Drawing.Point(0, 452);
+            this.buttonsPanel.Name = "buttonsPanel";
+            this.buttonsPanel.Size = new System.Drawing.Size(558, 45);
+            this.buttonsPanel.TabIndex = 0;
             // 
-            // profilePageBtn
+            // goToRandomPersonProfileBtn
             // 
-            this.profilePageBtn.Location = new System.Drawing.Point(203, 332);
-            this.profilePageBtn.Name = "profilePageBtn";
-            this.profilePageBtn.Size = new System.Drawing.Size(135, 62);
-            this.profilePageBtn.TabIndex = 1;
-            this.profilePageBtn.Text = "Go to friend\'s page";
-            this.profilePageBtn.UseVisualStyleBackColor = true;
-            this.profilePageBtn.Click += new System.EventHandler(this.profilePageBtn_Click);
+            this.goToRandomPersonProfileBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(87)))));
+            this.goToRandomPersonProfileBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.goToRandomPersonProfileBtn.FlatAppearance.BorderSize = 0;
+            this.goToRandomPersonProfileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.goToRandomPersonProfileBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.goToRandomPersonProfileBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.loveIcon;
+            this.goToRandomPersonProfileBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.goToRandomPersonProfileBtn.Location = new System.Drawing.Point(202, 0);
+            this.goToRandomPersonProfileBtn.Name = "goToRandomPersonProfileBtn";
+            this.goToRandomPersonProfileBtn.Size = new System.Drawing.Size(356, 45);
+            this.goToRandomPersonProfileBtn.TabIndex = 3;
+            this.goToRandomPersonProfileBtn.Text = "Go to profile";
+            this.goToRandomPersonProfileBtn.UseVisualStyleBackColor = false;
+            this.goToRandomPersonProfileBtn.Click += new System.EventHandler(this.goToRandomPersonProfileBtn_Click);
             // 
-            // FirstDegreePictureBox
+            // getRandomPersonBtn
             // 
-            this.FirstDegreePictureBox.Location = new System.Drawing.Point(122, 25);
-            this.FirstDegreePictureBox.Name = "FirstDegreePictureBox";
-            this.FirstDegreePictureBox.Size = new System.Drawing.Size(139, 129);
-            this.FirstDegreePictureBox.TabIndex = 2;
-            this.FirstDegreePictureBox.TabStop = false;
+            this.getRandomPersonBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.getRandomPersonBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.getRandomPersonBtn.FlatAppearance.BorderSize = 0;
+            this.getRandomPersonBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.getRandomPersonBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.getRandomPersonBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.randomIcon;
+            this.getRandomPersonBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.getRandomPersonBtn.Location = new System.Drawing.Point(0, 0);
+            this.getRandomPersonBtn.Name = "getRandomPersonBtn";
+            this.getRandomPersonBtn.Size = new System.Drawing.Size(202, 45);
+            this.getRandomPersonBtn.TabIndex = 2;
+            this.getRandomPersonBtn.Text = "Meet another person";
+            this.getRandomPersonBtn.UseVisualStyleBackColor = false;
+            this.getRandomPersonBtn.Click += new System.EventHandler(this.getRandomPersonBtn_Click);
             // 
-            // SecondDegreePictureBox
+            // newPersonInfoPanel
             // 
-            this.SecondDegreePictureBox.Location = new System.Drawing.Point(113, 180);
-            this.SecondDegreePictureBox.Name = "SecondDegreePictureBox";
-            this.SecondDegreePictureBox.Size = new System.Drawing.Size(162, 146);
-            this.SecondDegreePictureBox.TabIndex = 3;
-            this.SecondDegreePictureBox.TabStop = false;
+            this.newPersonInfoPanel.Controls.Add(this.newFriendAboutLbl);
+            this.newPersonInfoPanel.Controls.Add(this.firstDegreeFriendNameLbl);
+            this.newPersonInfoPanel.Controls.Add(this.newFriendPictureBox);
+            this.newPersonInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newPersonInfoPanel.Location = new System.Drawing.Point(0, 0);
+            this.newPersonInfoPanel.Name = "newPersonInfoPanel";
+            this.newPersonInfoPanel.Size = new System.Drawing.Size(558, 452);
+            this.newPersonInfoPanel.TabIndex = 1;
             // 
-            // firstChosenFriendLabel
+            // newFriendPictureBox
             // 
-            this.firstChosenFriendLabel.AutoSize = true;
-            this.firstChosenFriendLabel.Location = new System.Drawing.Point(133, 9);
-            this.firstChosenFriendLabel.Name = "firstChosenFriendLabel";
-            this.firstChosenFriendLabel.Size = new System.Drawing.Size(114, 13);
-            this.firstChosenFriendLabel.TabIndex = 4;
-            this.firstChosenFriendLabel.Text = "firstChosenFriendLabel";
+            this.newFriendPictureBox.Location = new System.Drawing.Point(126, 41);
+            this.newFriendPictureBox.Name = "newFriendPictureBox";
+            this.newFriendPictureBox.Size = new System.Drawing.Size(100, 100);
+            this.newFriendPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.newFriendPictureBox.TabIndex = 0;
+            this.newFriendPictureBox.TabStop = false;
             // 
-            // secondChosenFriendLabel
+            // firstDegreeFriendNameLbl
             // 
-            this.secondChosenFriendLabel.AutoSize = true;
-            this.secondChosenFriendLabel.Location = new System.Drawing.Point(133, 164);
-            this.secondChosenFriendLabel.Name = "secondChosenFriendLabel";
-            this.secondChosenFriendLabel.Size = new System.Drawing.Size(133, 13);
-            this.secondChosenFriendLabel.TabIndex = 5;
-            this.secondChosenFriendLabel.Text = "secondChosenFriendLabel";
+            this.firstDegreeFriendNameLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.firstDegreeFriendNameLbl.AutoSize = true;
+            this.firstDegreeFriendNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.firstDegreeFriendNameLbl.Location = new System.Drawing.Point(160, 9);
+            this.firstDegreeFriendNameLbl.Name = "firstDegreeFriendNameLbl";
+            this.firstDegreeFriendNameLbl.Size = new System.Drawing.Size(32, 16);
+            this.firstDegreeFriendNameLbl.TabIndex = 0;
+            this.firstDegreeFriendNameLbl.Text = "aaa";
+            this.firstDegreeFriendNameLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // newFriendAboutLbl
+            // 
+            this.newFriendAboutLbl.AutoSize = true;
+            this.newFriendAboutLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.newFriendAboutLbl.Location = new System.Drawing.Point(160, 160);
+            this.newFriendAboutLbl.Name = "newFriendAboutLbl";
+            this.newFriendAboutLbl.Size = new System.Drawing.Size(42, 16);
+            this.newFriendAboutLbl.TabIndex = 1;
+            this.newFriendAboutLbl.Text = "about";
             // 
             // FrienDiscoverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 406);
-            this.Controls.Add(this.secondChosenFriendLabel);
-            this.Controls.Add(this.firstChosenFriendLabel);
-            this.Controls.Add(this.SecondDegreePictureBox);
-            this.Controls.Add(this.FirstDegreePictureBox);
-            this.Controls.Add(this.profilePageBtn);
-            this.Controls.Add(this.reDiscoverBtn);
+            this.ClientSize = new System.Drawing.Size(558, 497);
+            this.Controls.Add(this.newPersonInfoPanel);
+            this.Controls.Add(this.buttonsPanel);
             this.Name = "FrienDiscoverForm";
-            this.Text = "FrienDiscoverForm";
-            ((System.ComponentModel.ISupportInitialize)(this.FirstDegreePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SecondDegreePictureBox)).EndInit();
-            this.Load += new System.EventHandler(this.frienDiscoverForm_Load);
+            this.Load += new System.EventHandler(this.FrienDiscoverForm_Load);
+            this.buttonsPanel.ResumeLayout(false);
+            this.newPersonInfoPanel.ResumeLayout(false);
+            this.newPersonInfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.newFriendPictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button reDiscoverBtn;
-        private System.Windows.Forms.Button profilePageBtn;
-        private System.Windows.Forms.PictureBox FirstDegreePictureBox;
-        private System.Windows.Forms.PictureBox SecondDegreePictureBox;
-        private System.Windows.Forms.Label firstChosenFriendLabel;
-        private System.Windows.Forms.Label secondChosenFriendLabel;
+
+        private System.Windows.Forms.Panel buttonsPanel;
+        private System.Windows.Forms.Button getRandomPersonBtn;
+        private System.Windows.Forms.Button goToRandomPersonProfileBtn;
+        private System.Windows.Forms.Panel newPersonInfoPanel;
+        private System.Windows.Forms.PictureBox newFriendPictureBox;
+        private System.Windows.Forms.Label firstDegreeFriendNameLbl;
+        private System.Windows.Forms.Label newFriendAboutLbl;
     }
 }
