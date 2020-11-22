@@ -117,44 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="postIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\postIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loginIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logoutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="likeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\likeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eventIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eventIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="facebookIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\facebookIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="albumIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\albumIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="friendIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\friendIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="group1Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\group1Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="randomIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\randomIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="newFriendIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newFriendIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pieChartIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pieChartIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

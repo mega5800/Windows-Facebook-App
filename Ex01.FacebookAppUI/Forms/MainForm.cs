@@ -98,6 +98,11 @@ namespace Ex01.FacebookAppUI.Forms
             checkIfUserHasFriendsAndRunFrienDiscoverFormIfSo();
         }
 
+        private void statisticsBtn_Click(object sender, EventArgs e)
+        {
+            openFormInActivityPanel(new StatisticsForm());
+        }
+
         private void postStatusButton_Click(object sender, EventArgs e)
         {
             // # Currently doesn't seem to work, throws an exception from facebook/wrapper side
