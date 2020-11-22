@@ -8,6 +8,7 @@ namespace Ex01.FacebookAppUI.Forms
     public partial class StatisticsForm : Form
     {
         private User m_LoggedInUser;
+        private bool m_IsSecondStatisticsLoaded = false;
         private readonly List<PropertyCounter> r_LocationCountersList;
         private readonly List<PropertyCounter> r_FriendsTaggedInPostsCountersList;
         private PieChartDataLoadingComponent<Checkin> m_PieChartCheckinsDataLoadingComponent;
@@ -101,9 +102,17 @@ namespace Ex01.FacebookAppUI.Forms
             {
                 MessageBox.Show(string.Format("{0}, you do not have any checkins!", this.m_LoggedInUser.FirstName));
             }
-            if (!this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.LoadDataIntoPieChart())
+        }
+
+        private void tabPanel_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (!this.m_IsSecondStatisticsLoaded)
             {
-                MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
+                this.m_IsSecondStatisticsLoaded = true;
+                if (!this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.LoadDataIntoPieChart())
+                {
+                    MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
+                }
             }
         }
     }
