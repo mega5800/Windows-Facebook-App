@@ -126,5 +126,12 @@ namespace Ex01.FacebookAppUI.Forms
                 this.statusTextBox.Text = "-Post a Status-";
             }
         }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            this.Dispose();
+            loginForm.ShowDialog();
+        }
     }
 }

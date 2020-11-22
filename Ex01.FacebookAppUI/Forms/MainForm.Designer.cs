@@ -159,6 +159,7 @@
             this.logoutBtn.TabIndex = 8;
             this.logoutBtn.Text = "Logout";
             this.logoutBtn.UseVisualStyleBackColor = false;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // statisticsBtn
             // 
