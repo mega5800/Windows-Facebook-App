@@ -36,7 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\LoggedInUser.cs" />
-    <Compile Include="Structs\LocationCounter.cs" />
+    <Compile Include="Classes\PieChartDataLoadingComponent.cs" />
+    <Compile Include="Classes\PropertyCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">
@@ -45,6 +46,9 @@
     <Reference Include="FbGraphApiWrapper">
       <HintPath>..\FbGraphApiWrapper.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

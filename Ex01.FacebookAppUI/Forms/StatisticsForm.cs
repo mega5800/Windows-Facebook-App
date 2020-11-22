@@ -1,5 +1,4 @@
 ﻿using Ex01.FacebookAppLogic.Classes;
-using Ex01.FacebookAppLogic.Structs;
 using FacebookWrapper.ObjectModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,43 +8,45 @@ namespace Ex01.FacebookAppUI.Forms
     public partial class StatisticsForm : Form
     {
         private User m_LoggedInUser;
-        private readonly List<LocationCounter> r_LocationCountersList;
-        //private 
+        private readonly List<PropertyCounter> r_LocationCountersList;
+        private readonly List<PropertyCounter> r_FriendsTaggedInPostsCountersList;
+        private PieChartDataLoadingComponent<Checkin> m_PieChartCheckinsDataLoadingComponent;
+        private PieChartDataLoadingComponent<User> m_PieChartFriendsTaggedInPostsDataLoadingComponent;
 
         public StatisticsForm()
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
-            this.r_LocationCountersList = new List<LocationCounter>();
+            this.r_LocationCountersList = new List<PropertyCounter>();
+
+            this.r_FriendsTaggedInPostsCountersList = new List<PropertyCounter>();
+            this.r_FriendsTaggedInPostsCountersList = new List<PropertyCounter>();
+            fillFriendsTaggedInPostsCountersList();
+
+            this.m_PieChartCheckinsDataLoadingComponent = new PieChartDataLoadingComponent<Checkin>(this.locationPieChart
+                , this.m_LoggedInUser.Checkins, "Checkins location distribution", this.r_LocationCountersList, "locationPieChartInfo");
+            this.m_PieChartCheckinsDataLoadingComponent.DuplicatePropertyCheckingMethodIsNeeded += checkIfLocationIsNotInLocationCountersList;
+
+            m_PieChartFriendsTaggedInPostsDataLoadingComponent = new PieChartDataLoadingComponent<User>(this.friendsTaggedInPostsPieChart,
+                this.m_LoggedInUser.Friends, "Friends tagged in posts distribution", this.r_FriendsTaggedInPostsCountersList, "friendsTaggedInPostsPieChartInfo");
+            this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.DuplicatePropertyCheckingMethodIsNeeded += checkIfFriendNotTaggedInPostCountersList;
         }
 
-        private void StatisticsForm_Load(object sender, System.EventArgs e)
+        private void fillFriendsTaggedInPostsCountersList()
         {
-            foreach (Checkin checkin in this.m_LoggedInUser.Checkins)
+            foreach (User friend in this.m_LoggedInUser.Friends)
             {
-                if (checkIfLocationIsNotInLocationCountersList(checkin))
-                {
-                    this.r_LocationCountersList.Add(new LocationCounter(checkin.Place.Location.Country));
-                }
-            }
-
-            int i = 0;
-            this.statisticsPieChart.Titles.Add("Pie chart");
-            foreach (LocationCounter locationCounter in this.r_LocationCountersList)
-            {
-                this.statisticsPieChart.Series["statisticsPieChartInfo"].Points.AddXY(locationCounter.LocationName+" - "+ locationCounter.Counter, locationCounter.Counter);
-                this.statisticsPieChart.Series["statisticsPieChartInfo"].Points[i].LegendText = locationCounter.LocationName;
-                i++;
+                this.r_FriendsTaggedInPostsCountersList.Add(new PropertyCounter(friend.Name, 0));
             }
         }
 
-        private bool checkIfLocationIsNotInLocationCountersList(Checkin i_CheckinToCheck)
+        private bool checkIfLocationIsNotInLocationCountersList(Checkin i_CheckinToCheck, ref string io_UniquePropertyString)
         {
             bool result = true;
 
-            foreach (LocationCounter locationCounter in this.r_LocationCountersList)
+            foreach (PropertyCounter locationCounter in this.r_LocationCountersList)
             {
-                if (locationCounter.LocationName == i_CheckinToCheck.Place.Location.Country)
+                if (locationCounter.PropertyName == i_CheckinToCheck.Place.Location.Country)
                 {
                     result = false;
                     locationCounter.Counter++;
@@ -53,7 +54,61 @@ namespace Ex01.FacebookAppUI.Forms
                 }
             }
 
+            if (result)
+            {
+                io_UniquePropertyString = i_CheckinToCheck.Place.Location.Country;
+            }
+
             return result;
+        }
+
+        private bool checkIfFriendNotTaggedInPostCountersList(User i_FriendToCheck, ref string io_UniquePropertyString)
+        {
+            bool result = false;
+            PropertyCounter friendPropertyCounterPtr = getFriendCounterByName(i_FriendToCheck.Name);
+
+            foreach (Post post in this.m_LoggedInUser.Posts)
+            {
+                if (post.Message != null && post.Message.Contains(i_FriendToCheck.Name))
+                {
+                    friendPropertyCounterPtr.Counter++;
+                }
+            }
+
+            return result;
+        }
+
+        private PropertyCounter getFriendCounterByName(string i_FriendName)
+        {
+            PropertyCounter friendToFind = null;
+
+            foreach (PropertyCounter propertyCounter in this.r_FriendsTaggedInPostsCountersList)
+            {
+                if (propertyCounter.PropertyName == i_FriendName)
+                {
+                    friendToFind = propertyCounter;
+                    break;
+                }
+            }
+
+            return friendToFind;
+        }
+
+        // EVENTS
+        private void StatisticsForm_Load(object sender, System.EventArgs e)
+        {
+            if (!this.m_PieChartCheckinsDataLoadingComponent.LoadDataIntoPieChart())
+            {
+                MessageBox.Show(string.Format("{0}, you do not have any checkins!", this.m_LoggedInUser.FirstName));
+            }
+        }
+
+        private void tabPanel_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (!this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.LoadDataIntoPieChart())
+            {
+                MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
+            }
         }
     }
 }

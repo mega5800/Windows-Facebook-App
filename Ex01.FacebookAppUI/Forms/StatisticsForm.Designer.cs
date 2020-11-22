@@ -31,62 +31,87 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.statisticsPieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.statisticsPieChart)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.locationPieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPanel = new System.Windows.Forms.TabControl();
+            this.checkinTab = new System.Windows.Forms.TabPage();
+            this.friendsTab = new System.Windows.Forms.TabPage();
+            this.friendsTaggedInPostsPieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.locationPieChart)).BeginInit();
+            this.tabPanel.SuspendLayout();
+            this.checkinTab.SuspendLayout();
+            this.friendsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.friendsTaggedInPostsPieChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // statisticsPieChart
+            // locationPieChart
             // 
             chartArea1.Name = "ChartArea1";
-            this.statisticsPieChart.ChartAreas.Add(chartArea1);
-            this.statisticsPieChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.locationPieChart.ChartAreas.Add(chartArea1);
+            this.locationPieChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
-            this.statisticsPieChart.Legends.Add(legend1);
-            this.statisticsPieChart.Location = new System.Drawing.Point(0, 0);
-            this.statisticsPieChart.Name = "statisticsPieChart";
+            this.locationPieChart.Legends.Add(legend1);
+            this.locationPieChart.Location = new System.Drawing.Point(0, 0);
+            this.locationPieChart.Name = "locationPieChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
-            series1.Name = "statisticsPieChartInfo";
-            this.statisticsPieChart.Series.Add(series1);
-            this.statisticsPieChart.Size = new System.Drawing.Size(792, 424);
-            this.statisticsPieChart.TabIndex = 0;
-            this.statisticsPieChart.Text = "chart1";
+            series1.Name = "locationPieChartInfo";
+            this.locationPieChart.Series.Add(series1);
+            this.locationPieChart.Size = new System.Drawing.Size(792, 424);
+            this.locationPieChart.TabIndex = 0;
             // 
-            // tabControl1
+            // tabPanel
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
-            this.tabControl1.TabIndex = 0;
+            this.tabPanel.Controls.Add(this.checkinTab);
+            this.tabPanel.Controls.Add(this.friendsTab);
+            this.tabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPanel.Location = new System.Drawing.Point(0, 0);
+            this.tabPanel.Name = "tabPanel";
+            this.tabPanel.SelectedIndex = 0;
+            this.tabPanel.Size = new System.Drawing.Size(800, 450);
+            this.tabPanel.TabIndex = 0;
+            this.tabPanel.SelectedIndexChanged += new System.EventHandler(this.tabPanel_SelectedIndexChanged);
             // 
-            // tabPage1
+            // checkinTab
             // 
-            this.tabPage1.Controls.Add(this.statisticsPieChart);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.checkinTab.Controls.Add(this.locationPieChart);
+            this.checkinTab.Location = new System.Drawing.Point(4, 22);
+            this.checkinTab.Name = "checkinTab";
+            this.checkinTab.Size = new System.Drawing.Size(792, 424);
+            this.checkinTab.TabIndex = 0;
+            this.checkinTab.Text = "Checkins";
+            this.checkinTab.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // friendsTab
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(792, 424);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.friendsTab.Controls.Add(this.friendsTaggedInPostsPieChart);
+            this.friendsTab.Location = new System.Drawing.Point(4, 22);
+            this.friendsTab.Name = "friendsTab";
+            this.friendsTab.Size = new System.Drawing.Size(792, 424);
+            this.friendsTab.TabIndex = 0;
+            this.friendsTab.Text = "Friends";
+            this.friendsTab.UseVisualStyleBackColor = true;
+            // 
+            // friendsTaggedInPostsPieChart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.friendsTaggedInPostsPieChart.ChartAreas.Add(chartArea2);
+            this.friendsTaggedInPostsPieChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Name = "Legend1";
+            this.friendsTaggedInPostsPieChart.Legends.Add(legend2);
+            this.friendsTaggedInPostsPieChart.Location = new System.Drawing.Point(0, 0);
+            this.friendsTaggedInPostsPieChart.Name = "friendsTaggedInPostsPieChart";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "friendsTaggedInPostsPieChartInfo";
+            this.friendsTaggedInPostsPieChart.Series.Add(series2);
+            this.friendsTaggedInPostsPieChart.Size = new System.Drawing.Size(792, 424);
+            this.friendsTaggedInPostsPieChart.TabIndex = 0;
+            this.friendsTaggedInPostsPieChart.Text = "chart1";
             // 
             // StatisticsForm
             // 
@@ -94,22 +119,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabPanel);
             this.Name = "StatisticsForm";
             this.Text = "StatisticsForm";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.statisticsPieChart)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.locationPieChart)).EndInit();
+            this.tabPanel.ResumeLayout(false);
+            this.checkinTab.ResumeLayout(false);
+            this.friendsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.friendsTaggedInPostsPieChart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart statisticsPieChart;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart locationPieChart;
+        private System.Windows.Forms.TabControl tabPanel;
+        private System.Windows.Forms.TabPage checkinTab;
+        private System.Windows.Forms.TabPage friendsTab;
+        private System.Windows.Forms.DataVisualization.Charting.Chart friendsTaggedInPostsPieChart;
     }
 }
