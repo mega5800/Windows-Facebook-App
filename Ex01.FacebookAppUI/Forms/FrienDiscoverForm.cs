@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Ex01.FacebookAppUI.Forms
 {
@@ -13,6 +14,7 @@ namespace Ex01.FacebookAppUI.Forms
         private User m_LoggedInUser;
         private User m_ChosenFriendFirstDegree = null;
         private User m_ChosenFriendSecondDegree = null;
+        private Thread m_StartThread;
         private readonly Random r_RandomFactor;
         private readonly List<int> r_LoggedInUserFriendsIndexList;
         private readonly List<int> r_ChosenFriendFirstDegreeFriendsIndexList;
@@ -26,6 +28,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.r_RandomFactor = new Random();
             this.r_LoggedInUserFriendsIndexList = new List<int>();
+            this.m_StartThread = new Thread(new ThreadStart(pickFirstDegreeAndSecondDegreeFriends));
             this.r_ChosenFriendFirstDegreeFriendsIndexList = new List<int>();
         }
 
@@ -166,7 +169,7 @@ namespace Ex01.FacebookAppUI.Forms
         // EVENTS
         private void FrienDiscoverForm_Load(object sender, EventArgs e)
         {
-            pickFirstDegreeAndSecondDegreeFriends();
+            this.m_StartThread.Start();
         }
 
         private void getRandomPersonBtn_Click(object sender, EventArgs e)
