@@ -8,6 +8,7 @@ namespace Ex01.FacebookAppLogic.Classes
 
     public sealed class PieChartDataLoadingComponent<T>
     {
+        // ATTRIBUTES
         private Chart m_PieChart;
         private string m_PieChartTitle;
         private string m_PieChartId;
@@ -15,6 +16,7 @@ namespace Ex01.FacebookAppLogic.Classes
         private readonly List<PropertyCounter> r_PropertyCounterList;
         public event Func<T, string, bool> DuplicatePropertyCheckingMethodIsNeeded;
 
+        // CTOR
         public PieChartDataLoadingComponent(Chart i_PieChartToLoad, FacebookObjectCollection<T> i_FacebookObjectCollection,
             string i_PieChartTitle, List<PropertyCounter> i_PropertyCounterList, string i_PieChartId)
         {
@@ -25,6 +27,7 @@ namespace Ex01.FacebookAppLogic.Classes
             this.r_PropertyCounterList = i_PropertyCounterList;
         }
 
+        // PUBLIC METHODS
         public bool LoadDataIntoPieChart()
         {
             int i = 0;

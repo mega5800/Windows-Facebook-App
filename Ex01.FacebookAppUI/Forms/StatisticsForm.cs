@@ -7,6 +7,7 @@ namespace Ex01.FacebookAppUI.Forms
 {
     public partial class StatisticsForm : Form
     {
+        // ATTRIBUTES
         private User m_LoggedInUser;
         private bool m_IsSecondStatisticsLoaded = false;
         private readonly List<PropertyCounter> r_LocationCountersList;
@@ -14,6 +15,7 @@ namespace Ex01.FacebookAppUI.Forms
         private PieChartDataLoadingComponent<Checkin> m_PieChartCheckinsDataLoadingComponent;
         private PieChartDataLoadingComponent<User> m_PieChartFriendsTaggedInPostsDataLoadingComponent;
 
+        // CTOR
         public StatisticsForm()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.DuplicatePropertyCheckingMethodIsNeeded += checkIfFriendNotTaggedInPostCountersList;
         }
 
+        // PRIVATE METHODS
         private void fillFriendsTaggedInPostsCountersList()
         {
             foreach (User friend in this.m_LoggedInUser.Friends)
