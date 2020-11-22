@@ -73,7 +73,6 @@
             this.tabPanel.SelectedIndex = 0;
             this.tabPanel.Size = new System.Drawing.Size(800, 450);
             this.tabPanel.TabIndex = 0;
-            this.tabPanel.SelectedIndexChanged += new System.EventHandler(this.tabPanel_SelectedIndexChanged);
             // 
             // checkinTab
             // 

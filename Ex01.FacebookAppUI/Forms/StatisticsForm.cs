@@ -101,10 +101,6 @@ namespace Ex01.FacebookAppUI.Forms
             {
                 MessageBox.Show(string.Format("{0}, you do not have any checkins!", this.m_LoggedInUser.FirstName));
             }
-        }
-
-        private void tabPanel_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
             if (!this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.LoadDataIntoPieChart())
             {
                 MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
