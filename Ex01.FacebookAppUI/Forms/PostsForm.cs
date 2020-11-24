@@ -1,25 +1,25 @@
-﻿using Ex01.FacebookAppLogic.Classes;
-using Ex01.FacebookAppUI.Classes;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using Ex01.FacebookAppLogic.Classes;
+using Ex01.FacebookAppUI.Classes;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class PostsForm : Form
     {
         // ATTRIBUTES
+        private readonly Thread r_StartThread;
         private User m_LoggedInUser;
         private TextLoader<Post> m_TextLoader;
-        private Thread m_StartThread;
 
         // CTOR
         public PostsForm()
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
-            this.m_StartThread = new Thread(new ThreadStart(loadForm));
+            this.r_StartThread = new Thread(new ThreadStart(loadForm));
             this.m_TextLoader = new TextLoader<Post>(this.m_LoggedInUser.Posts, this.listBoxUserPosts, "{0}");
         }
 
@@ -39,7 +39,7 @@ namespace Ex01.FacebookAppUI.Forms
         // EVENTS
         private void PostsForm_Load(object sender, EventArgs e)
         {
-            this.m_StartThread.Start();
+            this.r_StartThread.Start();
         }
     }
 }

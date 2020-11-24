@@ -1,25 +1,25 @@
-﻿using Ex01.FacebookAppLogic.Classes;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
+using Ex01.FacebookAppLogic.Classes;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class FrienDiscoverForm : Form
     {
         // ATTRIBUTES
-        private User m_LoggedInUser;
-        private User m_ChosenFriendFirstDegree = null;
-        private User m_ChosenFriendSecondDegree = null;
-        private Thread m_StartThread;
+        private const string k_FirstFriendName = "The system selected your friend {0} to help find new friend!";
+        private const string k_FacebookUrl = "http://facebook.com/{0}";
+        private readonly Thread r_StartThread;
         private readonly Random r_RandomFactor;
         private readonly List<int> r_LoggedInUserFriendsIndexList;
         private readonly List<int> r_ChosenFriendFirstDegreeFriendsIndexList;
-        private const string k_FirstFriendName = "The system selected your friend {0} to help find new friend!";
-        private const string k_FacebookUrl = "http://facebook.com/{0}";
+        private User m_LoggedInUser;
+        private User m_ChosenFriendFirstDegree = null;
+        private User m_ChosenFriendSecondDegree = null;
 
         // CTOR
         public FrienDiscoverForm()
@@ -28,7 +28,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.r_RandomFactor = new Random();
             this.r_LoggedInUserFriendsIndexList = new List<int>();
-            this.m_StartThread = new Thread(new ThreadStart(pickFirstDegreeAndSecondDegreeFriends));
+            this.r_StartThread = new Thread(new ThreadStart(pickFirstDegreeAndSecondDegreeFriends));
             this.r_ChosenFriendFirstDegreeFriendsIndexList = new List<int>();
         }
 
@@ -50,18 +50,16 @@ namespace Ex01.FacebookAppUI.Forms
             fillUserFriendsIndexList(this.m_LoggedInUser, this.r_LoggedInUserFriendsIndexList);
             while (!isSecondDegreeRandomFriendSelected && this.r_LoggedInUserFriendsIndexList.Count > 0)
             {
-                firstDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_LoggedInUserFriendsIndexList,
-                    this.m_LoggedInUser, ref this.m_ChosenFriendFirstDegree);
+                firstDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_LoggedInUserFriendsIndexList, this.m_LoggedInUser, ref this.m_ChosenFriendFirstDegree);
                 fillUserFriendsIndexList(this.m_ChosenFriendFirstDegree, this.r_ChosenFriendFirstDegreeFriendsIndexList);
                 this.firstDegreeFriendNameLbl.Visible = true;
                 this.firstDegreeFriendNameLbl.Text = string.Format(k_FirstFriendName, this.m_ChosenFriendFirstDegree.Name);
                 while (!isSecondDegreeRandomFriendSelected && this.r_ChosenFriendFirstDegreeFriendsIndexList.Count > 0)
                 {
-                    secondDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_ChosenFriendFirstDegreeFriendsIndexList,
-                        this.m_ChosenFriendFirstDegree, ref this.m_ChosenFriendSecondDegree);
+                    secondDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_ChosenFriendFirstDegreeFriendsIndexList, this.m_ChosenFriendFirstDegree, ref this.m_ChosenFriendSecondDegree);
                     isSecondDegreeRandomFriendSelected = checkIfSecondDegreeRandomFriendIsNotLoggedInUser();
-                    if (!isSecondDegreeRandomFriendSelected || checkIfPotentialFriendIsAlreadyMyFriend())// you can disable checkIfPotentialFriendIsAlreadyMyFriend
-                    {                                                                                     // and see how the feature works!
+                    if (!isSecondDegreeRandomFriendSelected || checkIfPotentialFriendIsAlreadyMyFriend())
+                    {
                         this.r_ChosenFriendFirstDegreeFriendsIndexList.Remove(secondDegreeRandomFriendIndex);
                         this.m_ChosenFriendSecondDegree = null;
                     }
@@ -80,8 +78,7 @@ namespace Ex01.FacebookAppUI.Forms
                 setEmptyTextAndSetVisibleToFalse(this.newFriendAboutLbl);
                 setEmptyTextAndSetVisibleToFalse(this.newFriendAgeLbl);
                 setEmptyTextAndSetVisibleToFalse(this.newFriendNameLbl);
-                MessageBox.Show(string.Format("{0}, unfortunately the system couldn't find you a suitable new person to meet :("
-                    , this.m_LoggedInUser.FirstName));
+                MessageBox.Show(string.Format("{0}, unfortunately the system couldn't find you a suitable new person to meet :(", this.m_LoggedInUser.FirstName));
             }
             else
             {
@@ -91,7 +88,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void setEmptyTextAndSetVisibleToFalse(Label i_LabelToChangeProperties)
         {
-            i_LabelToChangeProperties.Text = "";
+            i_LabelToChangeProperties.Text = string.Empty;
             i_LabelToChangeProperties.Visible = false;
         }
 
@@ -127,13 +124,13 @@ namespace Ex01.FacebookAppUI.Forms
             return result;
         }
 
-        private int getRandomFriendIndexAndSetValuesToSelectedFriend(List<int> i_UserFriendChooserList, User i_UserFriendChooser, ref User i_ChosenFriendPointer)
+        private int getRandomFriendIndexAndSetValuesToSelectedFriend(List<int> i_UserFriendChooserList, User i_UserFriendChooser, ref User io_ChosenFriendPointer)
         {
             int randomFriendIndex = 0;
 
             randomFriendIndex = this.r_RandomFactor.Next(0, i_UserFriendChooserList.Count);
             randomFriendIndex = i_UserFriendChooserList[randomFriendIndex];
-            i_ChosenFriendPointer = i_UserFriendChooser.Friends[randomFriendIndex];
+            io_ChosenFriendPointer = i_UserFriendChooser.Friends[randomFriendIndex];
 
             return randomFriendIndex;
         }
@@ -146,7 +143,7 @@ namespace Ex01.FacebookAppUI.Forms
             }
             else
             {
-                Process.Start(string.Format(k_FacebookUrl, this.m_ChosenFriendSecondDegree.UserName));// cant get user name
+                Process.Start(string.Format(k_FacebookUrl, this.m_ChosenFriendSecondDegree.UserName));
             }   
         }
 
@@ -169,7 +166,7 @@ namespace Ex01.FacebookAppUI.Forms
         // EVENTS
         private void FrienDiscoverForm_Load(object sender, EventArgs e)
         {
-            this.m_StartThread.Start();
+            this.r_StartThread.Start();
         }
 
         private void getRandomPersonBtn_Click(object sender, EventArgs e)

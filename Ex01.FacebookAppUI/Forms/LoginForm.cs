@@ -1,25 +1,26 @@
-﻿using Ex01.FacebookAppLogic.Classes;
+﻿using System;
+using System.Windows.Forms;
+using Ex01.FacebookAppLogic.Classes;
 using Ex01.FacebookAppUI.Classes;
 using FacebookWrapper;
-using System;
-using System.Windows.Forms;
 
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class LoginForm : Form
     {
         // ATTRIBUTES
-        private LoginResult m_LoginResult;
-        private AppSettings m_AppSettings;
-        private MainForm m_MainFormToShow;
         private const string k_AppId = "359957661732863";
         private readonly string[] r_PermissionsArray = new string[]
         {
           "public_profile", "email", "user_birthday", "user_videos",
           "user_age_range", "user_gender", "user_link", "user_tagged_places",
           "user_friends", "user_events", "user_likes", "user_location",
-          "user_photos", "user_posts", "user_hometown"/*, "user_groups"*/
+          "user_photos", "user_posts", "user_hometown"
         };
+
+        private LoginResult m_LoginResult;
+        private AppSettings m_AppSettings;
+        private MainForm m_MainFormToShow;
 
         // CTOR
         public LoginForm()

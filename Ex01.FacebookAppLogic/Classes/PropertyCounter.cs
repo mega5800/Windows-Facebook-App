@@ -4,6 +4,7 @@
     {
         // ATTRIBUTES
         public string PropertyName { get; }
+
         public int Counter { get; set; }
 
         // CTOR

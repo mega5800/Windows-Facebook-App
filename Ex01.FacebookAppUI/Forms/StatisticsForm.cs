@@ -1,17 +1,17 @@
-﻿using Ex01.FacebookAppLogic.Classes;
-using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using Ex01.FacebookAppLogic.Classes;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class StatisticsForm : Form
     {
         // ATTRIBUTES
-        private User m_LoggedInUser;
-        private bool m_IsSecondStatisticsLoaded = false;
         private readonly List<PropertyCounter> r_LocationCountersList;
         private readonly List<PropertyCounter> r_FriendsTaggedInPostsCountersList;
+        private User m_LoggedInUser;
+        private bool m_IsSecondStatisticsLoaded = false;
         private PieChartDataLoadingComponent<Checkin> m_PieChartCheckinsDataLoadingComponent;
         private PieChartDataLoadingComponent<User> m_PieChartFriendsTaggedInPostsDataLoadingComponent;
 
@@ -21,17 +21,12 @@ namespace Ex01.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.r_LocationCountersList = new List<PropertyCounter>();
-
             this.r_FriendsTaggedInPostsCountersList = new List<PropertyCounter>();
             this.r_FriendsTaggedInPostsCountersList = new List<PropertyCounter>();
             fillFriendsTaggedInPostsCountersList();
-
-            this.m_PieChartCheckinsDataLoadingComponent = new PieChartDataLoadingComponent<Checkin>(this.locationPieChart
-                , this.m_LoggedInUser.Checkins, "Checkins location distribution", this.r_LocationCountersList, "locationPieChartInfo");
+            this.m_PieChartCheckinsDataLoadingComponent = new PieChartDataLoadingComponent<Checkin>(this.locationPieChart, this.m_LoggedInUser.Checkins, "Checkins location distribution", this.r_LocationCountersList, "locationPieChartInfo");
             this.m_PieChartCheckinsDataLoadingComponent.DuplicatePropertyCheckingMethodIsNeeded += checkIfLocationIsNotInLocationCountersList;
-
-            m_PieChartFriendsTaggedInPostsDataLoadingComponent = new PieChartDataLoadingComponent<User>(this.friendsTaggedInPostsPieChart,
-                this.m_LoggedInUser.Friends, "Friends tagged in posts distribution", this.r_FriendsTaggedInPostsCountersList, "friendsTaggedInPostsPieChartInfo");
+            m_PieChartFriendsTaggedInPostsDataLoadingComponent = new PieChartDataLoadingComponent<User>(this.friendsTaggedInPostsPieChart, this.m_LoggedInUser.Friends, "Friends tagged in posts distribution", this.r_FriendsTaggedInPostsCountersList, "friendsTaggedInPostsPieChartInfo");
             this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.DuplicatePropertyCheckingMethodIsNeeded += checkIfFriendNotTaggedInPostCountersList;
         }
 

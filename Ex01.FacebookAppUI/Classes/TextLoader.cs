@@ -1,6 +1,6 @@
-﻿using FacebookWrapper.ObjectModel;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.FacebookAppUI.Classes
 {
@@ -8,11 +8,11 @@ namespace Ex01.FacebookAppUI.Classes
     {
         // ATTRIBUTES
         private readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
+        private readonly string r_StringFormat;
         private ListBox m_ListBox;
         private PropertyInfo[] m_PropertyInfoArray;
         private object[] m_PropertyInfoObjectArray;
-        private readonly string r_StringFormat;
-
+        
         // CTOR
         public TextLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListBox i_ListBox, string i_StringFormat)
         {
@@ -37,7 +37,7 @@ namespace Ex01.FacebookAppUI.Classes
         }
 
         // PRIVATE METHODS
-        private void definePropertyInfoAndObjectArrays(string [] i_TextPropertiesArray)
+        private void definePropertyInfoAndObjectArrays(string[] i_TextPropertiesArray)
         {
             this.m_PropertyInfoArray = new PropertyInfo[i_TextPropertiesArray.Length];
             this.m_PropertyInfoObjectArray = new object[i_TextPropertiesArray.Length];

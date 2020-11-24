@@ -1,10 +1,10 @@
-﻿using Ex01.FacebookAppLogic.Classes;
+﻿using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+using Ex01.FacebookAppLogic.Classes;
 using Ex01.FacebookAppUI.Classes;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using System;
-using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace Ex01.FacebookAppUI.Forms
 {
@@ -41,7 +41,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void openFormInActivityPanel(Form i_FormToDisplay)
         {
-            this.m_LoggedInUser.ReFetch(); // solves the problem of showing out of date info while clicking again at any form
+            this.m_LoggedInUser.ReFetch();
             if (m_ActiveForm != null)
             {
                 m_ActiveForm.Close();
@@ -155,18 +155,17 @@ namespace Ex01.FacebookAppUI.Forms
             MessageBox.Show("Status posted successfully");
         }
 
-        // # placeholder textBox enabling methods # 
         private void statusTextBox_Enter(object sender, EventArgs e)
         {
             if (this.statusTextBox.Text == "-Post a Status-")
             {
-                this.statusTextBox.Text = "";
+                this.statusTextBox.Text = string.Empty;
             }
         }
 
         private void statusTextBox_Leave(object sender, EventArgs e)
         {
-            if (this.statusTextBox.Text.Trim() == "")
+            if (this.statusTextBox.Text.Trim() == string.Empty)
             {
                 this.statusTextBox.Text = "-Post a Status-";
             }

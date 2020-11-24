@@ -1,16 +1,16 @@
-﻿using Ex01.FacebookAppLogic.Classes;
+﻿using System.Threading;
+using System.Windows.Forms;
+using Ex01.FacebookAppLogic.Classes;
 using Ex01.FacebookAppUI.Classes;
 using FacebookWrapper.ObjectModel;
-using System.Threading;
-using System.Windows.Forms;
 
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class AlbumsForm : Form
     {
         // ATTRIBUTES
+        private readonly Thread r_StartThread;
         private User m_LoggedInUser;
-        private readonly Thread r_PopulateListViewThread;
         private ImageLoader<Album> m_ImageLoader;
         private SelectedAlbumForm m_SelectedAlbumForm;
 
@@ -20,7 +20,7 @@ namespace Ex01.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.m_ImageLoader = new ImageLoader<Album>(this.m_LoggedInUser.Albums, this.albumsListView);
-            this.r_PopulateListViewThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageAlbum", "Name"));
+            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageAlbum", "Name"));
         }
 
         // EVENTS
@@ -28,15 +28,13 @@ namespace Ex01.FacebookAppUI.Forms
         {
             int selectedItemIndex = albumsListView.SelectedItems[0].ImageIndex;
 
-            this.m_SelectedAlbumForm = new SelectedAlbumForm(this.m_LoggedInUser.Albums[selectedItemIndex].Photos
-                , this.m_LoggedInUser.Albums[selectedItemIndex].Name);
-
+            this.m_SelectedAlbumForm = new SelectedAlbumForm(this.m_LoggedInUser.Albums[selectedItemIndex].Photos, this.m_LoggedInUser.Albums[selectedItemIndex].Name);
             this.m_SelectedAlbumForm.ShowDialog();
         }
 
         private void AlbumsForm_Load(object sender, System.EventArgs e)
         {
-            this.r_PopulateListViewThread.Start();
+            this.r_StartThread.Start();
         }
     }
 }

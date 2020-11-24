@@ -55,7 +55,9 @@
   <ItemGroup>
     <Compile Include="Classes\AppSettings.cs" />
     <Compile Include="Classes\ImageLoader.cs" />
-    <Compile Include="Classes\PieChartDataLoadingComponent.cs" />
+    <Compile Include="Classes\PieChartDataLoadingComponent.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Classes\TextLoader.cs" />
     <Compile Include="Forms\AlbumsForm.cs">
       <SubType>Form</SubType>
@@ -65,6 +67,7 @@
     </Compile>
     <Compile Include="Forms\EventsForm.cs">
       <SubType>Form</SubType>
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Forms\EventsForm.Designer.cs">
       <DependentUpon>EventsForm.cs</DependentUpon>
