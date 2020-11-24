@@ -1,14 +1,14 @@
-﻿using FacebookWrapper.ObjectModel;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.FacebookAppUI.Classes
 {
     public sealed class ImageLoader<T>
     {
         // ATTRIBUTES
-        private readonly ImageList m_ImagesList;
+        private readonly ImageList r_ImagesList;
         private readonly Size r_PictureSize = new Size(100, 100);
         private readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
         private ListView m_ListView;
@@ -21,9 +21,9 @@ namespace Ex01.FacebookAppUI.Classes
         {
             this.r_FacebookObjectCollection = i_FacebookObjectCollection;
             this.m_ListView = i_ListView;
-            this.m_ImagesList = new ImageList();
-            this.m_ImagesList.ImageSize = r_PictureSize;
-            this.m_ImagesList.ColorDepth = ColorDepth.Depth32Bit;
+            this.r_ImagesList = new ImageList();
+            this.r_ImagesList.ImageSize = r_PictureSize;
+            this.r_ImagesList.ColorDepth = ColorDepth.Depth32Bit;
         }
 
         // PUBLIC METHODS
@@ -39,10 +39,10 @@ namespace Ex01.FacebookAppUI.Classes
             foreach (T item in this.r_FacebookObjectCollection)
             {
                 setReflectionResultIntoPropertyInfoObject(item, i_ImageProperty);
-                this.m_ImagesList.Images.Add((Image)this.m_PropertyInfoObject);
+                this.r_ImagesList.Images.Add((Image)this.m_PropertyInfoObject);
             }
 
-            this.m_ListView.LargeImageList = this.m_ImagesList;
+            this.m_ListView.LargeImageList = this.r_ImagesList;
         }
 
         private void loadTexts(string i_TextProperty)

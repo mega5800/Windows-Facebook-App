@@ -7,20 +7,9 @@ namespace Ex01.FacebookAppUI.Classes
     public sealed class AppSettings
     {
         // ATTRIBUTES
+        private const string k_XmlFilePath = @"C:\Users\mega5\Desktop\Projects\A21 Ex01 Sharon 323600296 Tomer 205972946\appSettings.xml";
         private static readonly object sr_LockContext = new object();
         private static AppSettings s_Instance = null;
-        public Point LastWindowLocation { get; set; }
-        public bool RememberUser { get; set; }
-        public string LastAccessToken { get; set; }
-        private const string k_XmlFilePath = @"C:\Users\mega5\Desktop\Projects\A21 Ex01 Sharon 323600296 Tomer 205972946\appSettings.xml";
-
-        // CTOR
-        private AppSettings()
-        {
-            this.LastWindowLocation = new Point(100,100);
-            this.RememberUser = false;
-            this.LastAccessToken = null;
-        }
 
         // PROPERTIES
         public static AppSettings Instance
@@ -40,6 +29,20 @@ namespace Ex01.FacebookAppUI.Classes
 
                 return s_Instance;
             }
+        }
+
+        public Point LastWindowLocation { get; set; }
+
+        public bool RememberUser { get; set; }
+
+        public string LastAccessToken { get; set; }
+
+        // CTOR
+        private AppSettings()
+        {
+            this.LastWindowLocation = new Point(100, 100);
+            this.RememberUser = false;
+            this.LastAccessToken = null;
         }
 
         // PUBLIC METHODS

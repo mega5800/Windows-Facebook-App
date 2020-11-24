@@ -1,25 +1,25 @@
-﻿using Ex01.FacebookAppLogic.Classes;
-using Ex01.FacebookAppUI.Classes;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using Ex01.FacebookAppLogic.Classes;
+using Ex01.FacebookAppUI.Classes;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class GroupsForm : Form
     {
         // ATTRIBUTES
+        private readonly Thread r_StartThread;
         private User m_LoggedInUser;
         private TextLoader<Group> m_TextLoader;
-        private Thread m_StartThread;
 
         // CTOR
         public GroupsForm()
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
-            this.m_StartThread = new Thread(new ThreadStart(loadForm));
+            this.r_StartThread = new Thread(new ThreadStart(loadForm));
             this.m_TextLoader = new TextLoader<Group>(this.m_LoggedInUser.Groups, this.listBoxUserGroups, "Name: {0} | Description: {1}");
         }
 
@@ -39,7 +39,7 @@ namespace Ex01.FacebookAppUI.Forms
         // EVENTS
         private void GroupsForm_Load(object sender, EventArgs e)
         {
-            this.m_StartThread.Start();
+            this.r_StartThread.Start();
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using FacebookWrapper.ObjectModel;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.Threading;
+using FacebookWrapper.ObjectModel;
 using Ex01.FacebookAppLogic.Classes;
 using Ex01.FacebookAppUI.Classes;
 
@@ -9,8 +9,8 @@ namespace Ex01.FacebookAppUI.Forms
     public partial class FriendsForm : Form
     {
         // ATTRIBUTES
+        private readonly Thread r_StartThread;
         private User m_LoggedInUser;
-        private readonly Thread r_PopulateListViewThread;
         private ImageLoader<User> m_ImageLoader;
 
         // CTOR
@@ -19,13 +19,13 @@ namespace Ex01.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.m_ImageLoader = new ImageLoader<User>(this.m_LoggedInUser.Friends, this.friendsListView);
-            this.r_PopulateListViewThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageLarge", "Name"));
+            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageLarge", "Name"));
         }
 
         // PRIVATE METHODS
         private void FriendsForm_Load(object sender, System.EventArgs e)
         {
-            this.r_PopulateListViewThread.Start();
+            this.r_StartThread.Start();
         }
     }
 }

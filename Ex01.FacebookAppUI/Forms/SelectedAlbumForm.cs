@@ -1,15 +1,15 @@
-﻿using Ex01.FacebookAppUI.Classes;
-using FacebookWrapper.ObjectModel;
-using System.Threading;
+﻿using System.Threading;
 using System.Windows.Forms;
+using Ex01.FacebookAppUI.Classes;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex01.FacebookAppUI.Forms
 {
     public partial class SelectedAlbumForm : Form
     {
         // ATTRIBUTES
+        private readonly Thread r_StartThread;
         private string m_AlbumName;
-        private readonly Thread r_PopulateListViewThread;
         private FacebookObjectCollection<Photo> m_PhotosAlbum;
         private ImageLoader<Photo> m_ImageLoader;
         
@@ -20,7 +20,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_PhotosAlbum = i_PhotosAlbum;
             this.m_AlbumName = i_AlbumName;
             this.m_ImageLoader = new ImageLoader<Photo>(this.m_PhotosAlbum, this.selectedAlbumlistView);
-            this.r_PopulateListViewThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageAlbum", "Name"));
+            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageAlbum", "Name"));
         }
 
         // EVENTS
@@ -28,7 +28,7 @@ namespace Ex01.FacebookAppUI.Forms
         {
             CenterToScreen();
             this.Text = m_AlbumName;
-            this.r_PopulateListViewThread.Start();
+            this.r_StartThread.Start();
         }
     }
 }
