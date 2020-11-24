@@ -19,11 +19,11 @@ namespace Ex01.FacebookAppUI.Classes
 
             if (appSettings.RememberUser && !string.IsNullOrEmpty(appSettings.LastAccessToken))
             {
-                startingFormPointer = new MainForm(appSettings);
+                startingFormPointer = new MainForm();
             }
             else
             {
-                startingFormPointer = new LoginForm(appSettings);
+                startingFormPointer = new LoginForm();
             }
 
             Application.Run(startingFormPointer);

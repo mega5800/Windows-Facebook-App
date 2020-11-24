@@ -22,10 +22,10 @@ namespace Ex01.FacebookAppUI.Forms
         };
 
         // CTOR
-        public LoginForm(AppSettings i_AppSettings)
+        public LoginForm()
         {
             InitializeComponent();
-            this.m_AppSettings = i_AppSettings;
+            this.m_AppSettings = AppSettings.Instance;
         }
 
         // PRIVATE METHODS
@@ -46,7 +46,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void showMainForm()
         {
-            this.m_MainFormToShow = new MainForm(this.m_AppSettings);
+            this.m_MainFormToShow = new MainForm();
             this.Hide();
             this.m_MainFormToShow.ShowDialog();
             this.Close();
