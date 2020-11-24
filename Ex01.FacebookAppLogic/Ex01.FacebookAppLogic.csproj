@@ -36,7 +36,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\LoggedInUser.cs" />
-    <Compile Include="Classes\PieChartDataLoadingComponent.cs" />
     <Compile Include="Classes\PropertyCounter.cs" />
   </ItemGroup>
   <ItemGroup>

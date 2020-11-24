@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.topPanel = new System.Windows.Forms.Panel();
+            this.checkBoxRememberUser = new System.Windows.Forms.CheckBox();
             this.postStatusButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.statusTextBox = new System.Windows.Forms.TextBox();
@@ -54,6 +55,7 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.topPanel.Controls.Add(this.checkBoxRememberUser);
             this.topPanel.Controls.Add(this.postStatusButton);
             this.topPanel.Controls.Add(this.statusLabel);
             this.topPanel.Controls.Add(this.statusTextBox);
@@ -65,6 +67,17 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(684, 140);
             this.topPanel.TabIndex = 0;
+            // 
+            // checkBoxRememberUser
+            // 
+            this.checkBoxRememberUser.AutoSize = true;
+            this.checkBoxRememberUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.checkBoxRememberUser.Location = new System.Drawing.Point(470, 18);
+            this.checkBoxRememberUser.Name = "checkBoxRememberUser";
+            this.checkBoxRememberUser.Size = new System.Drawing.Size(117, 20);
+            this.checkBoxRememberUser.TabIndex = 10;
+            this.checkBoxRememberUser.Text = "Remember me";
+            this.checkBoxRememberUser.UseVisualStyleBackColor = true;
             // 
             // postStatusButton
             // 
@@ -339,9 +352,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Main Page";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
@@ -369,5 +381,6 @@
         private System.Windows.Forms.Button likedPagesBtn;
         private System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.Button frienDiscoverBtn;
+        private System.Windows.Forms.CheckBox checkBoxRememberUser;
     }
 }

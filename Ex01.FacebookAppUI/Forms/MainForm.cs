@@ -1,6 +1,9 @@
 ﻿using Ex01.FacebookAppLogic.Classes;
+using Ex01.FacebookAppUI.Classes;
+using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Ex01.FacebookAppUI.Forms
@@ -10,12 +13,15 @@ namespace Ex01.FacebookAppUI.Forms
         // ATTRIBUTES
         private Form m_ActiveForm = null;
         private User m_LoggedInUser;
+        private AppSettings m_AppSettings;
 
         // CTOR
-        public MainForm()
+        public MainForm(AppSettings i_AppSettings)
         {
             InitializeComponent();
+            this.m_AppSettings = i_AppSettings;
             this.m_LoggedInUser = LoggedInUser.Instance;
+            fetchAppSettingsInfo();
         }
 
         // PRIVATE METHODS
@@ -25,6 +31,12 @@ namespace Ex01.FacebookAppUI.Forms
             this.profilePictureBox.LoadAsync(this.m_LoggedInUser.PictureNormalURL);
             this.statusLabel.Text = string.Format("What's on your mind {0}?", m_LoggedInUser.FirstName);
             this.statusTextBox.Text = "-Post a Status-";
+        }
+
+        private void fetchAppSettingsInfo()
+        {
+            this.Location = this.m_AppSettings.LastWindowLocation;
+            this.checkBoxRememberUser.Checked = this.m_AppSettings.RememberUser;
         }
 
         private void openFormInActivityPanel(Form i_FormToDisplay)
@@ -58,9 +70,42 @@ namespace Ex01.FacebookAppUI.Forms
         }
 
         // EVENTS
-        private void MainForm_Load(object sender, EventArgs e)
+        protected override void OnShown(EventArgs e)
         {
+            base.OnShown(e);
+            if (this.m_AppSettings.RememberUser && !string.IsNullOrEmpty(this.m_AppSettings.LastAccessToken))
+            {
+                LoginResult loginResult = FacebookService.Connect(this.m_AppSettings.LastAccessToken);
+                LoggedInUser.ConvertToLoggedInUserObject(ref loginResult);
+                this.m_LoggedInUser = LoggedInUser.Instance;
+            }
+
             fetchUserInfo();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            closingFormActions();
+        }
+
+        private void closingFormActions()
+        {
+            this.m_AppSettings.LastWindowLocation = this.Location;
+            this.m_AppSettings.RememberUser = this.checkBoxRememberUser.Checked;
+            if (!this.m_AppSettings.RememberUser)
+            {
+                this.m_AppSettings.LastAccessToken = null;
+            }
+
+            this.m_AppSettings.SaveToFile();
+        }
+
+        private void logoutBtnActions()
+        {
+            LoginForm loginForm = new LoginForm(this.m_AppSettings);
+            this.Dispose();
+            loginForm.ShowDialog();
         }
 
         private void postsBtn_Click(object sender, EventArgs e)
@@ -129,9 +174,8 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            this.Dispose();
-            loginForm.ShowDialog();
+            closingFormActions();
+            logoutBtnActions();
         }
     }
 }
