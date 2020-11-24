@@ -47,10 +47,13 @@ namespace Ex01.FacebookAppLogic.Classes
                 this.m_PieChart.Titles.Add(this.m_PieChartTitle);
                 foreach (PropertyCounter locationCounter in this.r_PropertyCounterList)
                 {
-                    propertyNameAndCounterStringFormat = string.Format("{0} - {1}", locationCounter.PropertyName, locationCounter.Counter);
-                    this.m_PieChart.Series[this.m_PieChartId].Points.AddXY(propertyNameAndCounterStringFormat, locationCounter.Counter);
-                    this.m_PieChart.Series[this.m_PieChartId].Points[i].LegendText = locationCounter.PropertyName;
-                    i++;
+                    if (locationCounter.Counter != 0)
+                    {
+                        propertyNameAndCounterStringFormat = string.Format("{0} - {1}", locationCounter.PropertyName, locationCounter.Counter);
+                        this.m_PieChart.Series[this.m_PieChartId].Points.AddXY(propertyNameAndCounterStringFormat, locationCounter.Counter);
+                        this.m_PieChart.Series[this.m_PieChartId].Points[i].LegendText = locationCounter.PropertyName;
+                        i++;
+                    }
                 }
             }
             else

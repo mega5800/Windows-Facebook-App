@@ -16,10 +16,10 @@ namespace Ex01.FacebookAppUI.Forms
         private AppSettings m_AppSettings;
 
         // CTOR
-        public MainForm(AppSettings i_AppSettings)
+        public MainForm()
         {
             InitializeComponent();
-            this.m_AppSettings = i_AppSettings;
+            this.m_AppSettings = AppSettings.Instance;
             this.m_LoggedInUser = LoggedInUser.Instance;
             fetchAppSettingsInfo();
         }
@@ -103,7 +103,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void logoutBtnActions()
         {
-            LoginForm loginForm = new LoginForm(this.m_AppSettings);
+            LoginForm loginForm = new LoginForm();
             this.Dispose();
             loginForm.ShowDialog();
         }
