@@ -1,4 +1,5 @@
 ﻿using Ex01.FacebookAppLogic.Classes;
+using Ex01.FacebookAppUI.Classes;
 using FacebookWrapper;
 using System;
 using System.Windows.Forms;
@@ -9,6 +10,7 @@ namespace Ex01.FacebookAppUI.Forms
     {
         // ATTRIBUTES
         private LoginResult m_LoginResult;
+        private AppSettings m_AppSettings;
         private MainForm m_MainFormToShow;
         private const string k_AppId = "359957661732863";
         private readonly string[] r_PermissionsArray = new string[]
@@ -20,9 +22,10 @@ namespace Ex01.FacebookAppUI.Forms
         };
 
         // CTOR
-        public LoginForm()
+        public LoginForm(AppSettings i_AppSettings)
         {
             InitializeComponent();
+            this.m_AppSettings = i_AppSettings;
         }
 
         // PRIVATE METHODS
@@ -31,6 +34,7 @@ namespace Ex01.FacebookAppUI.Forms
             this.m_LoginResult = FacebookService.Login(k_AppId, r_PermissionsArray);
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
+                this.m_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
                 LoggedInUser.ConvertToLoggedInUserObject(ref m_LoginResult);
                 showMainForm();
             }
@@ -42,7 +46,7 @@ namespace Ex01.FacebookAppUI.Forms
 
         private void showMainForm()
         {
-            this.m_MainFormToShow = new MainForm();
+            this.m_MainFormToShow = new MainForm(this.m_AppSettings);
             this.Hide();
             this.m_MainFormToShow.ShowDialog();
             this.Close();

@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AppSettings.cs" />
     <Compile Include="Classes\ImageLoader.cs" />
+    <Compile Include="Classes\PieChartDataLoadingComponent.cs" />
     <Compile Include="Classes\TextLoader.cs" />
     <Compile Include="Forms\AlbumsForm.cs">
       <SubType>Form</SubType>

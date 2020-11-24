@@ -1,22 +1,32 @@
 ﻿using Ex01.FacebookAppUI.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace Ex01.FacebookAppUI
+namespace Ex01.FacebookAppUI.Classes
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
+            Form startingFormPointer = null;
+            AppSettings appSettings = AppSettings.Instance;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+
+            if (appSettings.RememberUser && !string.IsNullOrEmpty(appSettings.LastAccessToken))
+            {
+                startingFormPointer = new MainForm(appSettings);
+            }
+            else
+            {
+                startingFormPointer = new LoginForm(appSettings);
+            }
+
+            Application.Run(startingFormPointer);
         }
     }
 }
