@@ -2,7 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 
-namespace Ex01.FacebookAppUI.Classes
+namespace Ex02.FacebookAppUI.Classes
 {
     public sealed class AppSettings
     {

@@ -1,4 +1,4 @@
-﻿namespace Ex01.FacebookAppUI.Forms
+﻿namespace Ex02.FacebookAppUI.Forms
 {
     partial class PostsForm
     {

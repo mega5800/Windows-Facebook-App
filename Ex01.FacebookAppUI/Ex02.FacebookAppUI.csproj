@@ -206,9 +206,9 @@
     <None Include="Resources\group1Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex01.FacebookAppLogic\Ex01.FacebookAppLogic.csproj">
+    <ProjectReference Include="..\Ex01.FacebookAppLogic\Ex02.FacebookAppLogic.csproj">
       <Project>{0aedee59-40f1-4329-9721-211ae4b242d2}</Project>
-      <Name>Ex01.FacebookAppLogic</Name>
+      <Name>Ex02.FacebookAppLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

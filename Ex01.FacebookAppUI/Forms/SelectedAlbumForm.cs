@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Windows.Forms;
-using Ex01.FacebookAppUI.Classes;
+using Ex02.FacebookAppUI.Classes;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.FacebookAppUI.Forms
+namespace Ex02.FacebookAppUI.Forms
 {
     public partial class SelectedAlbumForm : Form
     {

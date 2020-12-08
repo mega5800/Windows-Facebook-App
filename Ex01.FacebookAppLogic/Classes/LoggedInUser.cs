@@ -1,7 +1,7 @@
 ﻿using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.FacebookAppLogic.Classes
+namespace Ex02.FacebookAppLogic.Classes
 {
     public sealed class LoggedInUser
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
-using Ex01.FacebookAppLogic.Classes;
+using Ex02.FacebookAppLogic.Classes;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.FacebookAppUI.Forms
+namespace Ex02.FacebookAppUI.Forms
 {
     public partial class FrienDiscoverForm : Form
     {

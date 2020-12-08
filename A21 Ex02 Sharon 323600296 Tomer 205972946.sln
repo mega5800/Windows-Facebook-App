@@ -3,13 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01.FacebookAppUI", "Ex01.FacebookAppUI\Ex01.FacebookAppUI.csproj", "{D5B4CF28-FDC3-4875-907A-2BFC70347913}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex02.FacebookAppUI", "Ex01.FacebookAppUI\Ex02.FacebookAppUI.csproj", "{D5B4CF28-FDC3-4875-907A-2BFC70347913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex01.FacebookAppLogic", "Ex01.FacebookAppLogic\Ex01.FacebookAppLogic.csproj", "{0AEDEE59-40F1-4329-9721-211AE4B242D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex02.FacebookAppLogic", "Ex01.FacebookAppLogic\Ex02.FacebookAppLogic.csproj", "{0AEDEE59-40F1-4329-9721-211AE4B242D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B5D0CCED-6129-433A-A458-FB0DBB358542}"
 	ProjectSection(SolutionItems) = preProject
-		A21 Ex01 Sharon 323600296 Tomer 205972946.docx = A21 Ex01 Sharon 323600296 Tomer 205972946.docx
 		Exercise Checking Report.txt = Exercise Checking Report.txt
 	EndProjectSection
 EndProject

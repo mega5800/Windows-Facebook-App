@@ -2,7 +2,7 @@
 using System.Windows.Forms.DataVisualization.Charting;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.FacebookAppLogic.Classes
+namespace Ex02.FacebookAppLogic.Classes
 {
     public delegate R Func<T, T1, R>(T i_ItemToCheck, ref T1 io_UniqueItem);
 
