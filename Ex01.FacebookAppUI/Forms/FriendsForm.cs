@@ -1,10 +1,10 @@
 ﻿using System.Windows.Forms;
 using System.Threading;
 using FacebookWrapper.ObjectModel;
-using Ex01.FacebookAppLogic.Classes;
-using Ex01.FacebookAppUI.Classes;
+using Ex02.FacebookAppLogic.Classes;
+using Ex02.FacebookAppUI.Classes;
 
-namespace Ex01.FacebookAppUI.Forms
+namespace Ex02.FacebookAppUI.Forms
 {
     public partial class FriendsForm : Form
     {

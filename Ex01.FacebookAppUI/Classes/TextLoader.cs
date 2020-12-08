@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex01.FacebookAppUI.Classes
+namespace Ex02.FacebookAppUI.Classes
 {
     public sealed class TextLoader<T>
     {

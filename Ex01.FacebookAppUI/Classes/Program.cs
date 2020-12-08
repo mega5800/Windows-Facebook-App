@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using Ex01.FacebookAppUI.Forms;
+using Ex02.FacebookAppUI.Forms;
 
-namespace Ex01.FacebookAppUI.Classes
+namespace Ex02.FacebookAppUI.Classes
 {
     public static class Program
     {
