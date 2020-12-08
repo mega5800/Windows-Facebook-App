@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D5B4CF28-FDC3-4875-907A-2BFC70347913}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ex01.FacebookAppUI</RootNamespace>
-    <AssemblyName>Ex01.FacebookAppUI</AssemblyName>
+    <RootNamespace>Ex02.FacebookAppUI</RootNamespace>
+    <AssemblyName>Ex02.FacebookAppUI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -206,7 +206,7 @@
     <None Include="Resources\group1Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex01.FacebookAppLogic\Ex02.FacebookAppLogic.csproj">
+    <ProjectReference Include="..\Ex02.FacebookAppLogic\Ex02.FacebookAppLogic.csproj">
       <Project>{0aedee59-40f1-4329-9721-211ae4b242d2}</Project>
       <Name>Ex02.FacebookAppLogic</Name>
     </ProjectReference>

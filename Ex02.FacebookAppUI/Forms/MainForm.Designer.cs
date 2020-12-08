@@ -126,8 +126,8 @@
             // 
             // profilePictureBox
             // 
-            this.profilePictureBox.ErrorImage = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
-            this.profilePictureBox.Image = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
+            this.profilePictureBox.ErrorImage = global::Ex02.FacebookAppUI.Properties.Resources.facebookIcon;
+            this.profilePictureBox.Image = global::Ex02.FacebookAppUI.Properties.Resources.facebookIcon;
             this.profilePictureBox.InitialImage = null;
             this.profilePictureBox.Location = new System.Drawing.Point(0, 0);
             this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
@@ -162,7 +162,7 @@
             this.logoutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.logoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.logoutBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.logoutIcon;
+            this.logoutBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.logoutIcon;
             this.logoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutBtn.Location = new System.Drawing.Point(0, 480);
             this.logoutBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -181,7 +181,7 @@
             this.statisticsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.statisticsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.statisticsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.statisticsBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.pieChartIcon;
+            this.statisticsBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.pieChartIcon;
             this.statisticsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.statisticsBtn.Location = new System.Drawing.Point(0, 420);
             this.statisticsBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -200,7 +200,7 @@
             this.frienDiscoverBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.frienDiscoverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.frienDiscoverBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.frienDiscoverBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.newFriendIcon;
+            this.frienDiscoverBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.newFriendIcon;
             this.frienDiscoverBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.frienDiscoverBtn.Location = new System.Drawing.Point(0, 360);
             this.frienDiscoverBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -220,7 +220,7 @@
             this.eventsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.eventsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eventsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.eventsBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.eventIcon;
+            this.eventsBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.eventIcon;
             this.eventsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.eventsBtn.Location = new System.Drawing.Point(0, 300);
             this.eventsBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -239,7 +239,7 @@
             this.albumsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.albumsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.albumsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.albumsBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.albumIcon;
+            this.albumsBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.albumIcon;
             this.albumsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.albumsBtn.Location = new System.Drawing.Point(0, 240);
             this.albumsBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -258,7 +258,7 @@
             this.groupsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.groupsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.groupsBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.group1Icon;
+            this.groupsBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.group1Icon;
             this.groupsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.groupsBtn.Location = new System.Drawing.Point(0, 180);
             this.groupsBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -277,7 +277,7 @@
             this.friendsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.friendsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.friendsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.friendsBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.friendIcon1;
+            this.friendsBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.friendIcon1;
             this.friendsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.friendsBtn.Location = new System.Drawing.Point(0, 120);
             this.friendsBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -315,7 +315,7 @@
             this.postsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
             this.postsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.postsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.postsBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.postIcon;
+            this.postsBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.postIcon;
             this.postsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.postsBtn.Location = new System.Drawing.Point(0, 0);
             this.postsBtn.Margin = new System.Windows.Forms.Padding(4);

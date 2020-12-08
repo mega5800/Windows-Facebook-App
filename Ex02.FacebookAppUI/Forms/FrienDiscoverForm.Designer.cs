@@ -59,7 +59,7 @@
             this.goToRandomPersonProfileBtn.FlatAppearance.BorderSize = 0;
             this.goToRandomPersonProfileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goToRandomPersonProfileBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.goToRandomPersonProfileBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.loveIcon;
+            this.goToRandomPersonProfileBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.loveIcon;
             this.goToRandomPersonProfileBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.goToRandomPersonProfileBtn.Location = new System.Drawing.Point(202, 0);
             this.goToRandomPersonProfileBtn.Name = "goToRandomPersonProfileBtn";
@@ -76,7 +76,7 @@
             this.getRandomPersonBtn.FlatAppearance.BorderSize = 0;
             this.getRandomPersonBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.getRandomPersonBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.getRandomPersonBtn.Image = global::Ex01.FacebookAppUI.Properties.Resources.randomIcon;
+            this.getRandomPersonBtn.Image = global::Ex02.FacebookAppUI.Properties.Resources.randomIcon;
             this.getRandomPersonBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.getRandomPersonBtn.Location = new System.Drawing.Point(0, 0);
             this.getRandomPersonBtn.Name = "getRandomPersonBtn";

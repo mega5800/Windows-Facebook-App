@@ -49,8 +49,8 @@
             // 
             // facebookLogoPicture
             // 
-            this.facebookLogoPicture.ErrorImage = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
-            this.facebookLogoPicture.Image = global::Ex01.FacebookAppUI.Properties.Resources.facebookIcon;
+            this.facebookLogoPicture.ErrorImage = global::Ex02.FacebookAppUI.Properties.Resources.facebookIcon;
+            this.facebookLogoPicture.Image = global::Ex02.FacebookAppUI.Properties.Resources.facebookIcon;
             this.facebookLogoPicture.InitialImage = null;
             this.facebookLogoPicture.Location = new System.Drawing.Point(0, 0);
             this.facebookLogoPicture.Margin = new System.Windows.Forms.Padding(4);

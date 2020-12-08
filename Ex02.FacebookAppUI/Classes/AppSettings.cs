@@ -7,7 +7,7 @@ namespace Ex02.FacebookAppUI.Classes
     public sealed class AppSettings
     {
         // ATTRIBUTES
-        private const string k_XmlFilePath = @"C:\Users\mega5\Desktop\Projects\A21 Ex01 Sharon 323600296 Tomer 205972946\appSettings.xml";
+        private const string k_XmlFilePath = @"C:\Users\mega5\Desktop\Projects\A21 Ex02 Sharon 323600296 Tomer 205972946\appSettings.xml";
         private static readonly object sr_LockContext = new object();
         private static AppSettings s_Instance = null;
 
