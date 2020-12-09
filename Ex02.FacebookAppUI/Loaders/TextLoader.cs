@@ -2,27 +2,31 @@
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex02.FacebookAppUI.Classes
+namespace Ex02.FacebookAppUI.Loaders
 {
-    public sealed class TextLoader<T>
+    public sealed class TextLoader<T> : Loader<T>
     {
         // ATTRIBUTES
-        private readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
         private readonly string r_StringFormat;
         private ListBox m_ListBox;
         private PropertyInfo[] m_PropertyInfoArray;
         private object[] m_PropertyInfoObjectArray;
         
         // CTOR
-        public TextLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListBox i_ListBox, string i_StringFormat)
+        public TextLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListBox i_ListBox, string i_StringFormat) : base(i_FacebookObjectCollection)
         {
-            this.r_FacebookObjectCollection = i_FacebookObjectCollection;
             this.m_ListBox = i_ListBox;
             this.r_StringFormat = i_StringFormat;
         }
 
         // PUBLIC METHODS
-        public void LoadTextProperty(params string[] i_TextPropertiesArray)
+        /*public void LoadTextProperty(params string[] i_TextPropertiesArray)
+        {
+            
+        }*/
+
+        // PROTECTED METHODS
+        protected internal override void LoadProperties(params string[] i_TextPropertiesArray)
         {
             definePropertyInfoAndObjectArrays(i_TextPropertiesArray);
             foreach (T item in this.r_FacebookObjectCollection)

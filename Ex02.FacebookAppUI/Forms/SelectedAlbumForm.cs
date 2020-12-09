@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Windows.Forms;
-using Ex02.FacebookAppUI.Classes;
+using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex02.FacebookAppUI.Forms
@@ -11,7 +11,7 @@ namespace Ex02.FacebookAppUI.Forms
         private readonly Thread r_StartThread;
         private string m_AlbumName;
         private FacebookObjectCollection<Photo> m_PhotosAlbum;
-        private ImageLoader<Photo> m_ImageLoader;
+        private Loader<Photo> m_ImageLoader;
         
         // CTOR
         public SelectedAlbumForm(FacebookObjectCollection<Photo> i_PhotosAlbum, string i_AlbumName)
@@ -20,7 +20,7 @@ namespace Ex02.FacebookAppUI.Forms
             this.m_PhotosAlbum = i_PhotosAlbum;
             this.m_AlbumName = i_AlbumName;
             this.m_ImageLoader = new ImageLoader<Photo>(this.m_PhotosAlbum, this.selectedAlbumlistView);
-            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageAlbum", "Name"));
+            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name"));
         }
 
         // EVENTS

@@ -2,7 +2,7 @@
 using System.Threading;
 using FacebookWrapper.ObjectModel;
 using Ex02.FacebookAppLogic.Classes;
-using Ex02.FacebookAppUI.Classes;
+using Ex02.FacebookAppUI.Loaders;
 
 namespace Ex02.FacebookAppUI.Forms
 {
@@ -11,7 +11,7 @@ namespace Ex02.FacebookAppUI.Forms
         // ATTRIBUTES
         private readonly Thread r_StartThread;
         private User m_LoggedInUser;
-        private ImageLoader<User> m_ImageLoader;
+        private Loader<User> m_ImageLoader;
 
         // CTOR
         public FriendsForm()
@@ -19,7 +19,7 @@ namespace Ex02.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.m_ImageLoader = new ImageLoader<User>(this.m_LoggedInUser.Friends, this.friendsListView);
-            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadImageAndTextProperties("ImageLarge", "Name"));
+            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadProperties("ImageLarge", "Name"));
         }
 
         // PRIVATE METHODS

@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Windows.Forms;
 using Ex02.FacebookAppLogic.Classes;
-using Ex02.FacebookAppUI.Classes;
+using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex02.FacebookAppUI.Forms
@@ -12,7 +12,7 @@ namespace Ex02.FacebookAppUI.Forms
         // ATTRIBUTES
         private readonly Thread r_StartThread;
         private User m_LoggedInUser;
-        private TextLoader<Page> m_TextLoader;
+        private Loader<Page> m_TextLoader;
 
         // CTOR
         public LikedPagesForm()
@@ -28,7 +28,7 @@ namespace Ex02.FacebookAppUI.Forms
         {
             if (this.m_LoggedInUser.LikedPages.Count != 0)
             {
-                this.m_TextLoader.LoadTextProperty("Name", "Description");
+                this.m_TextLoader.LoadProperties("Name", "Description");
             }
             else
             {

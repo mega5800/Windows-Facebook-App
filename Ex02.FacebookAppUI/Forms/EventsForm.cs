@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Windows.Forms;
 using Ex02.FacebookAppLogic.Classes;
-using Ex02.FacebookAppUI.Classes;
+using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex02.FacebookAppUI.Forms
@@ -11,7 +11,7 @@ namespace Ex02.FacebookAppUI.Forms
         // ATTRIBUTES
         private readonly Thread r_StartThread;
         private User m_LoggedInUser;
-        private TextLoader<Event> m_TextLoader;
+        private Loader<Event> m_TextLoader;
         
         // CTOR
         public EventsForm()
@@ -27,7 +27,7 @@ namespace Ex02.FacebookAppUI.Forms
         {
             if (this.m_LoggedInUser.Events.Count != 0)
             {
-                this.m_TextLoader.LoadTextProperty("Name", "StartTime", "EndTime");
+                this.m_TextLoader.LoadProperties("Name", "StartTime", "EndTime");
             }
             else
             {

@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Windows.Forms;
 using Ex02.FacebookAppLogic.Classes;
-using Ex02.FacebookAppUI.Classes;
+using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex02.FacebookAppUI.Forms
@@ -12,7 +12,7 @@ namespace Ex02.FacebookAppUI.Forms
         // ATTRIBUTES
         private readonly Thread r_StartThread;
         private User m_LoggedInUser;
-        private TextLoader<Post> m_TextLoader;
+        private Loader<Post> m_TextLoader;
 
         // CTOR
         public PostsForm()
@@ -28,7 +28,7 @@ namespace Ex02.FacebookAppUI.Forms
         {
             if (this.m_LoggedInUser.Posts.Count != 0)
             {
-                this.m_TextLoader.LoadTextProperty("Message");
+                this.m_TextLoader.LoadProperties("Message");
             }
             else
             {
