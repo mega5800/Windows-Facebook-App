@@ -12,9 +12,9 @@ namespace Ex02.FacebookAppUI.Loaders
         protected readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
 
         // CTOR
-        public Loader(FacebookObjectCollection<T> i_FacebookObjectCollection)
+        public Loader(object i_FacebookObjectCollection)
         {
-            this.r_FacebookObjectCollection = i_FacebookObjectCollection;
+            this.r_FacebookObjectCollection = i_FacebookObjectCollection as FacebookObjectCollection<T>;
         }
 
         // PROTECTED METHODS

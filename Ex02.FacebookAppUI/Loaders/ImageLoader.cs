@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
@@ -16,20 +17,13 @@ namespace Ex02.FacebookAppUI.Loaders
         private object m_PropertyInfoObject;
 
         // CTOR
-        public ImageLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListView i_ListView) : base(i_FacebookObjectCollection)
+        public ImageLoader(List<object> i_ParamsList) : base(i_ParamsList[0])
         {
-            this.m_ListView = i_ListView;
+            this.m_ListView = i_ParamsList[1] as ListView;
             this.r_ImagesList = new ImageList();
             this.r_ImagesList.ImageSize = r_PictureSize;
             this.r_ImagesList.ColorDepth = ColorDepth.Depth32Bit;
         }
-
-        // PUBLIC METHODS
-        /*public void LoadImageAndTextProperties(string i_ImageProperty, string i_TextProperty)
-        {
-            loadImages(i_ImageProperty);
-            loadTexts(i_TextProperty);
-        }*/
 
         // PROTECTED METHODS
         protected internal override void LoadProperties(params string[] i_TextPropertiesArray)

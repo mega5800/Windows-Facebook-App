@@ -1,6 +1,8 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 using Ex02.FacebookAppLogic.Classes;
+using Ex02.FacebookAppUI.Enums;
 using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 
@@ -10,6 +12,7 @@ namespace Ex02.FacebookAppUI.Forms
     {
         // ATTRIBUTES
         private readonly Thread r_StartThread;
+        private readonly List<object> r_ParamsList;
         private User m_LoggedInUser;
         private Loader<Event> m_TextLoader;
         
@@ -18,8 +21,9 @@ namespace Ex02.FacebookAppUI.Forms
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
+            this.r_ParamsList = new List<object>() { this.m_LoggedInUser.Events, this.listBoxUserEvents, "{0} | Time range: {1} - {2}" };
             this.r_StartThread = new Thread(new ThreadStart(loadForm));
-            this.m_TextLoader = new TextLoader<Event>(this.m_LoggedInUser.Events, this.listBoxUserEvents, "{0} | Time range: {1} - {2}");
+            this.m_TextLoader = LoaderFactory<Event>.CreateLoader(eLoaderFactoryContext.CreateTextLoader, this.r_ParamsList);
         }
 
         // PRIVATE METHODS

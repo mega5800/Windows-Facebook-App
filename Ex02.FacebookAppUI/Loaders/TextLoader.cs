@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
@@ -13,17 +14,11 @@ namespace Ex02.FacebookAppUI.Loaders
         private object[] m_PropertyInfoObjectArray;
         
         // CTOR
-        public TextLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListBox i_ListBox, string i_StringFormat) : base(i_FacebookObjectCollection)
+        public TextLoader(List<object> i_ParamsList) : base(i_ParamsList[0])
         {
-            this.m_ListBox = i_ListBox;
-            this.r_StringFormat = i_StringFormat;
+            this.m_ListBox = i_ParamsList[1] as ListBox;
+            this.r_StringFormat = i_ParamsList[2] as string;
         }
-
-        // PUBLIC METHODS
-        /*public void LoadTextProperty(params string[] i_TextPropertiesArray)
-        {
-            
-        }*/
 
         // PROTECTED METHODS
         protected internal override void LoadProperties(params string[] i_TextPropertiesArray)
