@@ -1,36 +1,35 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
-namespace Ex02.FacebookAppUI.Classes
+namespace Ex02.FacebookAppUI.Loaders
 {
-    public sealed class ImageLoader<T>
+    public sealed class ImageLoader<T> : Loader<T>
     {
         // ATTRIBUTES
         private readonly ImageList r_ImagesList;
         private readonly Size r_PictureSize = new Size(100, 100);
-        private readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
         private ListView m_ListView;
         private int m_FriendPictureCounter = 0;
         private PropertyInfo m_PropertyInfo;
         private object m_PropertyInfoObject;
 
         // CTOR
-        public ImageLoader(FacebookObjectCollection<T> i_FacebookObjectCollection, ListView i_ListView)
+        public ImageLoader(List<object> i_ParamsList) : base(i_ParamsList[0])
         {
-            this.r_FacebookObjectCollection = i_FacebookObjectCollection;
-            this.m_ListView = i_ListView;
+            this.m_ListView = i_ParamsList[1] as ListView;
             this.r_ImagesList = new ImageList();
             this.r_ImagesList.ImageSize = r_PictureSize;
             this.r_ImagesList.ColorDepth = ColorDepth.Depth32Bit;
         }
 
-        // PUBLIC METHODS
-        public void LoadImageAndTextProperties(string i_ImageProperty, string i_TextProperty)
+        // PROTECTED METHODS
+        protected internal override void LoadProperties(params string[] i_TextPropertiesArray)
         {
-            loadImages(i_ImageProperty);
-            loadTexts(i_TextProperty);
+            loadImages(i_TextPropertiesArray[0]);
+            loadTexts(i_TextPropertiesArray[1]);
         }
 
         // PRIVATE METHODS

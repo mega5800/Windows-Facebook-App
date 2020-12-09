@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using Ex02.FacebookAppLogic.Classes;
-using Ex02.FacebookAppUI.Classes;
+using Ex02.FacebookAppUI.Enums;
+using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex02.FacebookAppUI.Forms
@@ -11,16 +13,18 @@ namespace Ex02.FacebookAppUI.Forms
     {
         // ATTRIBUTES
         private readonly Thread r_StartThread;
+        private readonly List<object> r_ParamsList;
         private User m_LoggedInUser;
-        private TextLoader<Page> m_TextLoader;
+        private Loader<Page> m_TextLoader;
 
         // CTOR
         public LikedPagesForm()
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
+            this.r_ParamsList = new List<object>() { this.m_LoggedInUser.LikedPages, this.listBoxUserLikedPages, "Name: {0} | Description: {1}" };
             this.r_StartThread = new Thread(new ThreadStart(loadForm));
-            this.m_TextLoader = new TextLoader<Page>(this.m_LoggedInUser.LikedPages, this.listBoxUserLikedPages, "Name: {0} | Description: {1}");
+            this.m_TextLoader = LoaderFactory<Page>.CreateLoader(eLoaderFactoryContext.CreateTextLoader, this.r_ParamsList);
         }
 
         // PRIVATE METHODS
@@ -28,7 +32,7 @@ namespace Ex02.FacebookAppUI.Forms
         {
             if (this.m_LoggedInUser.LikedPages.Count != 0)
             {
-                this.m_TextLoader.LoadTextProperty("Name", "Description");
+                this.m_TextLoader.LoadProperties("Name", "Description");
             }
             else
             {

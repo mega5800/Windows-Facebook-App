@@ -54,11 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppSettings.cs" />
-    <Compile Include="Classes\ImageLoader.cs" />
+    <Compile Include="Loaders\ImageLoader.cs" />
     <Compile Include="Classes\PieChartDataLoadingComponent.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="Classes\TextLoader.cs" />
+    <Compile Include="Loaders\Loader.cs" />
+    <Compile Include="Loaders\LoaderFactory.cs" />
+    <Compile Include="Loaders\TextLoader.cs" />
+    <Compile Include="Enums\eLoaderFactoryContext.cs" />
     <Compile Include="Forms\AlbumsForm.cs">
       <SubType>Form</SubType>
     </Compile>
