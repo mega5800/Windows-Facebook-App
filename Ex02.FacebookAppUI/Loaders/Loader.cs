@@ -1,8 +1,4 @@
 ﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Ex02.FacebookAppUI.Loaders
 {
@@ -18,6 +14,6 @@ namespace Ex02.FacebookAppUI.Loaders
         }
 
         // PROTECTED METHODS
-        protected internal abstract void LoadProperties(params string[] i_TextPropertiesArray);
+        protected internal abstract void LoadProperties(params string[] i_PropertiesArray);
     }
 }
