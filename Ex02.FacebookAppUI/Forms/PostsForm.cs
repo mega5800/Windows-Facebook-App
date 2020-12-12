@@ -30,14 +30,15 @@ namespace Ex02.FacebookAppUI.Forms
         // PRIVATE METHODS
         private void loadForm()
         {
-            if (this.m_LoggedInUser.Posts.Count != 0)
+            /*if (this.m_LoggedInUser.Posts.Count != 0)
             {
                 this.m_TextLoader.LoadProperties("Message");
             }
             else
             {
                 MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
-            }
+            }*/
+            postBindingSource.DataSource = this.m_LoggedInUser.Posts;
         }
 
         // EVENTS
