@@ -1,9 +1,6 @@
-﻿using Ex02.FacebookAppLogic.Classes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Forms.DataVisualization.Charting;
+using Ex02.FacebookAppLogic.Classes;
 
 namespace Ex02.FacebookAppUI.Loaders
 {
