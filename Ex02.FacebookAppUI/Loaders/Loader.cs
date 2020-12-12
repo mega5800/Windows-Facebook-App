@@ -18,6 +18,6 @@ namespace Ex02.FacebookAppUI.Loaders
         }
 
         // PROTECTED METHODS
-        protected internal abstract void LoadProperties(params string[] i_TextPropertiesArray);
+        protected internal abstract void LoadProperties(params string[] i_PropertiesArray);
     }
 }

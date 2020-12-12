@@ -21,14 +21,14 @@ namespace Ex02.FacebookAppUI.Loaders
         }
 
         // PROTECTED METHODS
-        protected internal override void LoadProperties(params string[] i_TextPropertiesArray)
+        protected internal override void LoadProperties(params string[] i_PropertiesArray)
         {
-            definePropertyInfoAndObjectArrays(i_TextPropertiesArray);
+            definePropertyInfoAndObjectArrays(i_PropertiesArray);
             foreach (T item in this.r_FacebookObjectCollection)
             {
-                for (int i = 0; i < i_TextPropertiesArray.Length; i++)
+                for (int i = 0; i < i_PropertiesArray.Length; i++)
                 {
-                    setReflectionResultIntoPropertyInfoObject(item, i_TextPropertiesArray[i], i);
+                    setReflectionResultIntoPropertyInfoObject(item, i_PropertiesArray[i], i);
                 }
 
                 this.m_ListBox.Items.Add(string.Format(this.r_StringFormat, this.m_PropertyInfoObjectArray));
