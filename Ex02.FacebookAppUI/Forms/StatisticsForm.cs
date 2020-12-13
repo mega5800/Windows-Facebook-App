@@ -10,10 +10,12 @@ namespace Ex02.FacebookAppUI.Forms
         // ATTRIBUTES
         private readonly List<PropertyCounter> r_LocationCountersList;
         private readonly List<PropertyCounter> r_FriendsTaggedInPostsCountersList;
+        private readonly List<object> r_CheckinParamsList;
+        private readonly List<object> r_UserParamsList;
         private User m_LoggedInUser;
         private bool m_IsSecondStatisticsLoaded = false;
-        private PieChartDataLoadingComponent<Checkin> m_PieChartCheckinsDataLoadingComponent;
-        private PieChartDataLoadingComponent<User> m_PieChartFriendsTaggedInPostsDataLoadingComponent;
+        private PieChartDataProcessor<Checkin> m_PieChartCheckinsDataLoadingComponent;
+        private PieChartDataProcessor<User> m_PieChartFriendsTaggedInPostsDataLoadingComponent;
 
         // CTOR
         public StatisticsForm()
@@ -22,11 +24,12 @@ namespace Ex02.FacebookAppUI.Forms
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.r_LocationCountersList = new List<PropertyCounter>();
             this.r_FriendsTaggedInPostsCountersList = new List<PropertyCounter>();
-            this.r_FriendsTaggedInPostsCountersList = new List<PropertyCounter>();
             fillFriendsTaggedInPostsCountersList();
-            this.m_PieChartCheckinsDataLoadingComponent = new PieChartDataLoadingComponent<Checkin>(this.locationPieChart, this.m_LoggedInUser.Checkins, "Checkins location distribution", this.r_LocationCountersList, "locationPieChartInfo");
+            this.r_CheckinParamsList = new List<object>() { this.m_LoggedInUser.Checkins, r_LocationCountersList, this.locationPieChart, "Checkins location distribution", "locationPieChartInfo" };
+            this.r_UserParamsList = new List<object>() { this.m_LoggedInUser.Friends, this.r_FriendsTaggedInPostsCountersList, this.friendsTaggedInPostsPieChart, "Friends tagged in posts distribution", "friendsTaggedInPostsPieChartInfo" };
+            this.m_PieChartCheckinsDataLoadingComponent = new PieChartDataProcessor<Checkin>(r_CheckinParamsList);
             this.m_PieChartCheckinsDataLoadingComponent.DuplicatePropertyCheckingMethodIsNeeded += checkIfLocationIsNotInLocationCountersList;
-            m_PieChartFriendsTaggedInPostsDataLoadingComponent = new PieChartDataLoadingComponent<User>(this.friendsTaggedInPostsPieChart, this.m_LoggedInUser.Friends, "Friends tagged in posts distribution", this.r_FriendsTaggedInPostsCountersList, "friendsTaggedInPostsPieChartInfo");
+            m_PieChartFriendsTaggedInPostsDataLoadingComponent = new PieChartDataProcessor<User>(this.r_UserParamsList);
             this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.DuplicatePropertyCheckingMethodIsNeeded += checkIfFriendNotTaggedInPostCountersList;
         }
 
@@ -96,9 +99,19 @@ namespace Ex02.FacebookAppUI.Forms
         // EVENTS
         private void StatisticsForm_Load(object sender, System.EventArgs e)
         {
-            if (!this.m_PieChartCheckinsDataLoadingComponent.LoadDataIntoPieChart())
+            // temp comment
+            /*if (!this.m_PieChartCheckinsDataLoadingComponent.LoadDataIntoPieChart())
             {
                 MessageBox.Show(string.Format("{0}, you do not have any checkins!", this.m_LoggedInUser.FirstName));
+            }*/
+
+            if (!this.m_IsSecondStatisticsLoaded)
+            {
+                this.m_IsSecondStatisticsLoaded = true;
+                if (!this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.LoadDataIntoPieChart())
+                {
+                    MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
+                }
             }
         }
 

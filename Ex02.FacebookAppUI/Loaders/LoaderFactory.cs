@@ -14,6 +14,9 @@ namespace Ex02.FacebookAppUI.Loaders
                 case eLoaderFactoryContext.CreateImageLoader:
                     loaderToReturn = new ImageLoader<T>(i_ParamsList);
                     break;
+                case eLoaderFactoryContext.CreatePieChartLoader:
+                    loaderToReturn = new PieChartLoader<T>(i_ParamsList);
+                    break;
                 case eLoaderFactoryContext.CreateTextLoader:
                     loaderToReturn = new TextLoader<T>(i_ParamsList);
                     break;

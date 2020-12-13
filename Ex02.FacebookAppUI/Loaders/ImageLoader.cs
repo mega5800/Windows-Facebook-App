@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
 
 namespace Ex02.FacebookAppUI.Loaders
 {
@@ -26,10 +25,10 @@ namespace Ex02.FacebookAppUI.Loaders
         }
 
         // PROTECTED METHODS
-        protected internal override void LoadProperties(params string[] i_TextPropertiesArray)
+        protected internal override void LoadProperties(params string[] i_PropertiesArray)
         {
-            loadImages(i_TextPropertiesArray[0]);
-            loadTexts(i_TextPropertiesArray[1]);
+            loadImages(i_PropertiesArray[0]);
+            loadTexts(i_PropertiesArray[1]);
         }
 
         // PRIVATE METHODS
