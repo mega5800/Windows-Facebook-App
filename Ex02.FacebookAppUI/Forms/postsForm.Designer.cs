@@ -34,19 +34,19 @@
             this.listBoxUserPosts = new System.Windows.Forms.ListBox();
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.postDataBindingPanel = new System.Windows.Forms.Panel();
-            this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.messageTextBox = new System.Windows.Forms.TextBox();
-            this.commentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.commentsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
             createdTimeLabel = new System.Windows.Forms.Label();
             messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             this.postDataBindingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.commentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // createdTimeLabel
@@ -97,27 +97,6 @@
             this.postDataBindingPanel.Size = new System.Drawing.Size(539, 290);
             this.postDataBindingPanel.TabIndex = 4;
             // 
-            // createdTimeDateTimePicker
-            // 
-            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.postBindingSource, "CreatedTime", true));
-            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(126, 32);
-            this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
-            this.createdTimeDateTimePicker.Size = new System.Drawing.Size(394, 23);
-            this.createdTimeDateTimePicker.TabIndex = 1;
-            // 
-            // messageTextBox
-            // 
-            this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Message", true));
-            this.messageTextBox.Location = new System.Drawing.Point(126, 3);
-            this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(394, 23);
-            this.messageTextBox.TabIndex = 3;
-            // 
-            // commentsBindingSource
-            // 
-            this.commentsBindingSource.DataMember = "Comments";
-            this.commentsBindingSource.DataSource = this.postBindingSource;
-            // 
             // commentsDataGridView
             // 
             this.commentsDataGridView.AllowUserToAddRows = false;
@@ -163,6 +142,27 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // commentsBindingSource
+            // 
+            this.commentsBindingSource.DataMember = "Comments";
+            this.commentsBindingSource.DataSource = this.postBindingSource;
+            // 
+            // createdTimeDateTimePicker
+            // 
+            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.postBindingSource, "CreatedTime", true));
+            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(126, 32);
+            this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
+            this.createdTimeDateTimePicker.Size = new System.Drawing.Size(394, 23);
+            this.createdTimeDateTimePicker.TabIndex = 1;
+            // 
+            // messageTextBox
+            // 
+            this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Message", true));
+            this.messageTextBox.Location = new System.Drawing.Point(126, 3);
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.Size = new System.Drawing.Size(394, 23);
+            this.messageTextBox.TabIndex = 3;
+            // 
             // PostsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -179,8 +179,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.postDataBindingPanel.ResumeLayout(false);
             this.postDataBindingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.commentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
