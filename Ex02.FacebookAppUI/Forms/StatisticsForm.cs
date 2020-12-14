@@ -99,19 +99,9 @@ namespace Ex02.FacebookAppUI.Forms
         // EVENTS
         private void StatisticsForm_Load(object sender, System.EventArgs e)
         {
-            // temp comment
-            /*if (!this.m_PieChartCheckinsDataLoadingComponent.LoadDataIntoPieChart())
+            if (!this.m_PieChartCheckinsDataLoadingComponent.LoadDataIntoPieChart())
             {
                 MessageBox.Show(string.Format("{0}, you do not have any checkins!", this.m_LoggedInUser.FirstName));
-            }*/
-
-            if (!this.m_IsSecondStatisticsLoaded)
-            {
-                this.m_IsSecondStatisticsLoaded = true;
-                if (!this.m_PieChartFriendsTaggedInPostsDataLoadingComponent.LoadDataIntoPieChart())
-                {
-                    MessageBox.Show(string.Format("{0}, you do not have any posts!", this.m_LoggedInUser.FirstName));
-                }
             }
         }
 
