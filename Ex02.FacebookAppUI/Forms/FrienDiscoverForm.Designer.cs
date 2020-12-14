@@ -32,11 +32,11 @@
             this.goToRandomPersonProfileBtn = new System.Windows.Forms.Button();
             this.getRandomPersonBtn = new System.Windows.Forms.Button();
             this.newPersonInfoPanel = new System.Windows.Forms.Panel();
+            this.newFriendAgeLbl = new System.Windows.Forms.Label();
+            this.newFriendNameLbl = new System.Windows.Forms.Label();
             this.newFriendAboutLbl = new System.Windows.Forms.Label();
             this.firstDegreeFriendNameLbl = new System.Windows.Forms.Label();
             this.newFriendPictureBox = new System.Windows.Forms.PictureBox();
-            this.newFriendNameLbl = new System.Windows.Forms.Label();
-            this.newFriendAgeLbl = new System.Windows.Forms.Label();
             this.buttonsPanel.SuspendLayout();
             this.newPersonInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.newFriendPictureBox)).BeginInit();
@@ -99,6 +99,26 @@
             this.newPersonInfoPanel.Size = new System.Drawing.Size(558, 452);
             this.newPersonInfoPanel.TabIndex = 1;
             // 
+            // newFriendAgeLbl
+            // 
+            this.newFriendAgeLbl.AutoSize = true;
+            this.newFriendAgeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.newFriendAgeLbl.Location = new System.Drawing.Point(16, 223);
+            this.newFriendAgeLbl.Name = "newFriendAgeLbl";
+            this.newFriendAgeLbl.Size = new System.Drawing.Size(32, 16);
+            this.newFriendAgeLbl.TabIndex = 3;
+            this.newFriendAgeLbl.Text = "age";
+            // 
+            // newFriendNameLbl
+            // 
+            this.newFriendNameLbl.AutoSize = true;
+            this.newFriendNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.newFriendNameLbl.Location = new System.Drawing.Point(16, 172);
+            this.newFriendNameLbl.Name = "newFriendNameLbl";
+            this.newFriendNameLbl.Size = new System.Drawing.Size(42, 16);
+            this.newFriendNameLbl.TabIndex = 2;
+            this.newFriendNameLbl.Text = "name";
+            // 
             // newFriendAboutLbl
             // 
             this.newFriendAboutLbl.AutoSize = true;
@@ -116,11 +136,10 @@
             this.firstDegreeFriendNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.firstDegreeFriendNameLbl.Location = new System.Drawing.Point(87, 9);
             this.firstDegreeFriendNameLbl.Name = "firstDegreeFriendNameLbl";
-            this.firstDegreeFriendNameLbl.Size = new System.Drawing.Size(32, 16);
+            this.firstDegreeFriendNameLbl.Size = new System.Drawing.Size(28, 16);
             this.firstDegreeFriendNameLbl.TabIndex = 0;
-            this.firstDegreeFriendNameLbl.Text = "aaa";
+            this.firstDegreeFriendNameLbl.Text = "text";
             this.firstDegreeFriendNameLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.firstDegreeFriendNameLbl.Visible = false;
             // 
             // newFriendPictureBox
             // 
@@ -130,26 +149,6 @@
             this.newFriendPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.newFriendPictureBox.TabIndex = 0;
             this.newFriendPictureBox.TabStop = false;
-            // 
-            // newFriendNameLbl
-            // 
-            this.newFriendNameLbl.AutoSize = true;
-            this.newFriendNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.newFriendNameLbl.Location = new System.Drawing.Point(16, 172);
-            this.newFriendNameLbl.Name = "newFriendNameLbl";
-            this.newFriendNameLbl.Size = new System.Drawing.Size(42, 16);
-            this.newFriendNameLbl.TabIndex = 2;
-            this.newFriendNameLbl.Text = "name";
-            // 
-            // newFriendAgeLbl
-            // 
-            this.newFriendAgeLbl.AutoSize = true;
-            this.newFriendAgeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.newFriendAgeLbl.Location = new System.Drawing.Point(16, 223);
-            this.newFriendAgeLbl.Name = "newFriendAgeLbl";
-            this.newFriendAgeLbl.Size = new System.Drawing.Size(32, 16);
-            this.newFriendAgeLbl.TabIndex = 3;
-            this.newFriendAgeLbl.Text = "age";
             // 
             // FrienDiscoverForm
             // 
