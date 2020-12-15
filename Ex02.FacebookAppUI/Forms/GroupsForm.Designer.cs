@@ -93,6 +93,7 @@
             this.listBoxUserGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxUserGroups.DisplayMember = "Name";
             this.listBoxUserGroups.FormattingEnabled = true;
             this.listBoxUserGroups.ItemHeight = 16;
             this.listBoxUserGroups.Location = new System.Drawing.Point(0, 0);
@@ -113,9 +114,9 @@
             this.pagesDataBindingPanel.Controls.Add(this.imageNormalPictureBox);
             this.pagesDataBindingPanel.Controls.Add(nameLabel);
             this.pagesDataBindingPanel.Controls.Add(this.nameTextBox);
-            this.pagesDataBindingPanel.Location = new System.Drawing.Point(12, 242);
+            this.pagesDataBindingPanel.Location = new System.Drawing.Point(12, 251);
             this.pagesDataBindingPanel.Name = "pagesDataBindingPanel";
-            this.pagesDataBindingPanel.Size = new System.Drawing.Size(535, 308);
+            this.pagesDataBindingPanel.Size = new System.Drawing.Size(523, 308);
             this.pagesDataBindingPanel.TabIndex = 4;
             // 
             // nameTextBox2
