@@ -150,6 +150,7 @@
             // createdTimeDateTimePicker
             // 
             this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.postBindingSource, "CreatedTime", true));
+            this.createdTimeDateTimePicker.Enabled = false;
             this.createdTimeDateTimePicker.Location = new System.Drawing.Point(126, 32);
             this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
             this.createdTimeDateTimePicker.Size = new System.Drawing.Size(394, 23);

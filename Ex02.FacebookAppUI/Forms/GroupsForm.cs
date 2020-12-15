@@ -45,5 +45,10 @@ namespace Ex02.FacebookAppUI.Forms
         {
             this.r_StartThread.Start();
         }
+
+        private void nameTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
