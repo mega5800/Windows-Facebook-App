@@ -2,7 +2,6 @@
 {
     public enum eLoaderFactoryContext
     {
-        CreateTextLoader,
         CreateImageLoader,
         CreatePieChartLoader
     }

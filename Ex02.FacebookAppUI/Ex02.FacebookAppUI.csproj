@@ -61,7 +61,6 @@
     <Compile Include="Loaders\Loader.cs" />
     <Compile Include="Loaders\LoaderFactory.cs" />
     <Compile Include="Loaders\PieChartLoader.cs" />
-    <Compile Include="Loaders\TextLoader.cs" />
     <Compile Include="Enums\eLoaderFactoryContext.cs" />
     <Compile Include="Forms\AlbumsForm.cs">
       <SubType>Form</SubType>
