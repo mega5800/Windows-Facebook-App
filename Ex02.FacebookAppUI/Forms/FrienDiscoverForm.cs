@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using Ex02.FacebookAppLogic.Classes;
 using FacebookWrapper.ObjectModel;
+using Ex02.FacebookAppLogic.Facades;
 
 namespace Ex02.FacebookAppUI.Forms
 {
+    // implement multithreading
     public partial class FrienDiscoverForm : Form
     {
         // ATTRIBUTES
         private const string k_FirstFriendName = "The system selected your friend {0} to help find new friend!";
         private const string k_FacebookUrl = "http://facebook.com/{0}";
         private readonly Thread r_StartThread;
-        private readonly Random r_RandomFactor;
-        private readonly List<int> r_LoggedInUserFriendsIndexList;
-        private readonly List<int> r_ChosenFriendFirstDegreeFriendsIndexList;
+        private readonly FrienDiscoverLogicComponentFacade r_FrienDiscoverLogicComponentFacade;
         private User m_LoggedInUser;
         private User m_ChosenFriendFirstDegree = null;
         private User m_ChosenFriendSecondDegree = null;
@@ -26,70 +25,38 @@ namespace Ex02.FacebookAppUI.Forms
         {
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
-            this.r_RandomFactor = new Random();
-            this.r_LoggedInUserFriendsIndexList = new List<int>();
-            this.r_StartThread = new Thread(new ThreadStart(pickFirstDegreeAndSecondDegreeFriends));
-            this.r_ChosenFriendFirstDegreeFriendsIndexList = new List<int>();
+            this.r_FrienDiscoverLogicComponentFacade = new FrienDiscoverLogicComponentFacade();
+            //this.r_StartThread = new Thread(new ThreadStart(getResultFromFrienDiscoverLogicComponentFacade));
         }
 
         // PRIVATE METHODS
-        private void fillUserFriendsIndexList(User i_User, List<int> i_ListToFill)
+        private void getResultFromFrienDiscoverLogicComponentFacade()
         {
-            i_ListToFill.Clear();
-            for (int i = 0; i < i_User.Friends.Count; i++)
-            {
-                i_ListToFill.Add(i);
-            }
-        }
-
-        private void pickFirstDegreeAndSecondDegreeFriends()
-        {
-            bool isSecondDegreeRandomFriendSelected = false;
-            int firstDegreeRandomFriendIndex, secondDegreeRandomFriendIndex;
-
-            fillUserFriendsIndexList(this.m_LoggedInUser, this.r_LoggedInUserFriendsIndexList);
-            while (!isSecondDegreeRandomFriendSelected && this.r_LoggedInUserFriendsIndexList.Count > 0)
-            {
-                firstDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_LoggedInUserFriendsIndexList, this.m_LoggedInUser, ref this.m_ChosenFriendFirstDegree);
-                fillUserFriendsIndexList(this.m_ChosenFriendFirstDegree, this.r_ChosenFriendFirstDegreeFriendsIndexList);
-                this.firstDegreeFriendNameLbl.Visible = true;
-                this.firstDegreeFriendNameLbl.Text = string.Format(k_FirstFriendName, this.m_ChosenFriendFirstDegree.Name);
-                while (!isSecondDegreeRandomFriendSelected && this.r_ChosenFriendFirstDegreeFriendsIndexList.Count > 0)
-                {
-                    secondDegreeRandomFriendIndex = getRandomFriendIndexAndSetValuesToSelectedFriend(this.r_ChosenFriendFirstDegreeFriendsIndexList, this.m_ChosenFriendFirstDegree, ref this.m_ChosenFriendSecondDegree);
-                    isSecondDegreeRandomFriendSelected = checkIfSecondDegreeRandomFriendIsNotLoggedInUser();
-                    if (!isSecondDegreeRandomFriendSelected || checkIfPotentialFriendIsAlreadyMyFriend())
-                    {
-                        this.r_ChosenFriendFirstDegreeFriendsIndexList.Remove(secondDegreeRandomFriendIndex);
-                        this.m_ChosenFriendSecondDegree = null;
-                    }
-                }
-
-                if (this.m_ChosenFriendSecondDegree == null)
-                {
-                    this.r_LoggedInUserFriendsIndexList.Remove(firstDegreeRandomFriendIndex);
-                }
-            }
-
+            this.r_FrienDiscoverLogicComponentFacade.PickFirstDegreeAndSecondDegreeFriends(ref this.m_ChosenFriendFirstDegree, ref this.m_ChosenFriendSecondDegree);
             if (this.m_ChosenFriendSecondDegree == null)
             {
-                this.newFriendPictureBox.Visible = false;
-                setEmptyTextAndSetVisibleToFalse(this.firstDegreeFriendNameLbl);
-                setEmptyTextAndSetVisibleToFalse(this.newFriendAboutLbl);
-                setEmptyTextAndSetVisibleToFalse(this.newFriendAgeLbl);
-                setEmptyTextAndSetVisibleToFalse(this.newFriendNameLbl);
+                //if we'll have time
+                //maybe we can make this feature work better
+                //i still can see the ui after the error message is shown
+                //setUIVisible(false);
                 MessageBox.Show(string.Format("{0}, unfortunately the system couldn't find you a suitable new person to meet :(", this.m_LoggedInUser.FirstName));
             }
             else
             {
+                this.firstDegreeFriendNameLbl.Visible = true;
+                this.firstDegreeFriendNameLbl.Text = string.Format(k_FirstFriendName, this.m_ChosenFriendFirstDegree.Name);
+                setUIVisible(true);
                 loadPotentialNewFriendDataIntoForm();
             }
         }
 
-        private void setEmptyTextAndSetVisibleToFalse(Label i_LabelToChangeProperties)
+        private void setUIVisible(bool i_BoolValue)
         {
-            i_LabelToChangeProperties.Text = string.Empty;
-            i_LabelToChangeProperties.Visible = false;
+            this.newFriendPictureBox.Visible = i_BoolValue;
+            this.firstDegreeFriendNameLbl.Visible = i_BoolValue;
+            this.newFriendAboutLbl.Visible = i_BoolValue;
+            this.newFriendAgeLbl.Visible = i_BoolValue;
+            this.newFriendNameLbl.Visible = i_BoolValue;
         }
 
         private void loadPotentialNewFriendDataIntoForm()
@@ -112,29 +79,6 @@ namespace Ex02.FacebookAppUI.Forms
             return currentYear - newFriendBirthYear;
         }
 
-        private bool checkIfSecondDegreeRandomFriendIsNotLoggedInUser()
-        {
-            bool result = true;
-
-            if (this.m_LoggedInUser.Id == this.m_ChosenFriendSecondDegree.Id)
-            {
-                result = false;
-            }
-
-            return result;
-        }
-
-        private int getRandomFriendIndexAndSetValuesToSelectedFriend(List<int> i_UserFriendChooserList, User i_UserFriendChooser, ref User io_ChosenFriendPointer)
-        {
-            int randomFriendIndex = 0;
-
-            randomFriendIndex = this.r_RandomFactor.Next(0, i_UserFriendChooserList.Count);
-            randomFriendIndex = i_UserFriendChooserList[randomFriendIndex];
-            io_ChosenFriendPointer = i_UserFriendChooser.Friends[randomFriendIndex];
-
-            return randomFriendIndex;
-        }
-
         private void goToNewFriendFacebookProfile()
         {
             if (this.m_ChosenFriendSecondDegree == null)
@@ -147,31 +91,17 @@ namespace Ex02.FacebookAppUI.Forms
             }   
         }
 
-        private bool checkIfPotentialFriendIsAlreadyMyFriend()
-        {
-            bool result = false;
-
-            foreach (User friend in this.m_LoggedInUser.Friends)
-            {
-                if (this.m_ChosenFriendSecondDegree.Id == friend.Id)
-                {
-                    result = true;
-                    break;
-                }
-            }
-
-            return result;
-        }
-
         // EVENTS
         private void FrienDiscoverForm_Load(object sender, EventArgs e)
         {
-            this.r_StartThread.Start();
+            //this.r_StartThread.Start();
+            getResultFromFrienDiscoverLogicComponentFacade();
         }
 
         private void getRandomPersonBtn_Click(object sender, EventArgs e)
         {
-            pickFirstDegreeAndSecondDegreeFriends();
+            setUIVisible(false);
+            getResultFromFrienDiscoverLogicComponentFacade();
         }
 
         private void goToRandomPersonProfileBtn_Click(object sender, EventArgs e)

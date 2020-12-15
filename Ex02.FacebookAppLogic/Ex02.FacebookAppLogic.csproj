@@ -35,8 +35,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\FrienDiscoverLogicComponent.cs" />
     <Compile Include="Classes\LoggedInUser.cs" />
     <Compile Include="Classes\PropertyCounter.cs" />
+    <Compile Include="Facades\FrienDiscoverLogicComponentFacade.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">
