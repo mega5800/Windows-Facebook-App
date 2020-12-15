@@ -39,6 +39,7 @@
             this.listBoxUserEvents = new System.Windows.Forms.ListBox();
             this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eventsDataBindingPanel = new System.Windows.Forms.Panel();
+            this.nameTextBox2 = new System.Windows.Forms.TextBox();
             this.imageNormalPictureBox = new System.Windows.Forms.PictureBox();
             this.nameTextBox1 = new System.Windows.Forms.TextBox();
             this.attendingCountTextBox = new System.Windows.Forms.TextBox();
@@ -46,7 +47,6 @@
             this.endTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.nameTextBox2 = new System.Windows.Forms.TextBox();
             attendingCountLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             endTimeLabel = new System.Windows.Forms.Label();
@@ -113,6 +113,15 @@
             nameLabel1.TabIndex = 14;
             nameLabel1.Text = "Owner name:";
             // 
+            // nameLabel2
+            // 
+            nameLabel2.AutoSize = true;
+            nameLabel2.Location = new System.Drawing.Point(124, 134);
+            nameLabel2.Name = "nameLabel2";
+            nameLabel2.Size = new System.Drawing.Size(66, 17);
+            nameLabel2.TabIndex = 16;
+            nameLabel2.Text = "Location:";
+            // 
             // listBoxUserEvents
             // 
             this.listBoxUserEvents.DataSource = this.eventBindingSource;
@@ -153,6 +162,14 @@
             this.eventsDataBindingPanel.Size = new System.Drawing.Size(515, 282);
             this.eventsDataBindingPanel.TabIndex = 4;
             // 
+            // nameTextBox2
+            // 
+            this.nameTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Place.Name", true));
+            this.nameTextBox2.Location = new System.Drawing.Point(243, 128);
+            this.nameTextBox2.Name = "nameTextBox2";
+            this.nameTextBox2.Size = new System.Drawing.Size(200, 23);
+            this.nameTextBox2.TabIndex = 17;
+            // 
             // imageNormalPictureBox
             // 
             this.imageNormalPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.eventBindingSource, "ImageNormal", true));
@@ -189,9 +206,10 @@
             // endTimeDateTimePicker
             // 
             this.endTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "EndTime", true));
+            this.endTimeDateTimePicker.Enabled = false;
             this.endTimeDateTimePicker.Location = new System.Drawing.Point(243, 87);
             this.endTimeDateTimePicker.Name = "endTimeDateTimePicker";
-            this.endTimeDateTimePicker.Size = new System.Drawing.Size(200, 23);
+            this.endTimeDateTimePicker.Size = new System.Drawing.Size(219, 23);
             this.endTimeDateTimePicker.TabIndex = 5;
             // 
             // nameTextBox
@@ -204,28 +222,13 @@
             // 
             // startTimeDateTimePicker
             // 
-            this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true));
+            this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "D"));
+            this.startTimeDateTimePicker.Enabled = false;
+            this.startTimeDateTimePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.startTimeDateTimePicker.Location = new System.Drawing.Point(243, 49);
             this.startTimeDateTimePicker.Name = "startTimeDateTimePicker";
-            this.startTimeDateTimePicker.Size = new System.Drawing.Size(200, 23);
+            this.startTimeDateTimePicker.Size = new System.Drawing.Size(219, 23);
             this.startTimeDateTimePicker.TabIndex = 13;
-            // 
-            // nameLabel2
-            // 
-            nameLabel2.AutoSize = true;
-            nameLabel2.Location = new System.Drawing.Point(124, 134);
-            nameLabel2.Name = "nameLabel2";
-            nameLabel2.Size = new System.Drawing.Size(66, 17);
-            nameLabel2.TabIndex = 16;
-            nameLabel2.Text = "Location:";
-            // 
-            // nameTextBox2
-            // 
-            this.nameTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eventBindingSource, "Place.Name", true));
-            this.nameTextBox2.Location = new System.Drawing.Point(243, 128);
-            this.nameTextBox2.Name = "nameTextBox2";
-            this.nameTextBox2.Size = new System.Drawing.Size(200, 23);
-            this.nameTextBox2.TabIndex = 17;
             // 
             // EventsForm
             // 
