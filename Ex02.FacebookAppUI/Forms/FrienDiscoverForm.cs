@@ -8,6 +8,7 @@ using Ex02.FacebookAppLogic.Facades;
 
 namespace Ex02.FacebookAppUI.Forms
 {
+    // implement multithreading
     public partial class FrienDiscoverForm : Form
     {
         // ATTRIBUTES
@@ -25,25 +26,25 @@ namespace Ex02.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.r_FrienDiscoverLogicComponentFacade = new FrienDiscoverLogicComponentFacade();
-            this.r_StartThread = new Thread(new ThreadStart(getResultFromFrienDiscoverLogicComponentFacade));
+            //this.r_StartThread = new Thread(new ThreadStart(getResultFromFrienDiscoverLogicComponentFacade));
         }
 
         // PRIVATE METHODS
         private void getResultFromFrienDiscoverLogicComponentFacade()
         {
             this.r_FrienDiscoverLogicComponentFacade.PickFirstDegreeAndSecondDegreeFriends(ref this.m_ChosenFriendFirstDegree, ref this.m_ChosenFriendSecondDegree);
-            this.firstDegreeFriendNameLbl.Visible = true;
-            this.firstDegreeFriendNameLbl.Text = string.Format(k_FirstFriendName, this.m_ChosenFriendFirstDegree.Name);
             if (this.m_ChosenFriendSecondDegree == null)
             {
                 //if we'll have time
                 //maybe we can make this feature work better
                 //i still can see the ui after the error message is shown
-                setUIVisible(false);
+                //setUIVisible(false);
                 MessageBox.Show(string.Format("{0}, unfortunately the system couldn't find you a suitable new person to meet :(", this.m_LoggedInUser.FirstName));
             }
             else
             {
+                this.firstDegreeFriendNameLbl.Visible = true;
+                this.firstDegreeFriendNameLbl.Text = string.Format(k_FirstFriendName, this.m_ChosenFriendFirstDegree.Name);
                 setUIVisible(true);
                 loadPotentialNewFriendDataIntoForm();
             }
@@ -93,7 +94,8 @@ namespace Ex02.FacebookAppUI.Forms
         // EVENTS
         private void FrienDiscoverForm_Load(object sender, EventArgs e)
         {
-            this.r_StartThread.Start();
+            //this.r_StartThread.Start();
+            getResultFromFrienDiscoverLogicComponentFacade();
         }
 
         private void getRandomPersonBtn_Click(object sender, EventArgs e)

@@ -108,6 +108,7 @@
             this.newFriendAgeLbl.Size = new System.Drawing.Size(32, 16);
             this.newFriendAgeLbl.TabIndex = 3;
             this.newFriendAgeLbl.Text = "age";
+            this.newFriendAgeLbl.Visible = false;
             // 
             // newFriendNameLbl
             // 
@@ -118,6 +119,7 @@
             this.newFriendNameLbl.Size = new System.Drawing.Size(42, 16);
             this.newFriendNameLbl.TabIndex = 2;
             this.newFriendNameLbl.Text = "name";
+            this.newFriendNameLbl.Visible = false;
             // 
             // newFriendAboutLbl
             // 
@@ -128,6 +130,7 @@
             this.newFriendAboutLbl.Size = new System.Drawing.Size(42, 16);
             this.newFriendAboutLbl.TabIndex = 1;
             this.newFriendAboutLbl.Text = "about";
+            this.newFriendAboutLbl.Visible = false;
             // 
             // firstDegreeFriendNameLbl
             // 
@@ -140,6 +143,7 @@
             this.firstDegreeFriendNameLbl.TabIndex = 0;
             this.firstDegreeFriendNameLbl.Text = "text";
             this.firstDegreeFriendNameLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.firstDegreeFriendNameLbl.Visible = false;
             // 
             // newFriendPictureBox
             // 
@@ -149,6 +153,7 @@
             this.newFriendPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.newFriendPictureBox.TabIndex = 0;
             this.newFriendPictureBox.TabStop = false;
+            this.newFriendPictureBox.Visible = false;
             // 
             // FrienDiscoverForm
             // 
