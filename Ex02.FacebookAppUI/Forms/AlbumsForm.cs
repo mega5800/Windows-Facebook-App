@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using Ex02.FacebookAppLogic.Classes;
@@ -11,7 +12,6 @@ namespace Ex02.FacebookAppUI.Forms
     public partial class AlbumsForm : Form
     {
         // ATTRIBUTES
-        private readonly Thread r_StartThread;
         private readonly List<object> r_ParamsList;
         private User m_LoggedInUser;
         private Loader<Album> m_ImageLoader;
@@ -24,7 +24,6 @@ namespace Ex02.FacebookAppUI.Forms
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.r_ParamsList = new List<object>() { this.m_LoggedInUser.Albums, this.albumsListView };
             this.m_ImageLoader = LoaderFactory<Album>.CreateLoader(eLoaderFactoryContext.CreateImageLoader, this.r_ParamsList);
-            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name"));
         }
 
         // EVENTS
@@ -38,7 +37,7 @@ namespace Ex02.FacebookAppUI.Forms
 
         private void AlbumsForm_Load(object sender, System.EventArgs e)
         {
-            this.r_StartThread.Start();
+            new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name")).Start();
         }
     }
 }

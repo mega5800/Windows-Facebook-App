@@ -241,7 +241,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EventsForm";
             this.Text = "eventsForm";
-            this.Load += new System.EventHandler(this.EventsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.eventsDataBindingPanel.ResumeLayout(false);
             this.eventsDataBindingPanel.PerformLayout();

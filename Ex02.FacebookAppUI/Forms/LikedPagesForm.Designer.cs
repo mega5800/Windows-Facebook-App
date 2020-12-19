@@ -230,7 +230,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LikedPagesForm";
             this.Text = "likedPagesForm";
-            this.Load += new System.EventHandler(this.LikedPagesForm_Load);
             this.pageDataBindingPanel.ResumeLayout(false);
             this.pageDataBindingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postsDataGridView)).EndInit();

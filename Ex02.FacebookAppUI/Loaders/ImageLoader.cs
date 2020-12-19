@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -37,10 +38,10 @@ namespace Ex02.FacebookAppUI.Loaders
             foreach (T item in this.r_FacebookObjectCollection)
             {
                 setReflectionResultIntoPropertyInfoObject(item, i_ImageProperty);
-                this.r_ImagesList.Images.Add((Image)this.m_PropertyInfoObject);
+                this.m_ListView.Invoke(new Action(() => this.r_ImagesList.Images.Add((Image)this.m_PropertyInfoObject)));
             }
 
-            this.m_ListView.LargeImageList = this.r_ImagesList;
+            this.m_ListView.Invoke(new Action(() => this.m_ListView.LargeImageList = this.r_ImagesList));
         }
 
         private void loadTexts(string i_TextProperty)
@@ -48,7 +49,7 @@ namespace Ex02.FacebookAppUI.Loaders
             foreach (T item in this.r_FacebookObjectCollection)
             {
                 setReflectionResultIntoPropertyInfoObject(item, i_TextProperty);
-                this.m_ListView.Items.Add((string)this.m_PropertyInfoObject, this.m_FriendPictureCounter);
+                this.m_ListView.Invoke(new Action(() => this.m_ListView.Items.Add((string)this.m_PropertyInfoObject, this.m_FriendPictureCounter)));
                 this.m_FriendPictureCounter++;
             }
         }
