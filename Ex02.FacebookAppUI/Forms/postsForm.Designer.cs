@@ -176,7 +176,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PostsForm";
             this.Text = "postsForm";
-            this.Load += new System.EventHandler(this.PostsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.postDataBindingPanel.ResumeLayout(false);
             this.postDataBindingPanel.PerformLayout();

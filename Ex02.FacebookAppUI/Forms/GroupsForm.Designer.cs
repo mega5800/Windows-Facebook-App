@@ -126,7 +126,6 @@
             this.nameTextBox2.Name = "nameTextBox2";
             this.nameTextBox2.Size = new System.Drawing.Size(100, 23);
             this.nameTextBox2.TabIndex = 8;
-            this.nameTextBox2.TextChanged += new System.EventHandler(this.nameTextBox2_TextChanged);
             // 
             // groupBindingSource
             // 
@@ -183,7 +182,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GroupsForm";
             this.Text = "groupsForm";
-            this.Load += new System.EventHandler(this.GroupsForm_Load);
             this.pagesDataBindingPanel.ResumeLayout(false);
             this.pagesDataBindingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();

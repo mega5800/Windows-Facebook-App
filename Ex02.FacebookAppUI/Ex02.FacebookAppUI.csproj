@@ -55,9 +55,6 @@
   <ItemGroup>
     <Compile Include="Classes\AppSettings.cs" />
     <Compile Include="Loaders\ImageLoader.cs" />
-    <Compile Include="Classes\PieChartDataProcessor.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
-    </Compile>
     <Compile Include="Loaders\Loader.cs" />
     <Compile Include="Loaders\LoaderFactory.cs" />
     <Compile Include="Loaders\PieChartLoader.cs" />

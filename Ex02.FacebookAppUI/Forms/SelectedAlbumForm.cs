@@ -10,7 +10,6 @@ namespace Ex02.FacebookAppUI.Forms
     public partial class SelectedAlbumForm : Form
     {
         // ATTRIBUTES
-        private readonly Thread r_StartThread;
         private readonly List<object> r_ParamsList;
         private string m_AlbumName;
         private FacebookObjectCollection<Photo> m_PhotosAlbum;
@@ -24,7 +23,6 @@ namespace Ex02.FacebookAppUI.Forms
             this.m_AlbumName = i_AlbumName;
             this.r_ParamsList = new List<object>() { this.m_PhotosAlbum, this.selectedAlbumlistView };
             this.m_ImageLoader = LoaderFactory<Photo>.CreateLoader(eLoaderFactoryContext.CreateImageLoader, this.r_ParamsList);
-            this.r_StartThread = new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name"));
         }
 
         // EVENTS
@@ -32,7 +30,7 @@ namespace Ex02.FacebookAppUI.Forms
         {
             CenterToScreen();
             this.Text = m_AlbumName;
-            this.r_StartThread.Start();
+            new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name")).Start();
         }
     }
 }
