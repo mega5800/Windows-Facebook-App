@@ -126,8 +126,8 @@ namespace Ex02.FacebookAppUI.Forms
         // EVENTS
         private void StatisticsForm_Load(object sender, System.EventArgs e)
         {
-            // doesnt work proprely
-            //new Thread(() => calculateDataAndShowItInPieChart<Checkin>(this.m_LoggedInUser.Checkins, "checkins", this.m_CheckinPropertyCountCalculator, this.m_CheckinsPieChartLoader)).Start();
+            // doesnt work since we cant get place attribute from Facebook API
+            // new Thread(() => calculateDataAndShowItInPieChart<Checkin>(this.m_LoggedInUser.Checkins, "checkins", this.m_CheckinPropertyCountCalculator, this.m_CheckinsPieChartLoader)).Start();
         }
 
         private void tabPanel_SelectedIndexChanged(object sender, System.EventArgs e)
