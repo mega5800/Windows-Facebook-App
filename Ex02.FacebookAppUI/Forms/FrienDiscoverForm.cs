@@ -8,7 +8,6 @@ using Ex02.FacebookAppLogic.Facades;
 
 namespace Ex02.FacebookAppUI.Forms
 {
-    // implement multithreading
     public partial class FrienDiscoverForm : Form
     {
         // ATTRIBUTES
