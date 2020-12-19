@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms.DataVisualization.Charting;
 using Ex02.FacebookAppLogic.Classes;
 
@@ -24,15 +25,18 @@ namespace Ex02.FacebookAppUI.Loaders
             int i = 0;
             string propertyNameAndCounterStringFormat = string.Empty;
 
-            this.m_PieChart.Titles.Add(this.m_PieChartTitle);
+            this.m_PieChart.Invoke(new Action(() => this.m_PieChart.Titles.Add(this.m_PieChartTitle)));
             foreach (PropertyCounter locationCounter in this.r_PropertyCounterList)
             {
                 if (locationCounter.Counter != 0)
                 {
-                    propertyNameAndCounterStringFormat = string.Format("{0} - {1}", locationCounter.PropertyName, locationCounter.Counter);
-                    this.m_PieChart.Series[this.m_PieChartId].Points.AddXY(propertyNameAndCounterStringFormat, locationCounter.Counter);
-                    this.m_PieChart.Series[this.m_PieChartId].Points[i].LegendText = locationCounter.PropertyName;
-                    i++;
+                    this.m_PieChart.Invoke(new Action(() =>
+                        {
+                            propertyNameAndCounterStringFormat = string.Format("{0} - {1}", locationCounter.PropertyName, locationCounter.Counter);
+                            this.m_PieChart.Series[this.m_PieChartId].Points.AddXY(propertyNameAndCounterStringFormat, locationCounter.Counter);
+                            this.m_PieChart.Series[this.m_PieChartId].Points[i].LegendText = locationCounter.PropertyName;
+                            i++;
+                        }));
                 }
             }
         }
