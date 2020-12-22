@@ -5,14 +5,17 @@ using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 using Ex02.FacebookAppUI.Enums;
 using System.Threading;
+using Ex02.FacebookAppUI.Interfaces;
+using Ex02.FacebookAppUI.Classes;
 
 namespace Ex02.FacebookAppUI.Forms
 {
     public partial class StatisticsForm : Form
     {
         // ATTRIBUTES
+        private ILoaderAdapter<Checkin> m_CheckinLoaderAdapter;
+        private ILoaderAdapter<User> m_FriendLoaderAdapter;
         private readonly List<List<PropertyCounter>> r_ListOfPropertyCounterLists;
-        private readonly List<List<object>> r_ListOfObjectParamsLists;
         private User m_LoggedInUser;
         private bool m_IsSecondStatisticsLoaded = false;
         private PropertyCountCalculator<Checkin> m_CheckinPropertyCountCalculator;
@@ -26,16 +29,15 @@ namespace Ex02.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoggedInUser = LoggedInUser.Instance;
             this.r_ListOfPropertyCounterLists = new List<List<PropertyCounter>>() { new List<PropertyCounter>(), new List<PropertyCounter>() };
-            this.r_ListOfObjectParamsLists = new List<List<object>>();
-            this.r_ListOfObjectParamsLists.Add(new List<object>() { this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0], this.locationPieChart, "Checkins location distribution", "locationPieChartInfo" });
-            this.r_ListOfObjectParamsLists.Add(new List<object>() { this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1], this.friendsTaggedInPostsPieChart, "Friends tagged in posts distribution", "friendsTaggedInPostsPieChartInfo" });
+            this.m_CheckinLoaderAdapter = new LoaderAdapter<Checkin>();
+            this.m_FriendLoaderAdapter = new LoaderAdapter<User>();
             fillFriendsTaggedInPostsCountersList();
             this.m_CheckinPropertyCountCalculator = new PropertyCountCalculator<Checkin>(this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0]);
             this.m_CheckinPropertyCountCalculator.DuplicatePropertyCheckingMethodIsNeeded += checkIfLocationIsNotInLocationCountersList;
             m_TaggedFriendsPropertyCountCalculator = new PropertyCountCalculator<User>(this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1]);
             this.m_TaggedFriendsPropertyCountCalculator.DuplicatePropertyCheckingMethodIsNeeded += checkIfFriendNotTaggedInPostCountersList;
-            this.m_CheckinsPieChartLoader = LoaderFactory<Checkin>.CreateLoader(eLoaderFactoryContext.CreatePieChartLoader, this.r_ListOfObjectParamsLists[0]);
-            this.m_TaggedFriendsPieChartLoader = LoaderFactory<User>.CreateLoader(eLoaderFactoryContext.CreatePieChartLoader, this.r_ListOfObjectParamsLists[1]);
+            this.m_CheckinsPieChartLoader = this.m_CheckinLoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreatePieChartLoader, this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0], this.locationPieChart, "Checkins location distribution", "locationPieChartInfo");
+            this.m_TaggedFriendsPieChartLoader = this.m_FriendLoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreatePieChartLoader, this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1], this.friendsTaggedInPostsPieChart, "Friends tagged in posts distribution", "friendsTaggedInPostsPieChartInfo");
         }
 
         // PRIVATE METHODS
@@ -127,7 +129,7 @@ namespace Ex02.FacebookAppUI.Forms
         private void StatisticsForm_Load(object sender, System.EventArgs e)
         {
             // doesnt work since we cant get place attribute from Facebook API
-            // new Thread(() => calculateDataAndShowItInPieChart<Checkin>(this.m_LoggedInUser.Checkins, "checkins", this.m_CheckinPropertyCountCalculator, this.m_CheckinsPieChartLoader)).Start();
+            new Thread(() => calculateDataAndShowItInPieChart<Checkin>(this.m_LoggedInUser.Checkins, "checkins", this.m_CheckinPropertyCountCalculator, this.m_CheckinsPieChartLoader)).Start();
         }
 
         private void tabPanel_SelectedIndexChanged(object sender, System.EventArgs e)
