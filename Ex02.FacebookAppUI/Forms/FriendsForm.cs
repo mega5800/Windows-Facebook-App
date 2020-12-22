@@ -3,15 +3,16 @@ using System.Threading;
 using FacebookWrapper.ObjectModel;
 using Ex02.FacebookAppLogic.Classes;
 using Ex02.FacebookAppUI.Loaders;
-using System.Collections.Generic;
 using Ex02.FacebookAppUI.Enums;
+using Ex02.FacebookAppUI.Interfaces;
+using Ex02.FacebookAppUI.Classes;
 
 namespace Ex02.FacebookAppUI.Forms
 {
     public partial class FriendsForm : Form
     {
         // ATTRIBUTES
-        private readonly List<object> r_ParamsList;
+        private ILoaderAdapter<User> m_LoaderAdapter;
         private User m_LoggedInUser;
         private Loader<User> m_ImageLoader;
 
@@ -19,9 +20,9 @@ namespace Ex02.FacebookAppUI.Forms
         public FriendsForm()
         {
             InitializeComponent();
+            this.m_LoaderAdapter = new LoaderAdapter<User>();
             this.m_LoggedInUser = LoggedInUser.Instance;
-            this.r_ParamsList = new List<object>() { this.m_LoggedInUser.Friends, this.friendsListView };
-            this.m_ImageLoader = LoaderFactory<User>.CreateLoader(eLoaderFactoryContext.CreateImageLoader, this.r_ParamsList);
+            this.m_ImageLoader = this.m_LoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreateImageLoader, this.m_LoggedInUser.Friends, this.friendsListView);
         }
 
         // PRIVATE METHODS
