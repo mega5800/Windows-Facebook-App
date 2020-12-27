@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Ex02.FacebookAppLogic.Classes;
 using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
 using Ex02.FacebookAppUI.Enums;
-using System.Threading;
 using Ex02.FacebookAppUI.Interfaces;
 using Ex02.FacebookAppUI.Classes;
 
@@ -13,9 +13,9 @@ namespace Ex02.FacebookAppUI.Forms
     public partial class StatisticsForm : Form
     {
         // ATTRIBUTES
+        private readonly List<List<PropertyCounter>> r_ListOfPropertyCounterLists;
         private ILoaderAdapter<Checkin> m_CheckinLoaderAdapter;
         private ILoaderAdapter<User> m_FriendLoaderAdapter;
-        private readonly List<List<PropertyCounter>> r_ListOfPropertyCounterLists;
         private User m_LoggedInUser;
         private bool m_IsSecondStatisticsLoaded = false;
         private PropertyCountCalculator<Checkin> m_CheckinPropertyCountCalculator;

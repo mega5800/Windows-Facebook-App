@@ -7,11 +7,13 @@ namespace Ex02.FacebookAppUI.Loaders
 {
     public sealed class PieChartLoader<T> : Loader<T>
     {
+        // ATTRIBUTES
         private readonly List<PropertyCounter> r_PropertyCounterList;
         private Chart m_PieChart;
         private string m_PieChartTitle;
         private string m_PieChartId;
 
+        // CTOR
         public PieChartLoader(List<object> i_ParamsList) : base(i_ParamsList[0])
         {
             this.r_PropertyCounterList = i_ParamsList[1] as List<PropertyCounter>;
@@ -20,6 +22,7 @@ namespace Ex02.FacebookAppUI.Loaders
             this.m_PieChartId = i_ParamsList[4] as string;
         }
 
+        // PROTECTED METHODS
         protected internal override void LoadProperties(params string[] i_PropertiesArray)
         {
             int i = 0;

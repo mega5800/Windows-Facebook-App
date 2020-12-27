@@ -1,6 +1,6 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex02.FacebookAppLogic.Classes
 {
@@ -11,7 +11,9 @@ namespace Ex02.FacebookAppLogic.Classes
         private readonly List<int> r_ChosenFriendFirstDegreeFriendsIndexList;
         private readonly Random r_RandomFactor;
         private User m_LoggedInUser;
+
         public User ChosenFriendFirstDegree { get; private set; }
+
         public User ChosenFriendSecondDegree { get; private set; }
 
         // CTOR
