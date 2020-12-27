@@ -22,7 +22,7 @@ namespace Ex02.FacebookAppUI.Classes
                     {
                         if (s_Instance == null)
                         {
-                            LoadFromFile();
+                            loadFromFile();
                         }
                     }
                 }
@@ -56,7 +56,7 @@ namespace Ex02.FacebookAppUI.Classes
         }
 
         // PRIVATE METHODS
-        private static void LoadFromFile()
+        private static void loadFromFile()
         {
             s_Instance = new AppSettings();
 

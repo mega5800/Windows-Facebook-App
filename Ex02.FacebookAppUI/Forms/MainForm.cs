@@ -69,6 +69,25 @@ namespace Ex02.FacebookAppUI.Forms
             }
         }
 
+        private void closingFormActions()
+        {
+            this.m_AppSettings.LastWindowLocation = this.Location;
+            this.m_AppSettings.RememberUser = this.checkBoxRememberUser.Checked;
+            if (!this.m_AppSettings.RememberUser)
+            {
+                this.m_AppSettings.LastAccessToken = null;
+            }
+
+            this.m_AppSettings.SaveToFile();
+        }
+
+        private void logoutBtnActions()
+        {
+            LoginForm loginForm = new LoginForm();
+            this.Dispose();
+            loginForm.ShowDialog();
+        }
+
         // EVENTS
         protected override void OnShown(EventArgs e)
         {
@@ -87,25 +106,6 @@ namespace Ex02.FacebookAppUI.Forms
         {
             base.OnClosing(e);
             closingFormActions();
-        }
-
-        private void closingFormActions()
-        {
-            this.m_AppSettings.LastWindowLocation = this.Location;
-            this.m_AppSettings.RememberUser = this.checkBoxRememberUser.Checked;
-            if (!this.m_AppSettings.RememberUser)
-            {
-                this.m_AppSettings.LastAccessToken = null;
-            }
-
-            this.m_AppSettings.SaveToFile();
-        }
-
-        private void logoutBtnActions()
-        {
-            LoginForm loginForm = new LoginForm();
-            this.Dispose();
-            loginForm.ShowDialog();
         }
 
         private void postsBtn_Click(object sender, EventArgs e)
@@ -155,6 +155,12 @@ namespace Ex02.FacebookAppUI.Forms
             MessageBox.Show("Status posted successfully");
         }
 
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            closingFormActions();
+            logoutBtnActions();
+        }
+
         private void statusTextBox_Enter(object sender, EventArgs e)
         {
             if (this.statusTextBox.Text == "-Post a Status-")
@@ -169,12 +175,6 @@ namespace Ex02.FacebookAppUI.Forms
             {
                 this.statusTextBox.Text = "-Post a Status-";
             }
-        }
-
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            closingFormActions();
-            logoutBtnActions();
         }
     }
 }

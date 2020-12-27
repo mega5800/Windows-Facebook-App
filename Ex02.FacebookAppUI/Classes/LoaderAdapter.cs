@@ -1,11 +1,11 @@
-﻿using Ex02.FacebookAppLogic.Classes;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using Ex02.FacebookAppLogic.Classes;
 using Ex02.FacebookAppUI.Enums;
 using Ex02.FacebookAppUI.Interfaces;
 using Ex02.FacebookAppUI.Loaders;
 using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Ex02.FacebookAppUI.Classes
 {

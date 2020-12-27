@@ -59,7 +59,9 @@
     <Compile Include="Loaders\ImageLoader.cs" />
     <Compile Include="Loaders\Loader.cs" />
     <Compile Include="Loaders\LoaderFactory.cs" />
-    <Compile Include="Loaders\PieChartLoader.cs" />
+    <Compile Include="Loaders\PieChartLoader.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Enums\eLoaderFactoryContext.cs" />
     <Compile Include="Forms\AlbumsForm.cs">
       <SubType>Form</SubType>
@@ -112,6 +114,7 @@
     </Compile>
     <Compile Include="Forms\PostsForm.cs">
       <SubType>Form</SubType>
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Forms\PostsForm.Designer.cs">
       <DependentUpon>PostsForm.cs</DependentUpon>
