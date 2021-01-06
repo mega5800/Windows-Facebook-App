@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Ex03.FacebookAppUI.Interfaces;
 using Ex03.FacebookAppLogic.Classes;
 using Ex03.FacebookAppUI.Classes;
 using FacebookWrapper;
@@ -86,6 +87,18 @@ namespace Ex03.FacebookAppUI.Forms
             LoginForm loginForm = new LoginForm();
             this.Dispose();
             loginForm.ShowDialog();
+        }
+
+        private void refreshPictureBoxActions()
+        {
+            if (this.m_ActiveForm == null)
+            {
+                MessageBox.Show("Please select a form first", "Refresh button error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                (this.m_ActiveForm as IRefreshable).RefreshDataInForm();
+            }
         }
 
         // EVENTS
@@ -175,6 +188,11 @@ namespace Ex03.FacebookAppUI.Forms
             {
                 this.statusTextBox.Text = "-Post a Status-";
             }
+        }
+
+        private void refreshPictureBox_Click(object sender, EventArgs e)
+        {
+            refreshPictureBoxActions();
         }
     }
 }

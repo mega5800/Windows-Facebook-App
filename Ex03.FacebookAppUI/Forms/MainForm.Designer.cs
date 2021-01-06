@@ -47,14 +47,17 @@
             this.likedPagesBtn = new System.Windows.Forms.Button();
             this.postsBtn = new System.Windows.Forms.Button();
             this.activityPanel = new System.Windows.Forms.Panel();
+            this.refreshPictureBox = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.functionsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(87)))), ((int)(((byte)(156)))));
+            this.topPanel.Controls.Add(this.refreshPictureBox);
             this.topPanel.Controls.Add(this.checkBoxRememberUser);
             this.topPanel.Controls.Add(this.postStatusButton);
             this.topPanel.Controls.Add(this.statusLabel);
@@ -337,6 +340,16 @@
             this.activityPanel.Size = new System.Drawing.Size(544, 536);
             this.activityPanel.TabIndex = 2;
             // 
+            // refreshPictureBox
+            // 
+            this.refreshPictureBox.Image = global::Ex02.FacebookAppUI.Properties.Resources.refreshIcon;
+            this.refreshPictureBox.Location = new System.Drawing.Point(571, 18);
+            this.refreshPictureBox.Name = "refreshPictureBox";
+            this.refreshPictureBox.Size = new System.Drawing.Size(24, 24);
+            this.refreshPictureBox.TabIndex = 11;
+            this.refreshPictureBox.TabStop = false;
+            this.refreshPictureBox.Click += new System.EventHandler(this.refreshPictureBox_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -358,6 +371,7 @@
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.functionsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.refreshPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,5 +396,6 @@
         private System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.Button frienDiscoverBtn;
         private System.Windows.Forms.CheckBox checkBoxRememberUser;
+        private System.Windows.Forms.PictureBox refreshPictureBox;
     }
 }
