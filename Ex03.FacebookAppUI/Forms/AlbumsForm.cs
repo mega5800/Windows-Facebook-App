@@ -9,7 +9,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace Ex03.FacebookAppUI.Forms
 {
-    public partial class AlbumsForm : Form
+    public partial class AlbumsForm : Form, IRefreshable
     {
         // ATTRIBUTES
         private ILoaderAdapter<Album> m_LoaderAdapter;
@@ -23,7 +23,21 @@ namespace Ex03.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoaderAdapter = new LoaderAdapter<Album>();
             this.m_LoggedInUser = LoggedInUser.Instance;
+        }
+
+        // PRIVATE METHODS
+        private void startLoadPropertiesThread()
+        {
             this.m_ImageLoader = this.m_LoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreateImageLoader, this.m_LoggedInUser.Albums, this.albumsListView);
+            new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name")).Start();
+        }
+
+        // IREFRESHABLE IMPLEMENTATION
+        void IRefreshable.RefreshDataInForm()
+        {
+            this.albumsListView.Clear();
+            this.m_LoggedInUser.ReFetch();
+            startLoadPropertiesThread();
         }
 
         // EVENTS
@@ -37,7 +51,7 @@ namespace Ex03.FacebookAppUI.Forms
 
         private void AlbumsForm_Load(object sender, System.EventArgs e)
         {
-            new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name")).Start();
+            startLoadPropertiesThread();
         }
     }
 }

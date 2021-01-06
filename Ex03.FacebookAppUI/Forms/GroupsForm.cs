@@ -25,7 +25,7 @@ namespace Ex03.FacebookAppUI.Forms
         }
 
         // IREFRESHABLE IMPLEMENTATION
-        public void RefreshDataInForm()
+        void IRefreshable.RefreshDataInForm()
         {
             this.m_LoggedInUser.ReFetch();
             setDataBindingSource();
