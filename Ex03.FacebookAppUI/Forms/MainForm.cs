@@ -96,7 +96,15 @@ namespace Ex03.FacebookAppUI.Forms
             }
             else
             {
-                (this.m_ActiveForm as IRefreshable).RefreshDataInForm();
+                if (this.m_ActiveForm is IRefreshable)
+                {
+                    (this.m_ActiveForm as IRefreshable).RefreshDataInForm();
+                    MessageBox.Show("The current form has been refreshed", "Refresh button message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("This form is not refreshable", "Refresh button error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
