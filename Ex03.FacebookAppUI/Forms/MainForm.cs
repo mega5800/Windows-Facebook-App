@@ -42,7 +42,6 @@ namespace Ex03.FacebookAppUI.Forms
 
         private void openFormInActivityPanel(Form i_FormToDisplay)
         {
-            this.m_LoggedInUser.ReFetch();
             if (m_ActiveForm != null)
             {
                 m_ActiveForm.Close();

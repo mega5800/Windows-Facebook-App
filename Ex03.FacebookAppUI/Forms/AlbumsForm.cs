@@ -23,12 +23,12 @@ namespace Ex03.FacebookAppUI.Forms
             InitializeComponent();
             this.m_LoaderAdapter = new LoaderAdapter<Album>();
             this.m_LoggedInUser = LoggedInUser.Instance;
+            this.m_ImageLoader = this.m_LoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreateImageLoader, this.m_LoggedInUser.Albums, this.albumsListView);
         }
 
         // PRIVATE METHODS
         private void startLoadPropertiesThread()
         {
-            this.m_ImageLoader = this.m_LoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreateImageLoader, this.m_LoggedInUser.Albums, this.albumsListView);
             new Thread(() => this.m_ImageLoader.LoadProperties("ImageAlbum", "Name")).Start();
         }
 
@@ -37,6 +37,8 @@ namespace Ex03.FacebookAppUI.Forms
         {
             this.albumsListView.Clear();
             this.m_LoggedInUser.ReFetch();
+            // since we're refreshing the data in the form, we need also to refresh the albums in m_ImageLoader
+            this.m_ImageLoader.LoaderFacebookObjectCollection = this.m_LoggedInUser.Albums;
             startLoadPropertiesThread();
         }
 

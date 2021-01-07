@@ -5,12 +5,12 @@ namespace Ex03.FacebookAppUI.Loaders
     public abstract class Loader<T>
     {
         // ATTRIBUTES
-        protected readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
+        public FacebookObjectCollection<T> LoaderFacebookObjectCollection { get; set; }
 
         // CTOR
         public Loader(object i_FacebookObjectCollection)
         {
-            this.r_FacebookObjectCollection = i_FacebookObjectCollection as FacebookObjectCollection<T>;
+            this.LoaderFacebookObjectCollection = i_FacebookObjectCollection as FacebookObjectCollection<T>;
         }
 
         // PROTECTED METHODS
