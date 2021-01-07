@@ -9,7 +9,7 @@ using Ex03.FacebookAppUI.Classes;
 
 namespace Ex03.FacebookAppUI.Forms
 {
-    public partial class FriendsForm : Form
+    public partial class FriendsForm : Form, IRefreshable
     {
         // ATTRIBUTES
         private ILoaderAdapter<User> m_LoaderAdapter;
@@ -26,9 +26,25 @@ namespace Ex03.FacebookAppUI.Forms
         }
 
         // PRIVATE METHODS
-        private void FriendsForm_Load(object sender, System.EventArgs e)
+        private void startLoadPropertiesThread()
         {
             new Thread(() => this.m_ImageLoader.LoadProperties("ImageLarge", "Name")).Start();
+        }
+
+        // IREFRESHABLE IMPLEMENTATION
+        void IRefreshable.RefreshDataInForm()
+        {
+            this.friendsListView.Clear();
+            this.m_LoggedInUser.ReFetch();
+            // since we're refreshing the data in the form, we need also to refresh the friends in m_ImageLoader
+            this.m_ImageLoader.LoaderFacebookObjectCollection = this.m_LoggedInUser.Friends;
+            startLoadPropertiesThread();
+        }
+
+        // EVENTS
+        private void FriendsForm_Load(object sender, System.EventArgs e)
+        {
+            startLoadPropertiesThread();
         }
     }
 }

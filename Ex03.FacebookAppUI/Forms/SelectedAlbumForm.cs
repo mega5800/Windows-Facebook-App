@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Windows.Forms;
 using Ex03.FacebookAppUI.Classes;
 using Ex03.FacebookAppUI.Enums;

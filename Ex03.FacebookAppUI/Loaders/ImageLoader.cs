@@ -35,7 +35,7 @@ namespace Ex03.FacebookAppUI.Loaders
         // PRIVATE METHODS
         private void loadImages(string i_ImageProperty)
         {
-            foreach (T item in this.r_FacebookObjectCollection)
+            foreach (T item in this.LoaderFacebookObjectCollection)
             {
                 setReflectionResultIntoPropertyInfoObject(item, i_ImageProperty);
                 this.m_ListView.Invoke(new Action(() => this.r_ImagesList.Images.Add((Image)this.m_PropertyInfoObject)));
@@ -46,7 +46,7 @@ namespace Ex03.FacebookAppUI.Loaders
 
         private void loadTexts(string i_TextProperty)
         {
-            foreach (T item in this.r_FacebookObjectCollection)
+            foreach (T item in this.LoaderFacebookObjectCollection)
             {
                 setReflectionResultIntoPropertyInfoObject(item, i_TextProperty);
                 this.m_ListView.Invoke(new Action(() => this.m_ListView.Items.Add((string)this.m_PropertyInfoObject, this.m_FriendPictureCounter)));

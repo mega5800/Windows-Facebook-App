@@ -56,6 +56,7 @@
     <Compile Include="Classes\AppSettings.cs" />
     <Compile Include="Classes\LoaderAdapter.cs" />
     <Compile Include="Interfaces\ILoaderAdapter.cs" />
+    <Compile Include="Interfaces\IRefreshable.cs" />
     <Compile Include="Loaders\ImageLoader.cs" />
     <Compile Include="Loaders\Loader.cs" />
     <Compile Include="Loaders\LoaderFactory.cs" />
@@ -241,6 +242,8 @@
   <ItemGroup>
     <None Include="Resources\pieChartIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\refreshIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
