@@ -1,40 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using Ex03.FacebookAppLogic.Interfaces;
 using FacebookWrapper.ObjectModel;
 
 namespace Ex03.FacebookAppLogic.Classes
 {
-    public delegate R Func<T, T1, R>(T i_ItemToCheck, ref T1 io_UniqueItem);
-
-    public sealed class PropertyCountCalculator<T>
+    public sealed class PropertyCountCalculator
     {
         // ATTRIBUTES
-        private readonly FacebookObjectCollection<T> r_FacebookObjectCollection;
-        private readonly List<PropertyCounter> r_PropertyCounterList;
-
-        public event Func<T, string, bool> DuplicatePropertyCheckingMethodIsNeeded;
-
-        // CTOR
-        public PropertyCountCalculator(FacebookObjectCollection<T> i_FacebookObjectCollection, List<PropertyCounter> i_PropertyCounterList)
-        {
-            this.r_FacebookObjectCollection = i_FacebookObjectCollection;
-            this.r_PropertyCounterList = i_PropertyCounterList;
-        }
+        public IPropertyCountCalculatorStrategy PropertyCountCalculatorStrategy { get; set; }
 
         // PUBLIC METHODS
-        public void CalculatePropertyCountValues()
+        public void CalculatePropertyCountValues<T>(FacebookObjectCollection<T> i_FacebookObjectCollection) where T:FacebookObject
         {
-            bool checkingMethodResult;
-            string propertyNameAndCounterStringFormat = string.Empty, uniquePropertyString = string.Empty;
+            int index = 0;
 
-            if (this.r_FacebookObjectCollection.Count > 0)
+            if (i_FacebookObjectCollection.Count > 0)
             {
-                foreach (T item in this.r_FacebookObjectCollection)
+                foreach (T item in i_FacebookObjectCollection)
                 {
-                    checkingMethodResult = this.DuplicatePropertyCheckingMethodIsNeeded(item, ref uniquePropertyString);
-                    if (checkingMethodResult)
-                    {
-                        this.r_PropertyCounterList.Add(new PropertyCounter(uniquePropertyString));
-                    }
+                    this.PropertyCountCalculatorStrategy.CalculatePropertyCountValues(item, index);
+                    index++;
                 }
             }
         }

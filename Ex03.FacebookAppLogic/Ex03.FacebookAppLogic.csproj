@@ -42,6 +42,7 @@
     <Compile Include="Classes\PropertyCountCalculator.cs" />
     <Compile Include="Classes\PropertyCounter.cs" />
     <Compile Include="Facades\FrienDiscoverLogicComponentFacade.cs" />
+    <Compile Include="Interfaces\IPropertyCountCalculatorStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">

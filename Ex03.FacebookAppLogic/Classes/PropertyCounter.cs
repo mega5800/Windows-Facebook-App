@@ -11,13 +11,7 @@
         public PropertyCounter(string i_LocationName)
         {
             this.PropertyName = i_LocationName;
-            this.Counter = 1;
-        }
-
-        public PropertyCounter(string i_LocationName, int i_Counter)
-        {
-            this.PropertyName = i_LocationName;
-            this.Counter = i_Counter;
+            this.Counter = 0;
         }
     }
 }

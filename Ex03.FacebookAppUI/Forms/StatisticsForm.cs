@@ -18,8 +18,7 @@ namespace Ex03.FacebookAppUI.Forms
         private ILoaderAdapter<User> m_FriendLoaderAdapter;
         private User m_LoggedInUser;
         private bool m_IsSecondStatisticsLoaded = false;
-        private PropertyCountCalculator<Checkin> m_CheckinPropertyCountCalculator;
-        private PropertyCountCalculator<User> m_TaggedFriendsPropertyCountCalculator;
+        private PropertyCountCalculator m_PropertyCountCalculator;
         private Loader<Checkin> m_CheckinsPieChartLoader;
         private Loader<User> m_TaggedFriendsPieChartLoader;
 
@@ -31,21 +30,30 @@ namespace Ex03.FacebookAppUI.Forms
             this.r_ListOfPropertyCounterLists = new List<List<PropertyCounter>>() { new List<PropertyCounter>(), new List<PropertyCounter>() };
             this.m_CheckinLoaderAdapter = new LoaderAdapter<Checkin>();
             this.m_FriendLoaderAdapter = new LoaderAdapter<User>();
+
+
             fillFriendsTaggedInPostsCountersList();
-            this.m_CheckinPropertyCountCalculator = new PropertyCountCalculator<Checkin>(this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0]);
-            this.m_CheckinPropertyCountCalculator.DuplicatePropertyCheckingMethodIsNeeded += checkIfLocationIsNotInLocationCountersList;
-            m_TaggedFriendsPropertyCountCalculator = new PropertyCountCalculator<User>(this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1]);
-            this.m_TaggedFriendsPropertyCountCalculator.DuplicatePropertyCheckingMethodIsNeeded += checkIfFriendNotTaggedInPostCountersList;
+            //error
+            //fillCheckinsCountersList();
+            this.m_PropertyCountCalculator = new PropertyCountCalculator();
             this.m_CheckinsPieChartLoader = this.m_CheckinLoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreatePieChartLoader, this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0], this.locationPieChart, "Checkins location distribution", "locationPieChartInfo");
             this.m_TaggedFriendsPieChartLoader = this.m_FriendLoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreatePieChartLoader, this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1], this.friendsTaggedInPostsPieChart, "Friends tagged in posts distribution", "friendsTaggedInPostsPieChartInfo");
         }
 
         // PRIVATE METHODS
+        private void fillCheckinsCountersList()
+        {
+            foreach (Checkin checkin in this.m_LoggedInUser.Checkins)
+            {
+                this.r_ListOfPropertyCounterLists[0].Add(new PropertyCounter(checkin.Place.Location.Country));
+            }
+        }
+
         private void fillFriendsTaggedInPostsCountersList()
         {
             foreach (User friend in this.m_LoggedInUser.Friends)
             {
-                this.r_ListOfPropertyCounterLists[1].Add(new PropertyCounter(friend.Name, 0));
+                this.r_ListOfPropertyCounterLists[1].Add(new PropertyCounter(friend.Name));
             }
         }
 
@@ -103,25 +111,28 @@ namespace Ex03.FacebookAppUI.Forms
             return friendToFind;
         }
 
-        private void calculateDataAndShowItInPieChart<T>(FacebookObjectCollection<T> i_FacebookObjectCollection, string i_InfoName, PropertyCountCalculator<T> i_PropertyCountCalculator, Loader<T> i_PieChartLoader)
+        /*private void calculateDataAndShowItInPieChart<T>(FacebookObjectCollection<T> i_FacebookObjectCollection, string i_InfoName, PropertyCountCalculator i_PropertyCountCalculator, Loader<T> i_PieChartLoader)
         {
             if (i_FacebookObjectCollection.Count != 0)
             {
-                i_PropertyCountCalculator.CalculatePropertyCountValues();
+                i_PropertyCountCalculator.
                 i_PieChartLoader.LoadProperties(null);
             }
             else
             {
                 MessageBox.Show(string.Format("{0}, you do not have any {1}!", this.m_LoggedInUser.FirstName, i_InfoName));
             }
-        }
+        }*/
 
         private void loadTaggedFriendsPieChart()
         {
             if (!this.m_IsSecondStatisticsLoaded)
             {
                 this.m_IsSecondStatisticsLoaded = true;
-                calculateDataAndShowItInPieChart<User>(this.m_LoggedInUser.Friends, "friends", this.m_TaggedFriendsPropertyCountCalculator, this.m_TaggedFriendsPieChartLoader);
+                this.m_PropertyCountCalculator.PropertyCountCalculatorStrategy = new TaggedFriendsPropertyCountCalculatorStrategy(this.m_LoggedInUser.Posts, this.r_ListOfPropertyCounterLists[1]);
+                this.m_PropertyCountCalculator.CalculatePropertyCountValues(this.m_LoggedInUser.Friends);
+                m_TaggedFriendsPieChartLoader.LoadProperties(null);
+                //calculateDataAndShowItInPieChart<User>(this.m_LoggedInUser.Friends, "friends", this.m_TaggedFriendsPropertyCountCalculator, this.m_TaggedFriendsPieChartLoader);
             }
         }
 
