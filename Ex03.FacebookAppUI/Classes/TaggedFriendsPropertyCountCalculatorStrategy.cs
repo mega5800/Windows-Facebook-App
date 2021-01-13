@@ -7,9 +7,11 @@ namespace Ex03.FacebookAppUI.Classes
 {
     public class TaggedFriendsPropertyCountCalculatorStrategy : IPropertyCountCalculatorStrategy
     {
+        // ATTRIBUTES
         private readonly FacebookObjectCollection<Post> r_FacebookObjectCollection;
         private readonly List<PropertyCounter> r_PropertyCounterList;
 
+        // CTOR
         public TaggedFriendsPropertyCountCalculatorStrategy(FacebookObjectCollection<Post> i_FacebookObjectCollection, List<PropertyCounter> i_PropertyCounterList)
         {
             this.r_FacebookObjectCollection = i_FacebookObjectCollection;

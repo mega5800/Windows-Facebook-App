@@ -16,14 +16,9 @@ namespace Ex03.FacebookAppUI.Classes
             this.r_PropertyCounterList = i_PropertyCounterList;
         }
 
-        void IPropertyCountCalculatorStrategy.CalculatePropertyCountValues<Checkin>(Checkin i_FacebookObject, int i_PropertyCountListIndex)
+        public void CalculatePropertyCountValues<T>(T i_FacebookObject, int i_PropertyCountListIndex) where T : FacebookObject
         {
-
-            /*foreach (Checkin checkin in this.r_FacebookObjectCollection)
-            {
-                if 
-                //locationCounter.PropertyName == i_CheckinToCheck.Place.Location.Country
-            }*/
+            Checkin checkinObject = (i_FacebookObject as Checkin);
         }
     }
 }
