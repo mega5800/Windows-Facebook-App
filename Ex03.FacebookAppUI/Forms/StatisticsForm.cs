@@ -14,12 +14,12 @@ namespace Ex03.FacebookAppUI.Forms
     {
         // ATTRIBUTES
         private readonly List<List<PropertyCounter>> r_ListOfPropertyCounterLists;
+        private readonly FacebookObjectCollection<Checkin> r_DistinctCheckinsList;
         private ILoaderAdapter<Checkin> m_CheckinLoaderAdapter;
         private ILoaderAdapter<User> m_FriendLoaderAdapter;
         private User m_LoggedInUser;
         private bool m_IsSecondStatisticsLoaded = false;
-        private PropertyCountCalculator<Checkin> m_CheckinPropertyCountCalculator;
-        private PropertyCountCalculator<User> m_TaggedFriendsPropertyCountCalculator;
+        private PropertyCountCalculator m_PropertyCountCalculator;
         private Loader<Checkin> m_CheckinsPieChartLoader;
         private Loader<User> m_TaggedFriendsPieChartLoader;
 
@@ -31,89 +31,44 @@ namespace Ex03.FacebookAppUI.Forms
             this.r_ListOfPropertyCounterLists = new List<List<PropertyCounter>>() { new List<PropertyCounter>(), new List<PropertyCounter>() };
             this.m_CheckinLoaderAdapter = new LoaderAdapter<Checkin>();
             this.m_FriendLoaderAdapter = new LoaderAdapter<User>();
+            this.r_DistinctCheckinsList = new FacebookObjectCollection<Checkin>();
+            // doesnt work since we cant get place attribute from Facebook API
+            //fillDistinctCheckinsListAndPropertyCounterList();
             fillFriendsTaggedInPostsCountersList();
-            this.m_CheckinPropertyCountCalculator = new PropertyCountCalculator<Checkin>(this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0]);
-            this.m_CheckinPropertyCountCalculator.DuplicatePropertyCheckingMethodIsNeeded += checkIfLocationIsNotInLocationCountersList;
-            m_TaggedFriendsPropertyCountCalculator = new PropertyCountCalculator<User>(this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1]);
-            this.m_TaggedFriendsPropertyCountCalculator.DuplicatePropertyCheckingMethodIsNeeded += checkIfFriendNotTaggedInPostCountersList;
+            this.m_PropertyCountCalculator = new PropertyCountCalculator();
             this.m_CheckinsPieChartLoader = this.m_CheckinLoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreatePieChartLoader, this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0], this.locationPieChart, "Checkins location distribution", "locationPieChartInfo");
             this.m_TaggedFriendsPieChartLoader = this.m_FriendLoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreatePieChartLoader, this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1], this.friendsTaggedInPostsPieChart, "Friends tagged in posts distribution", "friendsTaggedInPostsPieChartInfo");
         }
 
         // PRIVATE METHODS
+        private void fillDistinctCheckinsListAndPropertyCounterList()
+        {
+            List<string> duplicateCheckinsNamesList = new List<string>();
+
+            foreach (Checkin checkin in this.m_LoggedInUser.Checkins)
+            {
+                if (!isCheckinInDuplicateCheckinsNamesList(duplicateCheckinsNamesList, checkin))
+                {
+                    this.r_ListOfPropertyCounterLists[0].Add(new PropertyCounter(checkin.Place.Location.Country));
+                    duplicateCheckinsNamesList.Add(checkin.Place.Location.Country);
+                    this.r_DistinctCheckinsList.Add(checkin);
+                }
+            }
+        }
+
         private void fillFriendsTaggedInPostsCountersList()
         {
             foreach (User friend in this.m_LoggedInUser.Friends)
             {
-                this.r_ListOfPropertyCounterLists[1].Add(new PropertyCounter(friend.Name, 0));
+                this.r_ListOfPropertyCounterLists[1].Add(new PropertyCounter(friend.Name));
             }
         }
 
-        private bool checkIfLocationIsNotInLocationCountersList(Checkin i_CheckinToCheck, ref string io_UniquePropertyString)
+        private void loadCheckinsPieChart()
         {
-            bool result = true;
-
-            foreach (PropertyCounter locationCounter in this.r_ListOfPropertyCounterLists[0])
-            {
-                if (locationCounter.PropertyName == i_CheckinToCheck.Place.Location.Country)
-                {
-                    result = false;
-                    locationCounter.Counter++;
-                    break;
-                }
-            }
-
-            if (result)
-            {
-                io_UniquePropertyString = i_CheckinToCheck.Place.Location.Country;
-            }
-
-            return result;
-        }
-
-        private bool checkIfFriendNotTaggedInPostCountersList(User i_FriendToCheck, ref string io_UniquePropertyString)
-        {
-            bool result = false;
-            PropertyCounter friendPropertyCounterPtr = getFriendCounterByName(i_FriendToCheck.Name);
-
-            foreach (Post post in this.m_LoggedInUser.Posts)
-            {
-                if (post.Message != null && post.Message.Contains(i_FriendToCheck.Name))
-                {
-                    friendPropertyCounterPtr.Counter++;
-                }
-            }
-
-            return result;
-        }
-
-        private PropertyCounter getFriendCounterByName(string i_FriendName)
-        {
-            PropertyCounter friendToFind = null;
-
-            foreach (PropertyCounter propertyCounter in this.r_ListOfPropertyCounterLists[1])
-            {
-                if (propertyCounter.PropertyName == i_FriendName)
-                {
-                    friendToFind = propertyCounter;
-                    break;
-                }
-            }
-
-            return friendToFind;
-        }
-
-        private void calculateDataAndShowItInPieChart<T>(FacebookObjectCollection<T> i_FacebookObjectCollection, string i_InfoName, PropertyCountCalculator<T> i_PropertyCountCalculator, Loader<T> i_PieChartLoader)
-        {
-            if (i_FacebookObjectCollection.Count != 0)
-            {
-                i_PropertyCountCalculator.CalculatePropertyCountValues();
-                i_PieChartLoader.LoadProperties(null);
-            }
-            else
-            {
-                MessageBox.Show(string.Format("{0}, you do not have any {1}!", this.m_LoggedInUser.FirstName, i_InfoName));
-            }
+            this.m_PropertyCountCalculator.PropertyCountConditionStrategyMethod = (firstCheckingObject, secondCheckingObject) => { return (secondCheckingObject as Checkin).Place.Location.Country == (secondCheckingObject as Checkin).Place.Location.Country; };
+            this.m_PropertyCountCalculator.CalculatePropertyCountValues(this.m_LoggedInUser.Checkins, this.r_DistinctCheckinsList, this.r_ListOfPropertyCounterLists[0]);
+            this.m_TaggedFriendsPieChartLoader.LoadProperties(null);
         }
 
         private void loadTaggedFriendsPieChart()
@@ -121,15 +76,33 @@ namespace Ex03.FacebookAppUI.Forms
             if (!this.m_IsSecondStatisticsLoaded)
             {
                 this.m_IsSecondStatisticsLoaded = true;
-                calculateDataAndShowItInPieChart<User>(this.m_LoggedInUser.Friends, "friends", this.m_TaggedFriendsPropertyCountCalculator, this.m_TaggedFriendsPieChartLoader);
+                this.m_PropertyCountCalculator.PropertyCountConditionStrategyMethod = (userObject, postObject) => { return (postObject as Post).Message != null && (postObject as Post).Message.Contains((userObject as User).Name); };
+                this.m_PropertyCountCalculator.CalculatePropertyCountValues(this.m_LoggedInUser.Posts, this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1]);
+                this.m_TaggedFriendsPieChartLoader.LoadProperties(null);
             }
+        }
+
+        private bool isCheckinInDuplicateCheckinsNamesList(List<string> i_DuplicateCheckinsNamesList, Checkin i_CheckinToCheck)
+        {
+            bool result = false;
+
+            foreach (string checkinName in i_DuplicateCheckinsNamesList)
+            {
+                if (i_CheckinToCheck.Place.Location.Country == checkinName)
+                {
+                    result = true;
+                    break;
+                }
+            }
+
+            return result;
         }
 
         // EVENTS
         private void StatisticsForm_Load(object sender, System.EventArgs e)
         {
             // doesnt work since we cant get place attribute from Facebook API
-            //new Thread(() => calculateDataAndShowItInPieChart<Checkin>(this.m_LoggedInUser.Checkins, "checkins", this.m_CheckinPropertyCountCalculator, this.m_CheckinsPieChartLoader)).Start();
+            //new Thread(loadCheckinsPieChart).Start();
         }
 
         private void tabPanel_SelectedIndexChanged(object sender, System.EventArgs e)
