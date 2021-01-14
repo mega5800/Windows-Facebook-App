@@ -54,9 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppSettings.cs" />
-    <Compile Include="Classes\CheckinPropertyCountCalculatorStrategy.cs" />
     <Compile Include="Classes\LoaderAdapter.cs" />
-    <Compile Include="Classes\TaggedFriendsPropertyCountCalculatorStrategy.cs" />
     <Compile Include="Interfaces\ILoaderAdapter.cs" />
     <Compile Include="Interfaces\IRefreshable.cs" />
     <Compile Include="Loaders\ImageLoader.cs" />
