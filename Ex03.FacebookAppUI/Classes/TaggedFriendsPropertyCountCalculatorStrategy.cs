@@ -18,6 +18,7 @@ namespace Ex03.FacebookAppUI.Classes
             this.r_PropertyCounterList = i_PropertyCounterList;
         }
 
+        // IPROPERTYCOUNTCALCULATORSTRATEGY IMPLEMENTATION
         public void CalculatePropertyCountValues<T>(T i_FacebookObject, int i_PropertyCountListIndex) where T : FacebookObject
         {
             User userObject = (i_FacebookObject as User);
