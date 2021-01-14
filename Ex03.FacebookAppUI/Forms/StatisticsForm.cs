@@ -66,7 +66,7 @@ namespace Ex03.FacebookAppUI.Forms
 
         private void loadCheckinsPieChart()
         {
-            this.m_PropertyCountCalculator.PropertyCountConditionStrategyMethod = (firstCheckingObject, secondCheckingObject) => { return (secondCheckingObject as Checkin).Place.Location.Country == (secondCheckingObject as Checkin).Place.Location.Country; };
+            this.m_PropertyCountCalculator.PropertyCountConditionStrategyMethod = (firstCheckingObject, secondCheckingObject) => (secondCheckingObject as Checkin).Place.Location.Country == (secondCheckingObject as Checkin).Place.Location.Country;
             this.m_PropertyCountCalculator.CalculatePropertyCountValues(this.m_LoggedInUser.Checkins, this.r_DistinctCheckinsList, this.r_ListOfPropertyCounterLists[0]);
             this.m_TaggedFriendsPieChartLoader.LoadProperties(null);
         }
@@ -76,7 +76,7 @@ namespace Ex03.FacebookAppUI.Forms
             if (!this.m_IsSecondStatisticsLoaded)
             {
                 this.m_IsSecondStatisticsLoaded = true;
-                this.m_PropertyCountCalculator.PropertyCountConditionStrategyMethod = (userObject, postObject) => { return (postObject as Post).Message != null && (postObject as Post).Message.Contains((userObject as User).Name); };
+                this.m_PropertyCountCalculator.PropertyCountConditionStrategyMethod = (userObject, postObject) => (postObject as Post).Message != null && (postObject as Post).Message.Contains((userObject as User).Name);
                 this.m_PropertyCountCalculator.CalculatePropertyCountValues(this.m_LoggedInUser.Posts, this.m_LoggedInUser.Friends, this.r_ListOfPropertyCounterLists[1]);
                 this.m_TaggedFriendsPieChartLoader.LoadProperties(null);
             }
