@@ -1,12 +1,11 @@
 ﻿using Ex03.FacebookAppLogic.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Ex03.FacebookAppLogic.Classes
 {
     internal class Selector<T> where T : class
     {
+        // ATTRIBUTES
         public Func<T, bool> SelectedItemsAreTheSameStrategyMethod { get; set; }
 
         public Func<T, bool> TwoItemsAreConnectedStrategyMethod { get; set; }
@@ -15,32 +14,25 @@ namespace Ex03.FacebookAppLogic.Classes
 
         public T ChosenObjectSecondDegree { get; private set; }
 
+        // PUBLIC METHODS
         public void PickFirstDegreeAndSecondDegreeObjects(ISelectable<T> i_ISelectableObject, ref T io_FirstChosenObject, ref T io_SecondChosenObject)
         {
             bool isSecondDegreeRandomObjectSelected = false;
 
             io_SecondChosenObject = null;
-            foreach (T selectableObject in i_ISelectableObject.SelectableObjectsList)
+            for (int i = 0; i < i_ISelectableObject.SelectableObjectsList.Count; i++)
             {
-                io_FirstChosenObject = selectableObject;
-                foreach (List<T> selectedObjectList in i_ISelectableObject.SelectedObjectLists)
+                io_FirstChosenObject = i_ISelectableObject.SelectableObjectsList[i];
+                for (int n = 0; n < i_ISelectableObject.SelectedObjectLists[i].Count; n++)
                 {
-                    foreach (T selectedObject in selectedObjectList)
+                    if (!this.SelectedItemsAreTheSameStrategyMethod(i_ISelectableObject.SelectedObjectLists[i][n]))
                     {
-                        if (!this.SelectedItemsAreTheSameStrategyMethod(selectedObject))
+                        if (!this.TwoItemsAreConnectedStrategyMethod(i_ISelectableObject.SelectedObjectLists[i][n]))
                         {
-                            //if (!this.TwoItemsAreConnectedStrategyMethod(selectedObject))
-                            //{
-                                io_SecondChosenObject = selectedObject;
-                                isSecondDegreeRandomObjectSelected = true;
-                                break;
-                            //}
+                            io_SecondChosenObject = i_ISelectableObject.SelectedObjectLists[i][n];
+                            isSecondDegreeRandomObjectSelected = true;
+                            break;
                         }
-                    }
-
-                    if (isSecondDegreeRandomObjectSelected)
-                    {
-                        break;
                     }
                 }
 
