@@ -41,7 +41,9 @@
     <Compile Include="Classes\LoggedInUser.cs" />
     <Compile Include="Classes\PropertyCountCalculator.cs" />
     <Compile Include="Classes\PropertyCounter.cs" />
+    <Compile Include="Classes\Selector.cs" />
     <Compile Include="Facades\FrienDiscoverLogicComponentFacade.cs" />
+    <Compile Include="Interfaces\ISelectable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">
