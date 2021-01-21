@@ -23,10 +23,8 @@ namespace Ex03.FacebookAppLogic.Classes
         public FrienDiscoverLogicComponent()
         {
             this.m_LoggedInUser = LoggedInUser.Instance;
-
             this.SelectableObjectsList = new List<User>();
             this.SelectedObjectLists = new List<List<User>>();
-
             fillSelectableObjectsList();
             fillSelectedObjectLists();
             this.m_Selector = new Selector<User>();
