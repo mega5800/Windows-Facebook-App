@@ -32,8 +32,9 @@ namespace Ex03.FacebookAppUI.Forms
             this.m_CheckinLoaderAdapter = new LoaderAdapter<Checkin>();
             this.m_FriendLoaderAdapter = new LoaderAdapter<User>();
             this.r_DistinctCheckinsList = new FacebookObjectCollection<Checkin>();
+
             // doesnt work since we cant get place attribute from Facebook API
-            //fillDistinctCheckinsListAndPropertyCounterList();
+            // fillDistinctCheckinsListAndPropertyCounterList();
             fillFriendsTaggedInPostsCountersList();
             this.m_PropertyCountCalculator = new PropertyCountCalculator();
             this.m_CheckinsPieChartLoader = this.m_CheckinLoaderAdapter.FormToLoaderAdapt(eLoaderFactoryContext.CreatePieChartLoader, this.m_LoggedInUser.Checkins, this.r_ListOfPropertyCounterLists[0], this.locationPieChart, "Checkins location distribution", "locationPieChartInfo");
@@ -102,7 +103,7 @@ namespace Ex03.FacebookAppUI.Forms
         private void StatisticsForm_Load(object sender, System.EventArgs e)
         {
             // doesnt work since we cant get place attribute from Facebook API
-            //new Thread(loadCheckinsPieChart).Start();
+            // new Thread(loadCheckinsPieChart).Start();
         }
 
         private void tabPanel_SelectedIndexChanged(object sender, System.EventArgs e)

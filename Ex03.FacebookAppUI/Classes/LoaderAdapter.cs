@@ -11,17 +11,21 @@ namespace Ex03.FacebookAppUI.Classes
 {
     public class LoaderAdapter<T> : ILoaderAdapter<T>
     {
+        // ATTRIBUTES
         private readonly List<object> r_ParamsList;
 
+        // CTOR
         public LoaderAdapter()
         {
             this.r_ParamsList = new List<object>();
         }
 
+        // PUBLIC METHODS
         Loader<T> ILoaderAdapter<T>.FormToLoaderAdapt(eLoaderFactoryContext i_LoaderFactoryContext, FacebookObjectCollection<T> i_FacebookObjectCollection, ListView i_ListView)
         {
             this.r_ParamsList.Add(i_FacebookObjectCollection);
             this.r_ParamsList.Add(i_ListView);
+
             return LoaderFactory<T>.CreateLoader(i_LoaderFactoryContext, this.r_ParamsList);
         }
 
@@ -32,6 +36,7 @@ namespace Ex03.FacebookAppUI.Classes
             this.r_ParamsList.Add(i_PieChart);
             this.r_ParamsList.Add(i_PieChartTitle);
             this.r_ParamsList.Add(i_PieChartID);
+
             return LoaderFactory<T>.CreateLoader(i_LoaderFactoryContext, this.r_ParamsList);
         }
     }

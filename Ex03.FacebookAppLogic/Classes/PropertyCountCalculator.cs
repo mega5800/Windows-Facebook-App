@@ -1,6 +1,6 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 
 namespace Ex03.FacebookAppLogic.Classes
 {

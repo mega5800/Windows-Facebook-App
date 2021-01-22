@@ -1,6 +1,6 @@
 ﻿namespace Ex03.FacebookAppLogic.Classes
 {
-    public class PropertyCounter
+    public sealed class PropertyCounter
     {
         // ATTRIBUTES
         public string PropertyName { get; }
