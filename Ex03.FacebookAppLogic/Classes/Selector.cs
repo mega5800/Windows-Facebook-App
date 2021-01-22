@@ -1,9 +1,9 @@
-﻿using Ex03.FacebookAppLogic.Interfaces;
-using System;
+﻿using System;
+using Ex03.FacebookAppLogic.Interfaces;
 
 namespace Ex03.FacebookAppLogic.Classes
 {
-    internal class Selector<T> where T : class
+    internal sealed class Selector<T> where T : class
     {
         // ATTRIBUTES
         public Func<T, bool> SelectedItemsAreTheSameStrategyMethod { get; set; }
@@ -18,8 +18,8 @@ namespace Ex03.FacebookAppLogic.Classes
         public void PickFirstDegreeAndSecondDegreeObjects(ISelectable<T> i_ISelectableObject, ref T io_FirstChosenObject, ref T io_SecondChosenObject)
         {
             bool isSecondDegreeRandomObjectSelected = false;
-
             io_SecondChosenObject = null;
+
             for (int i = 0; i < i_ISelectableObject.SelectableObjectsList.Count; i++)
             {
                 io_FirstChosenObject = i_ISelectableObject.SelectableObjectsList[i];

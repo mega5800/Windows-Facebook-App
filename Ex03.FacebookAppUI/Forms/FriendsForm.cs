@@ -36,6 +36,7 @@ namespace Ex03.FacebookAppUI.Forms
         {
             this.friendsListView.Clear();
             this.m_LoggedInUser.ReFetch();
+
             // since we're refreshing the data in the form, we need also to refresh the friends in m_ImageLoader
             this.m_ImageLoader.LoaderFacebookObjectCollection = this.m_LoggedInUser.Friends;
             startLoadPropertiesThread();

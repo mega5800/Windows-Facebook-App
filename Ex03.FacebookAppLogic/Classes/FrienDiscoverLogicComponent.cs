@@ -4,9 +4,9 @@ using FacebookWrapper.ObjectModel;
 
 namespace Ex03.FacebookAppLogic.Classes
 {
-    internal class FrienDiscoverLogicComponent : ISelectable<User>
+    internal sealed class FrienDiscoverLogicComponent : ISelectable<User>
     {
-        // ATTRIBUTES        
+        // ATTRIBUTES
         private User m_LoggedInUser;
         private Selector<User> m_Selector;
         private List<User> m_LoggedInUserFriendsList;
@@ -17,6 +17,7 @@ namespace Ex03.FacebookAppLogic.Classes
         public User ChosenFriendSecondDegree { get; private set; }
 
         public List<User> SelectableObjectsList { get => m_LoggedInUserFriendsList; set => m_LoggedInUserFriendsList = value; }
+
         public List<List<User>> SelectedObjectLists { get => m_ChosenFriendFirstDegreeFriendsList; set => m_ChosenFriendFirstDegreeFriendsList = value; }
 
         // CTOR
